@@ -3,61 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Game Designer</title>
-    <link rel="stylesheet" href="src/styles.css">
+    <title>James Milestone - Game Designer</title>
+    <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Your Name</h1>
-        <p>Game Designer | Creator of Worlds</p>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section" id="about">
-        <h1>Welcome to My World</h1>
-        <p>Designing immersive experiences, one level at a time.</p>
-    </section>
+    <div class="canvas-wrapper">
+        <div id="phaser-container"></div>
+        
+        <!-- Navigation Bar overlaying the canvas -->
+        <nav class="overlay-nav">
+            <a href="https://your-social-link.com">Social</a>
+            <a href="resume.pdf">Resume</a>
+            <a href="https://github.com/jible">GitHub</a>
+            <!-- Add more links as needed -->
+        </nav>
+    </div>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <h2>Latest Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>A brief description of your game design project. Share the story, mechanics, or highlights!</p>
-            </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A brief description of another game design project. Include your role and any special features.</p>
-            </div>
-            <!-- Add more project cards as needed -->
-        </div>
+    <section class="projects">
+        <h2>Projects</h2>
+        <div id="project-list"></div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>Contact Me</h2>
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="4" placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Your Name | All Rights Reserved</p>
-    </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.55.2/phaser.min.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/phaser.js"></script>
 </body>
 </html>

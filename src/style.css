@@ -1,144 +1,110 @@
-/* Basic reset and styling */
+/* Reset body margin and padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    color: #f4f4f9;
-    background-color: #181824;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body, html {
+    width: 100%;
+    height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
 }
 
-header {
+/* Canvas Wrapper takes up the full height you’ve set */
+.canvas-wrapper {
+    position: relative;
     width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 2rem;
-    color: #00ffcc;
+    height: 75vh; /* Adjust to the desired height */
 }
 
-nav {
+/* Phaser Canvas Fills the Canvas Wrapper */
+#phaser-container {
     width: 100%;
-    background-color: #232334;
+    height: 100%;
+    pointer-events: auto; /* Allow interactions initially */
+}
+
+/* Overlay Navigation Bar on Canvas */
+.overlay-nav {
+    position: absolute;
+    top: 10px; /* Positioning at the top of the canvas */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(35, 35, 52, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 10;
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    gap: 15px;
 }
 
-nav a {
+.overlay-nav a {
     color: #00ffcc;
     text-decoration: none;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    font-weight: bold;
 }
 
-nav a:hover {
-    color: #ff0066;
+.overlay-nav a:hover {
+    color: #ffffff;
 }
 
-.hero-section {
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
-    padding: 60px 20px;
-    background: url('background-image.jpg') center/cover no-repeat;
-    color: #f4f4f9;
+/* Hide the Name Bar */
+.name-bar {
+    display: none;
 }
 
-.hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-    color: #aaa;
-}
-
+/* Projects Section Styling */
 .projects {
-    max-width: 1200px;
-    padding: 40px 20px;
-    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 .projects h2 {
     font-size: 2rem;
-    margin-bottom: 20px;
-    color: #00ffcc;
+    margin-bottom: 15px;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+/* Individual Project Styling */
+.project-item {
+    border: 2px solid #181824;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-.project-card {
-    background-color: #232334;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+.project-item h3 {
+    font-size: 1.5rem;
+    color: #333;
 }
 
-.project-card:hover {
-    transform: scale(1.05);
-}
-
-.project-card h3 {
-    color: #ff0066;
-}
-
-.contact {
-    width: 100%;
-    max-width: 600px;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #00ffcc;
-}
-
-.contact form input, .contact form textarea {
-    width: 100%;
-    padding: 10px;
+.project-item p {
+    font-size: 1rem;
+    color: #666;
     margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #32323f;
-    color: #f4f4f9;
 }
 
-.contact form button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #00ffcc;
-    color: #232334;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
+/* Project Media Styling */
+.project-item img, 
+.project-item video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
 }
 
-.contact form button:hover {
-    background-color: #ff0066;
+.project-item a {
+    display: inline-block;
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-footer {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #232334;
-    color: #aaa;
-    font-size: 0.9rem;
-    text-align: center;
-    width: 100%;
+.project-item a:hover {
+    color: #333;
 }
