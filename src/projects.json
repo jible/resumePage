@@ -5,7 +5,10 @@
             "github": "https://github.com/me/game",
             "github pages": "",
             "itch": "",
-            "media": "path/to/image-or-video.jpg",
+            "imgs": 
+            [
+                "path/to/image-or-video.jpg"
+            ],
             "description": "page",
             "priotiy": "0"
 
@@ -15,7 +18,9 @@
             "github": "https://github.com/tblagarrett/Zelmore",
             "github pages": "https://tblagarrett.github.io/Zelmore/",
             "itch": "",
-            "media": "path/to/image-or-video.jpg",
+            "imgs": [
+                "path/to/image-or-video.jpg"
+            ],
             "description": "page",
             "priotiy": "1"
 
