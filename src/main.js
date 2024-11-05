@@ -1,4 +1,7 @@
 function makePreview(parent,currentproject){
+    if (currentproject.name == 'sample'){
+        return;
+    }
     const project = document.createElement("div");
     parent.classList.add("project-item")
     parent.append(project);
@@ -11,15 +14,22 @@ function makePreview(parent,currentproject){
 
     // Project github
     const github = document.createElement('h3');
-    github.textContent = currentproject.github;
+    github.textContent = "Github Repository";
+    github.style = currentproject.github;
     project.appendChild(github);
 
-    //image
-    for (img of currentproject.imgs){
+   // Image loading with fixed width and dynamic height
+    for (let img of currentproject.imgs) {
         const image = document.createElement('img');
+        image.classList.add('responsive-image');
         image.src = img;
+
+        // Optionally, add a CSS class for additional styling
+        image.classList.add('responsive-image');
+
         project.appendChild(image);
     }
+
 
     
 

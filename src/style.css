@@ -108,3 +108,11 @@ body, html {
 .project-item a:hover {
     color: #333;
 }
+
+
+/* In your CSS file */
+.responsive-image {
+    width: 300px;  /* Fixed width */
+    height: auto;  /* Dynamic height for aspect ratio */
+    /* Add margins, borders, or other styles as needed */
+}

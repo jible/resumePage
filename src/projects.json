@@ -1,7 +1,7 @@
 {
     "projects": [
         {
-            "name": "Sample",
+            "name": "sample",
             "github": "https://github.com/me/game",
             "github pages": "",
             "itch": "",
@@ -14,12 +14,13 @@
 
         },
         {
-            "name": "The tales of Zelmore",
+            "name": "The Tale of Zelmore",
             "github": "https://github.com/tblagarrett/Zelmore",
             "github pages": "https://tblagarrett.github.io/Zelmore/",
             "itch": "",
             "imgs": [
-                "path/to/image-or-video.jpg"
+                "./images/zelmoreTitle.png",
+                "./images/zelmoreFighting.png"
             ],
             "description": "page",
             "priotiy": "1"
