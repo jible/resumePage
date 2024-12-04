@@ -7,29 +7,25 @@
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-
-    <div class="canvas-wrapper">
-        <div id="phaser-container"></div>
-        
-        <!-- Navigation Bar overlaying the canvas -->
-        <nav class="overlay-nav">
-            <a href="https://your-social-link.com">Social</a>
-            <a href="resume.pdf">Resume</a>
-            <a href="https://github.com/jible">GitHub</a>
-            <!-- Add more links as needed -->
-        </nav>
+    <!-- Navigation Bar overlaying the canvas -->
+    <nav class="overlay-nav">
+        <a href="https://your-social-link.com">Social</a>
+        <a href="resume.pdf">Resume</a>
+        <a href="https://github.com/jible">GitHub</a>
+        <!-- Add more links as needed -->
+    </nav>
+    <div class="canvas-container">
+        <canvas class="title-screen-canvas title-bg" ></canvas>
+        <canvas class="title-screen-canvas title-island" ></canvas>
+        <canvas class="title-screen-canvas title-text" ></canvas>
     </div>
-    <div>
-        Under construction    
+    <div> 
     </div>
     <!-- Projects Section -->
-    <section class="projects">
+    <!-- <section class="projects">
         <h2>Projects</h2>
         <div id="project-list"></div>
-    </section>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.55.2/phaser.min.js"></script>
-    <script src="src/main.js"></script>
-    <script src="src/phaser.js"></script>
+    </section> -->
+    <script type="module" src="src/titleScreen/Manager.js"></script>
 </body>
 </html>

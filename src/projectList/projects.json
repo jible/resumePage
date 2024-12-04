@@ -19,8 +19,8 @@
             "github pages": "https://tblagarrett.github.io/Zelmore/",
             "itch": "",
             "imgs": [
-                "./images/zelmoreTitle.png",
-                "./images/zelmoreFighting.png"
+                "./images/sampleGames/zelmoreTitle.png",
+                "./images/sampleGames/zelmoreFighting.png"
             ],
             "description": "page",
             "priotiy": "1"
