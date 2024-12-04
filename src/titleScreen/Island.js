@@ -1,7 +1,7 @@
 // ------------------------------------------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------------------------------------------
-import { clearCanvas, loadImage} from "./helper.js";
+import { clearCanvas, loadImage, resizeCanvas } from "./helper.js";
 
 // ------------------------------------------------------------------------------------------
 // Classes
@@ -25,12 +25,9 @@ class TitleScreenElement {
 //------------------------------------------------------------------------------------------
 const canvas = document.querySelector('.title-text');
 const ctx = canvas.getContext('2d');
-ctx.imageSmoothingEnabled = false;
-const frameRate = 24;
-const timeBetweenRenders = 1000 / frameRate;
 
 // Load Images
-const titleImage = loadImage('./images/titleScreen/title.png');
+const titleImage = loadImage('./images/titleScreen/titleText.png');
 
 // Define Element Types
 const elementTypes = {
@@ -53,27 +50,28 @@ function drawElement(element) {
 
 
 
+
+
+
 function render() {
     clearCanvas(canvas, ctx);
+    
 }
 
 // Main Game Loop
 let lastFrameTime = 0;
-let timeSinceLastRender = 0;
 function gameLoop(currentTime) {
     const deltaTime = currentTime - lastFrameTime;
-    timeSinceLastRender += deltaTime
-    if (timeSinceLastRender >= timeBetweenRenders) {
-        render();
-        timeSinceLastRender = 0;
-    }
+    logicalWidth = canvas.style.width.replace('px', '');  // Get the CSS width
+    logicalHeight = canvas.style.height.replace('px', '');  // Get the CSS height
+    updateLogic(deltaTime);
+    render();
     lastFrameTime = currentTime;
     requestAnimationFrame(gameLoop);
 }
 
 
 
-
 export function startIslandRenderLoop(){
-    requestAnimationFrame(gameLoop);
+    //requestAnimationFrame(gameLoop);
 }

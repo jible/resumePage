@@ -10,9 +10,6 @@ let canvases = document.querySelectorAll(".title--canvas");
 const contexts = {};  // Declare the contexts object properly
 
 
-
-
-
 // ------------------------------------------------------------------------------------------
 //  Render Canvases
 //------------------------------------------------------------------------------------------

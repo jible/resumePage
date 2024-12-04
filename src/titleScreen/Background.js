@@ -6,7 +6,6 @@ import { clearCanvas, loadImage, resizeCanvas } from "./helper.js";
 // Constants and Canvas Setup
 const canvas = document.querySelector('.title-bg');
 const ctx = canvas.getContext('2d');
-ctx.imageSmoothingEnabled = false;
 let logicalHeight
 let logicalWidth
 // Scale canvas for pixel-perfect rendering
@@ -27,13 +26,9 @@ window.addEventListener('resize', ()=>{
 
 function updateLogic(deltaTime) {
     const scale = window.devicePixelRatio || 1; // Get the current device pixel ratio
-
-    // Move the background horizontally and adjust for the device pixel ratio
-    backgroundX = Math.floor(backgroundX - ((scrollSpeed / scale) * deltaTime) / 1000);
     backGroundHeight = logicalHeight / 2;
-
-    // Ensure backgroundWidth is an integer to avoid fractional pixel issues
-    backGroundWidth = Math.floor((backgroundImage.width / backgroundImage.height) * backGroundHeight);
+    backGroundWidth = Math.floor( (backgroundImage.width / backgroundImage.height) * backGroundHeight);
+    backgroundX = Math.floor(  (backgroundX - ((scrollSpeed / scale) * deltaTime) / 1000) );
 
     // Reset position when scrolling past the width of the image
     if (backgroundX <= -backGroundWidth) {
@@ -51,7 +46,7 @@ function render() {
     const width = Math.floor(backGroundWidth); // Rounded to nearest integer pixel
 
     // Draw the background images in a loop with the correct position
-    for (let i = 0; i < Math.floor(canvas.width / backGroundWidth) + 1; i++) {
+    for (let i = 0; i < Math.ceil(canvas.width / backGroundWidth) + 1; i++) {
         const xPos = startX + Math.floor(i * backGroundWidth) - i;
         ctx.drawImage(backgroundImage, xPos, 0, width, backGroundHeight);
     }
@@ -61,15 +56,12 @@ function render() {
 
 // Main Game Loop
 let lastFrameTime = 0;
-
 function gameLoop(currentTime) {
     const deltaTime = currentTime - lastFrameTime;
     logicalWidth = canvas.style.width.replace('px', '');  // Get the CSS width
     logicalHeight = canvas.style.height.replace('px', '');  // Get the CSS height
-    if (backgroundImage.complete) {
-        updateLogic(deltaTime);
-        render();
-    }
+    updateLogic(deltaTime);
+    render();
     lastFrameTime = currentTime;
     requestAnimationFrame(gameLoop);
 }
