@@ -6,9 +6,9 @@ import { clearCanvas, loadImage, resizeCanvas } from "./helper.js";
 // Constants and Canvas Setup
 const canvas = document.querySelector('.title-bg');
 const ctx = canvas.getContext('2d');
-const scale = window.devicePixelRatio || 1;
-
-
+ctx.imageSmoothingEnabled = false;
+let logicalHeight
+let logicalWidth
 // Scale canvas for pixel-perfect rendering
 resizeCanvas(canvas,ctx)
 
@@ -26,11 +26,14 @@ window.addEventListener('resize', ()=>{
 });
 
 function updateLogic(deltaTime) {
-    // Move the background horizontally
-    backgroundX -= Math.floor((scrollSpeed * deltaTime) / 1000);
-    backGroundHeight = canvas.height/2
-    backGroundWidth = (backgroundImage.width/backgroundImage.height) * backGroundHeight
+    const scale = window.devicePixelRatio || 1; // Get the current device pixel ratio
 
+    // Move the background horizontally and adjust for the device pixel ratio
+    backgroundX = Math.floor(backgroundX - ((scrollSpeed / scale) * deltaTime) / 1000);
+    backGroundHeight = logicalHeight / 2;
+
+    // Ensure backgroundWidth is an integer to avoid fractional pixel issues
+    backGroundWidth = Math.floor((backgroundImage.width / backgroundImage.height) * backGroundHeight);
 
     // Reset position when scrolling past the width of the image
     if (backgroundX <= -backGroundWidth) {
@@ -38,24 +41,22 @@ function updateLogic(deltaTime) {
     }
 }
 
+
+
 function render() {
     clearCanvas(canvas, ctx);
 
-    // Use the logical width and height for drawing the image
-    const logicalWidth = canvas.style.width.replace('px', '');  // Get the CSS width
-    const logicalHeight = canvas.style.height.replace('px', '');  // Get the CSS height
+    // Ensure drawing at whole pixels to avoid subpixel issues
+    const startX = Math.floor(backgroundX); // Rounded to nearest integer pixel
+    const width = Math.floor(backGroundWidth); // Rounded to nearest integer pixel
 
-    // Calculate background image width/height ratio
-    const backGroundHeight = Math.floor(logicalHeight / 2);  // Adjust as needed
-    const backGroundWidth = (backgroundImage.width / backgroundImage.height) * backGroundHeight;
-
-    // Draw the background image scaled to the canvas logical size
-    //ctx.drawImage(backgroundImage, 0, 0, logicalWidth, backGroundHeight);
-    for ( let i = 0; i < (Math.floor(logicalWidth/backGroundHeight) + 1); i ++){
-        ctx.drawImage(backgroundImage, Math.floor(backgroundX + (backGroundWidth * i ) +1), 0, backGroundWidth, backGroundHeight);
+    // Draw the background images in a loop with the correct position
+    for (let i = 0; i < Math.floor(canvas.width / backGroundWidth) + 1; i++) {
+        const xPos = startX + Math.floor(i * backGroundWidth) - i;
+        ctx.drawImage(backgroundImage, xPos, 0, width, backGroundHeight);
     }
-    
 }
+
 
 
 // Main Game Loop
@@ -63,6 +64,8 @@ let lastFrameTime = 0;
 
 function gameLoop(currentTime) {
     const deltaTime = currentTime - lastFrameTime;
+    logicalWidth = canvas.style.width.replace('px', '');  // Get the CSS width
+    logicalHeight = canvas.style.height.replace('px', '');  // Get the CSS height
     if (backgroundImage.complete) {
         updateLogic(deltaTime);
         render();

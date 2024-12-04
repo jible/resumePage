@@ -14,7 +14,7 @@ export function resizeCanvas(canvas, ctx) {
 
     // Get the current viewport width and height
     const canvasWidth = window.innerWidth;
-    const canvasHeight = window.innerHeight * 0.5; // Adjust as needed for height (e.g., 50% of viewport height)
+    const canvasHeight = window.innerHeight; // Adjust as needed for height (e.g., 50% of viewport height)
 
     // Adjust the actual canvas drawing area (attributes)
     canvas.width = Math.floor(canvasWidth * scale);  // Set canvas width based on device pixel ratio

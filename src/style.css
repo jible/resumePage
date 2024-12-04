@@ -24,8 +24,6 @@ body, html {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     background-color: transparent;
     z-index: 1; /* Ensure correct layering if needed */
 }
@@ -39,11 +37,7 @@ body, html {
     margin: 0
 }
 .title-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: 50%;  /* Let height adjust automatically */
+    margin:0
     
     
 }
