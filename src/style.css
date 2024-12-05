@@ -13,34 +13,35 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-/* Canvas Wrapper takes up the full height you’ve set */
-.canvas-container {
+
+/* ----------------------------------------
+TITLE SCREEN STUFF
+------------------------------------------- */ 
+.title-screen {
     position: absolute;
-    width: 100%;
-    height: 100%; /* Adjust to the desired height */
+    width: 100vw;
+    height: 100vh; /* Full-screen height to fit the viewport */
 }
 
-.title-screen-canvas {
+.scrolling-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-    z-index: 1; /* Ensure correct layering if needed */
+    width: 200%; /* Stretch to double width for seamless scrolling */
+    height: 50%; /* Full height to match the container */
+    background: url('../images/titleScreen/placeHolderTitleScreenSky.png') repeat-x center;
+    background-size: contain; /* Ensure full coverage with cropping */
+    animation: scroll 30s linear infinite; /* Smooth infinite scroll */
+    image-rendering: pixelated; /* Maintain sharpness */
 }
 
-
-.title-text {
-    margin: 0
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
-.title-island {
-    margin: 0
-}
-.title-bg {
-    margin:0
-    
-    
-}
 
 /* Overlay Navigation Bar on Canvas */
 .overlay-nav {
@@ -66,10 +67,7 @@ body, html {
     color: #ffffff;
 }
 
-/* Hide the Name Bar */
-.name-bar {
-    display: none;
-}
+
 
 /* Projects Section Styling */
 .projects {
