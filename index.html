@@ -16,14 +16,14 @@
         <!-- Add more links as needed -->
     </nav>
     <div class="title-screen">
-        <!-- Scrolling Background -->
         <div class="sky-background"></div>
-    
-        <!-- Spinning Island -->
         <div class="island">
-            <img src="../images/titleScreen/tree.png" alt="Tree" class="tree counter-rotate counter-skew">
+            <!-- Counter-Rotate: Prevent tree spinning -->
+            <div class="counter-rotate">
+                <!-- Counter-Skew: Match the island’s ellipse proportions -->
+                <img src="../images/titleScreen/tree.png" alt="Tree" class="tree counter-skew">
+            </div>
         </div>
-        <img src="../images/titleScreen/tree.png" alt="Tree" class="tree ">
     </div>
     
 </body>

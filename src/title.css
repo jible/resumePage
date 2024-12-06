@@ -45,29 +45,33 @@ body, html {
 }
 
 /* --- Tree Styling --- */
+/* --- Tree Styling --- */
 .tree {
+    position: absolute;
     width: 4vw; /* Fixed width */
-    height: auto; /* Maintain proper aspect ratio */
-    z-index: 3; /* Place above island */
-    transform: none; /* Isolate tree from parent transform */
+    height: auto; /* Maintain natural aspect ratio */
+    z-index: 3; /* Ensure tree is above island */
+    transform: none; /* Prevent inherited transforms */
 }
 
-/* --- Counter-Skew to Restore Proportions --- */
+/* --- Counter-Skew to Undo Skew --- */
 .counter-skew {
-    transform: scale(10,5); /* Undo island's skew */
+    transform: scale(0.5, 1.428); /* Reverse the island's skew */
+    transform-origin: center; /* Keep the tree centered */
 }
 
-/* --- Counter-Rotation to Keep the Tree Upright --- */
+/* --- Counter-Rotation to Keep Tree Upright --- */
 .counter-rotate {
-    animation: anti-rotate 5s linear infinite;
+    animation: anti-rotate 5s linear infinite; /* Spin to counteract the island rotation */
+    transform-origin: center; /* Set counter-rotation pivot point aligned to the island’s center */
 }
 
 @keyframes anti-rotate {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg); /* Keep starting upright */
     }
     100% {
-        transform: rotate(-360deg); /* Cancel the island rotation */
+        transform: rotate(-360deg); /* Full counter-rotation */
     }
 }
 
