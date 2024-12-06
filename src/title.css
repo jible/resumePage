@@ -1,17 +1,15 @@
-/* --- Reset and Globals --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body, html {
-    width: 100vw;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+/* --- Sky Background --- */
+.sky-background {
+    position: absolute;
+    width: 100%; /* Matches full canvas width */
+    height: 45%; /* Partial canvas height */
+    background: url('../images/titleScreen/placeHolderTitleScreenSky.png') repeat-x center;
+    background-size: contain;
+    image-rendering: pixelated;
+    z-index: 0;
 }
 
-/* --- Title Screen Setup --- */
+/* --- Title Screen --- */
 .title-screen {
     position: relative;
     width: 100vw;
@@ -20,7 +18,7 @@ body, html {
     perspective: 800px; /* Add depth */
 }
 
-/* --- Island Styling with Default Distortion --- */
+/* --- Island --- */
 .island {
     position: absolute;
     top: 65%;
@@ -30,7 +28,7 @@ body, html {
     background: url('../images/titleScreen/island.png') no-repeat center;
     background-size: contain;
     image-rendering: pixelated;
-    animation: island-spin 5s linear infinite; /* Spin the island */
+    animation: island-spin 10s linear infinite;
     transform: translate(-50%, -50%) scale(2, 0.7); /* Skew for elliptical effect */
     z-index: 2;
 }
@@ -44,44 +42,35 @@ body, html {
     }
 }
 
-/* --- Tree Styling --- */
-/* --- Tree Styling --- */
-.tree {
-    position: absolute;
-    width: 4vw; /* Fixed width */
-    height: auto; /* Maintain natural aspect ratio */
-    z-index: 3; /* Ensure tree is above island */
-    transform: none; /* Prevent inherited transforms */
-}
-
-/* --- Counter-Skew to Undo Skew --- */
-.counter-skew {
-    transform: scale(0.5, 1.428); /* Reverse the island's skew */
-    transform-origin: center; /* Keep the tree centered */
-}
-
-/* --- Counter-Rotation to Keep Tree Upright --- */
+/* --- Counter-Rotation --- */
 .counter-rotate {
-    animation: anti-rotate 5s linear infinite; /* Spin to counteract the island rotation */
-    transform-origin: center; /* Set counter-rotation pivot point aligned to the island’s center */
+    animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
+    transform-origin: 50% 50%; /* Center rotation on the island */
 }
 
+/* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
-        transform: rotate(0deg); /* Keep starting upright */
+        transform: rotate(0deg);
     }
     100% {
         transform: rotate(-360deg); /* Full counter-rotation */
     }
 }
 
-/* --- Scrolling Sky Background --- */
-.sky-background {
+/* --- Tree --- */
+.tree {
     position: absolute;
-    width: 100%; /* Matches canvas width */
-    height: 45%; /* Partial canvas height */
-    background: url('../images/titleScreen/placeHolderTitleScreenSky.png') repeat-x center;
-    background-size: contain;
-    image-rendering: pixelated;
-    z-index: 0;
+    top: 50%; /* Center within parent */
+    left: 50%; /* Center within parent */
+    width: 4vw; /* Fixed width */
+    height: auto; /* Preserve aspect ratio */
+    transform: translate(-50%, -50%); /* Correctly center the tree */
+    z-index: 3; /* Place above island */
+}
+
+/* --- Counter Skew --- */
+.counter-skew {
+    transform: scale(0.5, 1.4286); /* Reverse the island's skew */
+    transform-origin: center; /* Undo distortion */
 }
