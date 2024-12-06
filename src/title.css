@@ -55,6 +55,7 @@
     }
     100% {
         transform: rotate(-360deg); /* Full counter-rotation */
+        
     }
 }
 
@@ -64,9 +65,10 @@
     top: 50%; /* Center within parent */
     left: 50%; /* Center within parent */
     width: 4vw; /* Fixed width */
+    transform: translate(-50%, -100%);
     height: auto; /* Preserve aspect ratio */
-    transform: translate(-50%, -50%); /* Correctly center the tree */
     z-index: 3; /* Place above island */
+    transform-origin: center;
 }
 
 /* --- Counter Skew --- */
