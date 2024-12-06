@@ -2,8 +2,8 @@
 .sky-background {
     position: absolute;
     width: 100%; /* Matches full canvas width */
-    height: 45%; /* Partial canvas height */
-    background: url('../images/titleScreen/placeHolderTitleScreenSky.png') repeat-x center;
+    height: 50%; /* Partial canvas height */
+    background-color: rgb(20, 20, 78);
     background-size: contain;
     image-rendering: pixelated;
     z-index: 0;
@@ -29,21 +29,32 @@
     background-size: contain;
     image-rendering: pixelated;
     animation: island-spin 10s linear infinite;
-    transform: translate(-50%, -50%) scale(2, 0.7); /* Skew for elliptical effect */
+    transform:  scale(2, 0.7); /* Skew for elliptical effect */
     z-index: 2;
 }
 
 @keyframes island-spin {
     0% {
-        transform: translate(-50%, -50%) scale(2, 0.7) rotate(0deg);
+        transform: translate( -50%, -50%) scale(2, 0.7) rotate(0deg);
     }
     100% {
-        transform: translate(-50%, -50%) scale(2, 0.7) rotate(360deg);
+        transform: translate( -50%, -50%)  scale(2, 0.7) rotate(360deg);
     }
 }
 
 /* --- Counter-Rotation --- */
-.counter-rotate {
+
+.position-offset {
+    height: 50%;
+    width: 50%;
+    position: relative;
+    top: 25%;
+    left: 50%;
+}
+
+.fix-rotation {
+    height: 100%;
+    width: 100%;
     animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
     transform-origin: 50% 50%; /* Center rotation on the island */
 }
@@ -51,11 +62,10 @@
 /* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
-        transform: rotate(0deg);
+        transform: translate( -50%, -50%) rotate(0deg) scale(0.5, 1.4286) ;
     }
     100% {
-        transform: rotate(-360deg); /* Full counter-rotation */
-        
+        transform: translate( -50%,-50%) rotate(-360deg) scale(0.5, 1.4286); /* Full counter-rotation */ 
     }
 }
 
@@ -69,10 +79,4 @@
     height: auto; /* Preserve aspect ratio */
     z-index: 3; /* Place above island */
     transform-origin: center;
-}
-
-/* --- Counter Skew --- */
-.counter-skew {
-    transform: scale(0.5, 1.4286); /* Reverse the island's skew */
-    transform-origin: center; /* Undo distortion */
 }
