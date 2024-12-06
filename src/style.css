@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body, html {
     width: 100vw;
     height: 100vh;
@@ -13,101 +12,9 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-
 /* ----------------------------------------
-TITLE SCREEN STUFF
-------------------------------------------- */ 
-
-
-.scrolling-background {
-    position: absolute;
-    width: 100%; /* Stretch to double width for seamless scrolling */
-    height: 45%; /* Full height to match the container */
-    background: url('../images/titleScreen/placeHolderTitleScreenSky.png') repeat-x center;
-    background-size: contain; /* Ensure full coverage with cropping */
-    image-rendering: pixelated; /* Maintain sharpness */
-    z-index: 0
-}
-
-
-.title-screen {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: #87ceeb;
-    overflow: hidden;
-    perspective: 800px; /* Simulate depth */
-}
-
-.island {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateX(45deg) scaleX(1.5) scaleY(0.7); /* Perspective + Stretch */
-    width: 33vw;
-    height: 33vh;
-    background: url('../images/titleScreen/island.png') no-repeat center;
-    background-size: contain;
-    image-rendering: pixelated;
-    z-index: 2;
-    animation: spin 5s linear infinite;
-}
-
-
-/* Rotating Objects (e.g., Trees, Items) */
-.rotating-object {
-    position: absolute;
-    width: 4vw; /* Size of the object (adjust as necessary) */
-    height: 4vw;
-    background: url('../images/titleScreen/tree.png') no-repeat center;
-    background-size: contain;
-    transform-origin: 50% 150%; /* The origin point for rotation (bottom center of island) */
-    animation: rotate-around-island 5s linear infinite;
-}
-
-/* Another rotating object (Different styles for variety) */
-.rotating-object:nth-child(2) {
-    width: 2vw;
-    height: 2vw;
-    background: url('../images/titleScreen/coin.png') no-repeat center;
-    top: 10%;
-    animation: rotate-around-island 7s linear infinite reverse; /* Slower and reversed rotation */
-}
-
-
-
-
-
-
-@keyframes spin {
-    from {
-        transform: translate(-50%, -50%) rotateX(30deg) scaleX(1.7) scaleY(0.7) rotate(0deg); /* Start rotation */
-    }
-    to {
-        transform: translate(-50%, -50%) rotateX(30deg) scaleX(1.7) scaleY(0.7) rotate(360deg); /* Full rotation */
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-
+PROJECT STYLES
+------------------------------------------- */
 
 /* Overlay Navigation Bar on Canvas */
 .overlay-nav {
@@ -122,18 +29,14 @@ TITLE SCREEN STUFF
     display: flex;
     gap: 15px;
 }
-
 .overlay-nav a {
     color: #00ffcc;
     text-decoration: none;
     font-weight: bold;
 }
-
 .overlay-nav a:hover {
     color: #ffffff;
 }
-
-
 
 /* Projects Section Styling */
 .projects {
@@ -141,7 +44,6 @@ TITLE SCREEN STUFF
     background-color: #f0f0f0;
     color: #333;
 }
-
 .projects h2 {
     font-size: 2rem;
     margin-bottom: 15px;
@@ -155,12 +57,10 @@ TITLE SCREEN STUFF
     padding: 15px;
     margin-bottom: 15px;
 }
-
 .project-item h3 {
     font-size: 1.5rem;
     color: #333;
 }
-
 .project-item p {
     font-size: 1rem;
     color: #666;
@@ -175,7 +75,6 @@ TITLE SCREEN STUFF
     border-radius: 4px;
     margin-top: 10px;
 }
-
 .project-item a {
     display: inline-block;
     color: #00ffcc;
@@ -183,13 +82,11 @@ TITLE SCREEN STUFF
     font-weight: bold;
     margin-top: 10px;
 }
-
 .project-item a:hover {
     color: #333;
 }
 
-
-/* In your CSS file */
+/* Utility Class for Responsive Image */
 .responsive-image {
     width: 300px;  /* Fixed width */
     height: auto;  /* Dynamic height for aspect ratio */
