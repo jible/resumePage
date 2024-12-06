@@ -42,23 +42,6 @@
     }
 }
 
-/* --- Counter-Rotation --- */
-
-.position-offset {
-    height: 50%;
-    width: 50%;
-    position: relative;
-    top: 25%;
-    left: 50%;
-}
-
-.fix-rotation {
-    height: 100%;
-    width: 100%;
-    animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
-    transform-origin: 50% 50%; /* Center rotation on the island */
-}
-
 /* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
@@ -69,14 +52,30 @@
     }
 }
 
-/* --- Tree --- */
-.tree {
+.offset-rotation{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
+}
+
+
+/*  TREE ELEMENTS*/
+.island-element{
     position: absolute;
     top: 50%; /* Center within parent */
     left: 50%; /* Center within parent */
-    width: 4vw; /* Fixed width */
     transform: translate(-50%, -100%);
-    height: auto; /* Preserve aspect ratio */
     z-index: 3; /* Place above island */
     transform-origin: center;
+    image-rendering: pixelated;
 }
+
+
+.tree {
+    width: 4vw; /* Fixed width */
+    height: auto; /* Preserve aspect ratio */
+}
+
