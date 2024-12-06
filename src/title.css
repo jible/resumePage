@@ -44,35 +44,36 @@
 
 /* --- Counter-Rotation --- */
 .counter-rotate {
+    position: absolute;
+    top: 50%; /* Center within parent */
+    left: 50%; /* Center within parent */
     animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
-    transform-origin: 50% 50%; /* Center rotation on the island */
+    transform-origin: center center;
+    
+    transform: scale(0.5, 1.4286); /* Reverse the island's skew */
 }
 
 /* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) scale(0.5, 1.4286);;
     }
     100% {
-        transform: rotate(-360deg); /* Full counter-rotation */
+        transform: rotate(-360deg) scale(0.5, 1.4286);; /* Full counter-rotation */
         
     }
 }
 
 /* --- Tree --- */
-.tree {
+.orbitingObject {
     position: absolute;
-    top: 50%; /* Center within parent */
-    left: 50%; /* Center within parent */
-    width: 4vw; /* Fixed width */
-    transform: translate(-50%, -100%);
-    height: auto; /* Preserve aspect ratio */
-    z-index: 3; /* Place above island */
-    transform-origin: center;
+    transform: translate(0, 500% ); /* Dynamic radius */
 }
 
-/* --- Counter Skew --- */
-.counter-skew {
-    transform: scale(0.5, 1.4286); /* Reverse the island's skew */
-    transform-origin: center; /* Undo distortion */
+
+.tree {
+    transform: translate(-50%, -100% ); /* Dynamic radius */
+    width: 4vw; /* Fixed width */
+    height: auto; /* Preserve aspect ratio */
 }
+
