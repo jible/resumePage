@@ -9,6 +9,41 @@
     z-index: 0;
 }
 
+.waves{
+
+    position: absolute;
+    top:32%;
+    left:0%;
+    height: 12%;
+    width: 200%;
+
+    image-rendering: pixelated;
+    background: url('../images/titleScreen/background/waves.png');
+    background-repeat: repeat-x; /* Repeat horizontally */
+    background-size: auto 100%;
+    animation:scroll 10s linear infinite;
+    z-index: 1
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX( 0);
+    }
+}
+
+
+.water {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    height:60%;
+    width: 200%;
+    background-color: rgb(37, 79, 144);
+}
+
 /* --- Title Screen --- */
 .title-screen {
     position: relative;
@@ -21,7 +56,7 @@
 /* --- Island --- */
 .island {
     position: absolute;
-    top: 65%;
+    top: 60%;
     left: 50%;
     width: 30vw;
     height: 30vw;
@@ -76,7 +111,7 @@
 
 .tree {
     width: 4vw; /* Fixed width */
-    height: auto; /* Preserve aspect ratio */
+    height: 4vw; /* Preserve aspect ratio */
 }
 
 
