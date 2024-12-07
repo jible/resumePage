@@ -75,7 +75,7 @@
 
 
 .tree {
-    width: 30px; /* Fixed width */
+    width: 50px; /* Fixed width */
     height: auto; /* Preserve aspect ratio */
 }
 
