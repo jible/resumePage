@@ -9,6 +9,41 @@
     z-index: 0;
 }
 
+.waves{
+
+    position: absolute;
+    top:32%;
+    left:0%;
+    height: 12%;
+    width: 200%;
+
+    image-rendering: pixelated;
+    background: url('../images/titleScreen/background/waves.png');
+    background-repeat: repeat-x; /* Repeat horizontally */
+    background-size: auto 100%;
+    animation:scroll 10s linear infinite;
+    z-index: 1
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX( 0);
+    }
+}
+
+
+.water {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    height:60%;
+    width: 200%;
+    background-color: rgb(37, 79, 144);
+}
+
 /* --- Title Screen --- */
 .title-screen {
     position: relative;
@@ -21,10 +56,10 @@
 /* --- Island --- */
 .island {
     position: absolute;
-    top: 65%;
+    top: 60%;
     left: 50%;
-    width: 40vw;
-    height: 40vh;
+    width: 30vw;
+    height: 30vw;
     background: url('../images/titleScreen/island.png') no-repeat center;
     background-size: contain;
     image-rendering: pixelated;
@@ -35,48 +70,49 @@
 
 @keyframes island-spin {
     0% {
-        transform: translate( -50%, -50%) scale(2, 0.7) rotate(0deg);
+        transform: translate( -50%, -50%) scale(2, 0.5) rotate(0deg);
     }
     100% {
-        transform: translate( -50%, -50%)  scale(2, 0.7) rotate(360deg);
+        transform: translate( -50%, -50%)  scale(2, 0.5) rotate(360deg);
     }
-}
-
-/* --- Counter-Rotation --- */
-
-.position-offset {
-    height: 50%;
-    width: 50%;
-    position: relative;
-    top: 25%;
-    left: 50%;
-}
-
-.fix-rotation {
-    height: 100%;
-    width: 100%;
-    animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
-    transform-origin: 50% 50%; /* Center rotation on the island */
 }
 
 /* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
-        transform: translate( -50%, -50%) rotate(0deg) scale(0.5, 1.4286) ;
+        transform: translate( -50%, -50%) rotate(0deg) scale(0.5, 2) ;
     }
     100% {
-        transform: translate( -50%,-50%) rotate(-360deg) scale(0.5, 1.4286); /* Full counter-rotation */ 
+        transform: translate( -50%,-50%) rotate(-360deg) scale(0.5, 2); /* Full counter-rotation */ 
     }
 }
 
-/* --- Tree --- */
-.tree {
+.offset-rotation{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
+}
+
+
+/*  TREE ELEMENTS*/
+.island-element{
     position: absolute;
     top: 50%; /* Center within parent */
     left: 50%; /* Center within parent */
-    width: 4vw; /* Fixed width */
     transform: translate(-50%, -100%);
-    height: auto; /* Preserve aspect ratio */
     z-index: 3; /* Place above island */
     transform-origin: center;
+    image-rendering: pixelated;
 }
+
+
+.tree {
+    width: 4vw; /* Fixed width */
+    height: 4vw; /* Preserve aspect ratio */
+}
+
+
+
