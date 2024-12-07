@@ -5,7 +5,7 @@ class islandElementType {
     }
 }
 
-const tree = new islandElementType( 'tree', "../images/titleScreen/tree.png")
+const tree = new islandElementType( 'tree', "images/titleScreen/tree.png")
 
 
 
