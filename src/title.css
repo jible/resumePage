@@ -70,20 +70,20 @@
 
 @keyframes island-spin {
     0% {
-        transform: translate( -50%, -50%) scale(2, 0.7) rotate(0deg);
+        transform: translate( -50%, -50%) scale(2, 0.5) rotate(0deg);
     }
     100% {
-        transform: translate( -50%, -50%)  scale(2, 0.7) rotate(360deg);
+        transform: translate( -50%, -50%)  scale(2, 0.5) rotate(360deg);
     }
 }
 
 /* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
-        transform: translate( -50%, -50%) rotate(0deg) scale(0.5, 1.4286) ;
+        transform: translate( -50%, -50%) rotate(0deg) scale(0.5, 2) ;
     }
     100% {
-        transform: translate( -50%,-50%) rotate(-360deg) scale(0.5, 1.4286); /* Full counter-rotation */ 
+        transform: translate( -50%,-50%) rotate(-360deg) scale(0.5, 2); /* Full counter-rotation */ 
     }
 }
 
