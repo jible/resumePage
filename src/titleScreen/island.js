@@ -26,16 +26,24 @@ class IslandElement{
 }
 
 
-const island = document.getElementById("island");
+// SETTING UP SCENE
 
+const islandTraits = {
+    spinTime: 20,
+    islandXStretch: 2,
+    islandYStretch: .5,
+}
+
+
+
+const island = document.getElementById("island");
+const varHolder = document.getElementById("title-screen");
 const islandElementsInfo = [
     [tree,50,50],
-    [tree,40,20],
-    [tree,34,50],
-    [tree,50,84],
-    [tree,60,40],
+    [tree,25,50],
 ]
 const islandElements = [];
+setIslandTraits();
 setUpIslandElements()
 
 
@@ -43,7 +51,16 @@ setUpIslandElements()
 
 
 
-// function declarations
+// FUNCTION DECLARATIONS
+function setIslandTraits(){
+    varHolder.setAttribute('style',   
+        `--x-stretch: ${islandTraits.islandXStretch}; 
+        --y-stretch: ${islandTraits.islandYStretch};
+        --spin-time: ${islandTraits.spinTime}s;`  )
+}
+
+
+
 function setUpIslandElements(){
     for (let i of islandElementsInfo){
         console.log(i)

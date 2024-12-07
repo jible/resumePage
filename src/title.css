@@ -1,4 +1,11 @@
 /* --- Sky Background --- */
+.var-holder{
+    --spin-time: 10s;
+    --x-stretch: 2;
+    --y-stretch: .5;
+}
+
+
 .sky-background {
     position: absolute;
     width: 100%; /* Matches full canvas width */
@@ -21,7 +28,7 @@
     background: url('../images/titleScreen/background/waves.png');
     background-repeat: repeat-x; /* Repeat horizontally */
     background-size: auto 100%;
-    animation:scroll 10s linear infinite;
+    animation:scroll var(--spin-time) linear infinite;
     z-index: 1
 }
 
@@ -63,17 +70,16 @@
     background: url('../images/titleScreen/island.png') no-repeat center;
     background-size: contain;
     image-rendering: pixelated;
-    animation: island-spin 10s linear infinite;
-    transform:  scale(2, 0.7); /* Skew for elliptical effect */
+    animation: island-spin var(--spin-time) linear infinite;
     z-index: 2;
 }
 
 @keyframes island-spin {
     0% {
-        transform: translate( -50%, -50%) scale(2, 0.5) rotate(0deg);
+        transform: translate( -50%, -50%) scale(var(--x-stretch), var(--y-stretch)) rotate(0deg);
     }
     100% {
-        transform: translate( -50%, -50%)  scale(2, 0.5) rotate(360deg);
+        transform: translate( -50%, -50%)  scale(var(--x-stretch), var(--y-stretch)) rotate(360deg);
     }
 }
 
@@ -93,7 +99,7 @@
     position: absolute;
     top: 20%;
     left: 50%;
-    animation: anti-rotate 10s linear infinite; /* Keeps tree upright */
+    animation: anti-rotate var(--spin-time) linear infinite; /* Keeps tree upright */
 }
 
 
