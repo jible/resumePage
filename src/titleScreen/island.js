@@ -12,24 +12,13 @@ class islandElementType {
 const tree = new islandElementType( "images/titleScreen/tree2.png", "4vw", "4vw")
 
 const islandElementsInfo = [
-    // [tree,0,0],
-    // [tree,100,0],
-    // [tree,0,100],
-    // [tree,100,100],
-
-    // [tree,50,0],
-    // [tree,0,50],
-    // [tree,100,50],
-    // [tree,50,100],
-
     [tree,50,50],
 
-    [tree,50,52],
-    
-    // [tree,52,50],
-    // [tree,50,48],
-    // [tree,48,50],
-    // [tree,50,100],
+    [tree,50,60],
+    [tree,60,50],
+    [tree,50,40],
+    [tree,40,50],
+    [tree,50,100],
 ]
 
 const islandTraits = {
@@ -73,23 +62,18 @@ class IslandElement{
         const x = this.left - 50;
         const y = this.top - 50;
         const radius = Math.sqrt((x**2) + (y**2))
-        this.angle = getAngleToPoint(x,y)
-        
-        this.startingPercent =  100 * this.angle/(Math.PI) // angle calculated in radians
-        // The element starts at this angle, meaning it has already rotated (this.angle degrees/ 360 degrees)
-        // thus its starting z index (0% index) is its current height to z-index
+        this.angle = calculateAngleFixedA({x:x,y:y},radius )
+        if (!this.angle ) this.angle = 0;
+        this.startingPercent =   100 *( this.angle) /360 
         this.startingZ = heightToZindex(y)
-        // It will be at the bottom of circle, when its rotation percent is 50 ( 180deg/ 360deg)
-        // thus, once it has animated (50% - starting percent), it will be at 50% animated
-        this.topPercent = Math.abs( (50 - this.startingPercent)%100);
+
+        this.topPercent = ( 100 - this.startingPercent)%100;
         this.topZ = heightToZindex( radius)
 
-        // It will be at the top of circle, when it rotation percent is 100 ( 180deg/ 360deg) and 0
-        // thus, once it has animated (100% - starting percent), it will be at 50% animated
-        this.botPercent = Math.abs(( 100 - this.startingPercent)% 100);
+        this.botPercent = ( 100 + 50 -this.startingPercent)% 100;
         this.bottomZ = heightToZindex( -radius );
 
-        console.log(this.startingZ,this.topPercent,this.botPercent,this.startingPercent)
+        
 
         this.makeZindexAnim();
         pickMe = this.offsetRotation
@@ -123,12 +107,12 @@ class IslandElement{
             ${0}% {
                 z-index: ${this.startingZ}
             }
-            ${this.topPercent}% {
+            ${this.topPercent == 0|| this.topPercent == 100? '' :`${this.topPercent}% {
                 z-index: ${this.topZ}
-            }
-            ${this.botPercent}% {
+            }`}
+            ${this.botPercent == 0|| this.botPercent == 100? '' :`${this.botPercent}% {
                z-index: ${this.bottomZ}
-            }
+            }`}
             ${100}% {
                 z-index: ${this.startingZ}
             }
@@ -136,7 +120,7 @@ class IslandElement{
 
         }`;
         createAnimation( keyframes)
-        this.offsetRotation.style.animation += `anti-rotate var(--spin-time) linear infinite, ${this.animationName} ${islandTraits.values[0]} ease-in-out infinite`
+        this.offsetRotation.style.animation += `anti-rotate var(--spin-time) linear infinite, ${this.animationName} ${islandTraits.values[0]} ease infinite`
     }
 
 }
@@ -165,8 +149,8 @@ varHolder.setAttribute('style' , style);
 requestAnimationFrame(update)
 
 function update(){
-    console.log(  window.getComputedStyle(pickMe).zIndex)
-    requestAnimationFrame(update)
+    // console.log(  window.getComputedStyle(pickMe).zIndex)
+    // requestAnimationFrame(update)
 }
     
 
@@ -195,8 +179,31 @@ function setUpIslandElements(){
     return islandElement
 }
 
-function getAngleToPoint(x, y) {
-    return Math.atan2(y, x); // Angle in radians, correctly accounting for quadrants
+function calculateAngleFixedA(b, radius) {
+    // Define point A at (0, radius)
+    const pointA = { x: 0, y: radius };
+    const vectorA = { x: pointA.x, y: pointA.y };
+    const vectorB = { x: b.x, y: b.y };
+
+    // Calculate the dot product
+    const dotProduct = vectorA.x * vectorB.x + vectorA.y * vectorB.y;
+
+    // Calculate cos(theta)
+    const cosTheta = dotProduct / (radius * radius);
+
+    // Calculate the angle in radians and then convert to degrees
+    const angleInRadians = Math.acos(cosTheta);
+    const angleInDegrees = angleInRadians * (180 / Math.PI);
+
+    // Calculate the cross product to check the angle direction
+    const crossProduct = vectorA.x * vectorB.y - vectorA.y * vectorB.x;
+
+    // If cross product is less than 0, angle is greater than 180 degrees
+    if (crossProduct < 0) {
+        return 360 - angleInDegrees; // Return the angle as a reflex angle (360 - θ)
+    }
+
+    return angleInDegrees; // Return the acute or right angle as is
 }
 
 
