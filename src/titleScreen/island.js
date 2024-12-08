@@ -57,8 +57,7 @@ class IslandElement{
         const islandElement = this.orbitingObject = this.makeOrbitingObject()
         offsetRotation.appendChild(islandElement)
         this.isElement = islandElement
-
-
+        this.offsetRotation = offsetRotation
         this.setupZIndex();
 
     }
@@ -123,9 +122,13 @@ class IslandElement{
             ${this.botPercent}% {
                z-index: ${this.bottomZ}
             }
+            ${100}% {
+                z-index: ${this.startingZ}
+            }
+
         }`;
         createAnimation( keyframes)
-        this.orbitingObject.style.animation = `${this.animationName} ${islandTraits.values[0]}`
+        this.offsetRotation.style.animation += `anti-rotate var(--spin-time) linear infinite, ${this.animationName} ${islandTraits.values[0]} linear infinite`
     }
 
 }

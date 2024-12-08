@@ -60,7 +60,7 @@
     background-size: contain;
     image-rendering: pixelated;
     animation: island-spin var(--spin-time) linear infinite;
-    z-index: 1000;
+    z-index: 2;
 }
 
 
