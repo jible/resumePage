@@ -1,4 +1,4 @@
-
+let pickMe
 class islandElementType {
     constructor( imgSrc, height, width){
         this.imgSrc = imgSrc
@@ -12,18 +12,24 @@ class islandElementType {
 const tree = new islandElementType( "images/titleScreen/tree2.png", "4vw", "4vw")
 
 const islandElementsInfo = [
-    [tree,0,0],
-    [tree,100,0],
-    [tree,0,100],
-    [tree,100,100],
+    // [tree,0,0],
+    // [tree,100,0],
+    // [tree,0,100],
+    // [tree,100,100],
 
-    [tree,50,0],
-    [tree,0,50],
-    [tree,100,50],
-    [tree,50,100],
+    // [tree,50,0],
+    // [tree,0,50],
+    // [tree,100,50],
+    // [tree,50,100],
 
     [tree,50,50],
-    [tree,52,50],
+
+    [tree,50,52],
+    
+    // [tree,52,50],
+    // [tree,50,48],
+    // [tree,48,50],
+    // [tree,50,100],
 ]
 
 const islandTraits = {
@@ -33,7 +39,7 @@ const islandTraits = {
         'y-stretch',
     ],
     values:[
-        '7s',
+        '20s',
         '2',
         '.5'
     ]
@@ -43,7 +49,7 @@ const animSheet = document.createElement('style');
 
 
 class IslandElement{
-    constructor(type,top,left, id){
+    constructor(type,left,top, id){
         this.type = type
         this.left = left
         this.top = top
@@ -68,24 +74,25 @@ class IslandElement{
         const y = this.top - 50;
         const radius = Math.sqrt((x**2) + (y**2))
         this.angle = getAngleToPoint(x,y)
-        this.startingPercent =  100 * this.angle/(2 * Math.PI) // angle calculated in radians
+        
+        this.startingPercent =  100 * this.angle/(Math.PI) // angle calculated in radians
         // The element starts at this angle, meaning it has already rotated (this.angle degrees/ 360 degrees)
         // thus its starting z index (0% index) is its current height to z-index
         this.startingZ = heightToZindex(y)
-        // It will be at the bottom of circle, when it rotation percent is 50 ( 180deg/ 360deg)
+        // It will be at the bottom of circle, when its rotation percent is 50 ( 180deg/ 360deg)
         // thus, once it has animated (50% - starting percent), it will be at 50% animated
-        this.topPercent = Math.floor(50 - this.startingPercent)%100;
+        this.topPercent = Math.abs( (50 - this.startingPercent)%100);
         this.topZ = heightToZindex( radius)
 
         // It will be at the top of circle, when it rotation percent is 100 ( 180deg/ 360deg) and 0
         // thus, once it has animated (100% - starting percent), it will be at 50% animated
-        this.botPercent = Math.floor(100 - this.startingPercent)% 100;
+        this.botPercent = Math.abs(( 100 - this.startingPercent)% 100);
         this.bottomZ = heightToZindex( -radius );
-        
-        
 
-        console.log (this.topPercent, this.botPercent)
+        console.log(this.startingZ,this.topPercent,this.botPercent,this.startingPercent)
+
         this.makeZindexAnim();
+        pickMe = this.offsetRotation
     }
 
 
@@ -126,9 +133,10 @@ class IslandElement{
                 z-index: ${this.startingZ}
             }
 
+
         }`;
         createAnimation( keyframes)
-        this.offsetRotation.style.animation += `anti-rotate var(--spin-time) linear infinite, ${this.animationName} ${islandTraits.values[0]} linear infinite`
+        this.offsetRotation.style.animation += `anti-rotate var(--spin-time) linear infinite, ${this.animationName} ${islandTraits.values[0]} ease-in-out infinite`
     }
 
 }
@@ -138,7 +146,8 @@ class IslandElement{
 
 
 // SETTING UP SCENE
-
+const animHolder = document.createElement("style");
+document.head.appendChild(animHolder);
 const baseIslandElementZindex = 10;
 const island = document.getElementById("island");
 const varHolder = document.getElementById("title-screen");
@@ -153,6 +162,13 @@ let style = '';
 style += setIslandTraits();
 varHolder.setAttribute('style' , style);
 
+requestAnimationFrame(update)
+
+function update(){
+    console.log(  window.getComputedStyle(pickMe).zIndex)
+    requestAnimationFrame(update)
+}
+    
 
 
 // FUNCTION DECLARATIONS
@@ -185,12 +201,9 @@ function getAngleToPoint(x, y) {
 
 
 function heightToZindex( height){
-    
     return (Math.floor (height + 100) )
 }
 
 function createAnimation(keyframes) {
-    const style = document.createElement("style");
-    style.innerHTML = keyframes;
-    document.head.appendChild(style);
+    animHolder.innerHTML += keyframes;
 }
