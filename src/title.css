@@ -5,7 +5,6 @@
     --y-stretch: .5;
 }
 
-
 .sky-background {
     position: absolute;
     width: 100%; /* Matches full canvas width */
@@ -17,7 +16,6 @@
 }
 
 .waves{
-
     position: absolute;
     top:32%;
     left:0%;
@@ -30,15 +28,6 @@
     background-size: auto 100%;
     animation:scroll var(--spin-time) linear infinite;
     z-index: 1
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(-100vw);
-    }
-    100% {
-        transform: translateX( 0);
-    }
 }
 
 
@@ -71,7 +60,38 @@
     background-size: contain;
     image-rendering: pixelated;
     animation: island-spin var(--spin-time) linear infinite;
-    z-index: 2;
+    z-index: 1000;
+}
+
+
+
+.offset-rotation{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    animation: anti-rotate var(--spin-time) linear infinite; /* Keeps tree upright */
+}
+
+
+/*  TREE ELEMENTS*/
+.island-element{
+    position: absolute;
+    top: 50%; /* Center within parent */
+    left: 50%; /* Center within parent */
+    transform: translate(-50%, -100%);
+    transform-origin: center;
+    image-rendering: pixelated;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX( 0);
+    }
 }
 
 @keyframes island-spin {
@@ -92,33 +112,3 @@
         transform: translate( -50%,-50%) rotate(-360deg) scale(0.5, 2); /* Full counter-rotation */ 
     }
 }
-
-.offset-rotation{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    animation: anti-rotate var(--spin-time) linear infinite; /* Keeps tree upright */
-}
-
-
-/*  TREE ELEMENTS*/
-.island-element{
-    position: absolute;
-    top: 50%; /* Center within parent */
-    left: 50%; /* Center within parent */
-    transform: translate(-50%, -100%);
-    z-index: 3; /* Place above island */
-    transform-origin: center;
-    image-rendering: pixelated;
-}
-
-
-.tree {
-    width: 4vw; /* Fixed width */
-    height: 4vw; /* Preserve aspect ratio */
-}
-
-
-
