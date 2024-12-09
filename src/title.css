@@ -66,8 +66,7 @@
 
 
 .offset-rotation{
-    height: 100%;
-    width: 100%;
+    transform-origin: center;
     position: absolute;
     top: 20%;
     left: 50%;
@@ -78,10 +77,6 @@
 /*  TREE ELEMENTS*/
 .island-element{
     position: absolute;
-    top: 50%; /* Center within parent */
-    left: 50%; /* Center within parent */
-    transform: translate(-50%, -100%);
-    transform-origin: center;
     image-rendering: pixelated;
 }
 

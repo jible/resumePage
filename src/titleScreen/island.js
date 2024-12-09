@@ -3,15 +3,17 @@ const animSheet = document.createElement('style');
 
 // Island Element Type Definition
 class IslandElementType {
-    constructor(imgSrc, height, width) {
+    constructor(imgSrc, height, width, offsetX, offsetY) {
         this.imgSrc = imgSrc;
         this.height = height;
         this.width = width;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
     }
 }
 
 // World Configuration
-const tree = new IslandElementType("images/titleScreen/tree2.png", "4vw", "4vw");
+const tree = new IslandElementType("images/titleScreen/tree2.png", "4vw", "4vw", "-50%", "-90%");
 const islandElementsInfo = [
     [tree, 50, 50],
     [tree, 50, 60],
@@ -102,6 +104,7 @@ class IslandElement {
         orbitingObject.style.height = this.type.height;
         orbitingObject.style.width = this.type.width;
         orbitingObject.classList.add('island-element');
+        orbitingObject.style.transform =`translate(${this.type.offsetX}, ${this.type.offsetY})`;
         return orbitingObject;
     }
 
@@ -119,7 +122,7 @@ class IslandElement {
             }
         }`;
         createAnimation(keyframes);
-        this.offsetRotation.style.animation += `anti-rotate var(--spin-time) linear infinite, ${this.animationName} ${islandTraits.values[0]} ease infinite`;
+        this.offsetRotation.style.animation = `anti-rotate var(--spin-time) linear infinite, ${this.animationName} var(--spin-time) ease infinite`;
     }
 }
 
@@ -138,8 +141,6 @@ varHolder.setAttribute('style', style);
 requestAnimationFrame(update);
 
 function update() {
-    // Uncomment for debugging purposes if needed
-    // console.log(window.getComputedStyle(pickMe).zIndex);
     // requestAnimationFrame(update);
 }
 
@@ -179,4 +180,9 @@ function heightToZindex(height) {
 
 function createAnimation(keyframes) {
     animHolder.innerHTML += keyframes;
+}
+
+function yuh(arg){
+    varHolder.style.setProperty('--spin-time', arg);
+    return true
 }
