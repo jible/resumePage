@@ -25,7 +25,7 @@ const palcArts = new IslandElementType("images/titleScreen/buildings/palceArts.p
 const buoy = new IslandElementType("images/titleScreen/water/buoy.png", "2vw", "2vw", "-50%", "-90%");
 const lightHouse = new IslandElementType("images/titleScreen/buildings/lightHouse.png", "7vw", "7vw", "-50%", "-90%");
 const sutroTower = new IslandElementType("images/titleScreen/buildings/sutroTower.png", "15vw", "15vw", "-50%", "-100%");
-const bofa = new IslandElementType("images/titleScreen/buildings/bofa.png", "20vw", "20vw", "-50%", "-100%");
+const bofa = new IslandElementType("images/titleScreen/buildings/bofa.png", "10vw", "10vw", "-50%", "-100%");
 const ggb = new IslandElementType("images/titleScreen/buildings/ggbSide.png", "20vw", "20vw", "-50%", "-100%", "images/titleScreen/buildings/ggbFront.png");
 
 const buildings = [
@@ -56,6 +56,7 @@ const islandElementsInfo = [
     [lightHouse, 8, 13], 
     [sutroTower, 25, 35],
     [ggb, 58, 90],
+    [bofa, 50, 60],
 
     // Buildings
     [buildings[4], 35, 70], 

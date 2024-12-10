@@ -14,6 +14,14 @@
     background-size: contain;
     image-rendering: pixelated;
     z-index: 0;
+    animation: background-day-night 100s infinite ;
+}
+
+.cloud{
+    z-index:2;
+    opacity: 0.6; /* Slight transparency */
+    image-rendering: pixelated;
+    animation: scroll 30s linear infinite;
 }
 
 .waves {
@@ -77,10 +85,10 @@
 /* --- Keyframes --- */
 @keyframes scroll {
     0% {
-        transform: translateX(-100vw);
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(0);
+        transform: translateX(-100vw);
     }
 }
 
@@ -99,5 +107,23 @@
     }
     100% {
         transform: translate(-50%, -50%) rotate(-360deg) scale(var(--x-unstretch), var(--y-unstretch)); /* Full counter-rotation */
+    }
+}
+
+@keyframes background-day-night{
+    0%{
+        background-color: lightblue
+    }
+    25%{
+        background-color: rgb(136, 52, 91)
+    }
+    50%{
+        background-color: rgb(21, 19, 29)
+    }
+    85%{
+        background-color: orange
+    }
+    100%{
+        background-color: lightblue
     }
 }
