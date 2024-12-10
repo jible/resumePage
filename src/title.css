@@ -101,9 +101,9 @@
 /* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
-        transform: translate( -50%, -50%) rotate(0deg) scale(0.5, 2) ;
+        transform: translate( -50%, -50%) rotate(0deg) scale(var(--x-unstretch), var(--y-unstretch)) ;
     }
     100% {
-        transform: translate( -50%,-50%) rotate(-360deg) scale(0.5, 2); /* Full counter-rotation */ 
+        transform: translate( -50%,-50%) rotate(-360deg) scale(var(--x-unstretch), var(--y-unstretch)); /* Full counter-rotation */ 
     }
 }

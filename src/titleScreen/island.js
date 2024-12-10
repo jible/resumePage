@@ -1,4 +1,3 @@
-let pickMe;
 const animSheet = document.createElement('style');
 
 // Island Element Type Definition
@@ -49,8 +48,8 @@ const islandElementsInfo = [
 ];
 
 const islandTraits = {
-    names: ['spin-time', 'x-stretch', 'y-stretch'],
-    values: ['20s', '2', '.5']
+    names: ['spin-time', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
+    values: [`10s`, '2', '.5', '.5', '2']
 };
 
 // Island Element Class
@@ -87,7 +86,6 @@ class IslandElement {
         this.bottomZ = heightToZindex(-radius);
         
         this.createZindexAnimation();
-        pickMe = this.offsetRotation;
     }
 
     createOffsetRotation() {
@@ -182,7 +180,7 @@ function createAnimation(keyframes) {
     animHolder.innerHTML += keyframes;
 }
 
-function yuh(arg){
-    varHolder.style.setProperty('--spin-time', arg);
-    return true
+function intToCssTime(arg){
+    return`${arg}s`
 }
+
