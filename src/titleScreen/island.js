@@ -6,12 +6,13 @@ const timeManager = {
 }
 
 class IslandElementType {
-    constructor(imgSrc, height, width, offsetX, offsetY) {
+    constructor(imgSrc, height, width, offsetX, offsetY, secondSrc) {
         this.imgSrc = imgSrc;
         this.height = height;
         this.width = width;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
+        this.secondSrc = secondSrc
     }
 }
 
@@ -20,11 +21,13 @@ const tree = new IslandElementType("images/titleScreen/trees/tree2.png", "4vw", 
 const salesForce = new IslandElementType("images/titleScreen/buildings/salesForce.png", "25vw", "25vw", "-50%", "-95%");
 const coitTower = new IslandElementType("images/titleScreen/buildings/coitTower.png", "12vw", "12vw", "-50%", "-95%");
 const transAmerica = new IslandElementType("images/titleScreen/buildings/transAmerica.png", "20vw", "20vw", "-50%", "-92%");
-const palcArts = new IslandElementType("images/titleScreen/buildings/palceArts.png", "3vw", "3vw", "-50%", "-90%");
+const palcArts = new IslandElementType("images/titleScreen/buildings/palceArts.png", "6vw", "6vw", "-50%", "-90%");
 const buoy = new IslandElementType("images/titleScreen/water/buoy.png", "2vw", "2vw", "-50%", "-90%");
 const lightHouse = new IslandElementType("images/titleScreen/buildings/lightHouse.png", "7vw", "7vw", "-50%", "-90%");
 const sutroTower = new IslandElementType("images/titleScreen/buildings/sutroTower.png", "15vw", "15vw", "-50%", "-100%");
 const bofa = new IslandElementType("images/titleScreen/buildings/bofa.png", "20vw", "20vw", "-50%", "-100%");
+const ggb = new IslandElementType("images/titleScreen/buildings/ggbSide.png", "20vw", "20vw", "-50%", "-100%", "images/titleScreen/buildings/ggbFront.png");
+
 const buildings = [
     new IslandElementType("images/titleScreen/buildings/building1.png", "5vw", "5vw", "-50%", "-100%"),
     new IslandElementType("images/titleScreen/buildings/building2.png", "5vw", "5vw", "-50%", "-100%"),
@@ -45,17 +48,72 @@ const trees = [
 ]
 
 const islandElementsInfo = [
-    [salesForce, 33, 55], [coitTower, 80,50], [transAmerica, 55, 55], [palcArts, 70, 30],[lightHouse, 8, 13],[sutroTower, 25, 35],
+    // Landmarks
+    [salesForce, 33, 55], 
+    [coitTower, 80, 50], 
+    [transAmerica, 55, 55], 
+    [palcArts, 70, 30],
+    [lightHouse, 8, 13], 
+    [sutroTower, 25, 35],
+    [ggb, 58, 90],
+
+    // Buildings
+    [buildings[4], 35, 70], 
+
+    // Houses
+    [houses[0], 50, 38], 
+    [houses[1], 55, 38],  
+    [houses[2], 55, 42],
+    [houses[3], 60, 42], 
+
+    // Trees
+    [trees[0], 45, 48], 
+    [trees[2], 43, 48], 
+    [trees[2], 42, 48], 
+    [trees[0], 41, 44], 
+    [trees[2], 44, 40], 
+    [trees[2], 85, 78], 
+    [trees[0], 77, 70], 
+    [trees[2], 79, 76], 
+    [trees[0], 77, 70], 
+    [trees[2], 68, 75], 
+    [trees[0], 70, 70], 
+    [trees[2], 75, 75], 
+    [trees[0], 82, 72],
+    [trees[1], 40, 28], 
+    [trees[1], 43, 28], 
+    [trees[1], 42, 25], 
+    [trees[1], 80, 80], 
+    [trees[1], 65, 80],
+    [trees[0], 64, 52],
+    [trees[0], 25, 51],
+    [trees[0], 43, 83],
+    [trees[2], 66, 83],
+    [trees[0], 80, 34],
+    [trees[1], 25, 20],
+    [trees[0], 11, 43],
+    [trees[2], 12, 35],
+    [trees[1], 84, 64],
+
+    [trees[2], 74, 24],
+    [trees[0], 63, 60],
+    [trees[1], 78, 45],
+    [trees[2], 21, 74],
+    [trees[0], 34, 21],
+    [trees[1], 72, 39],
+    [trees[0], 87, 43],
+    [trees[2], 28, 62],
+    [trees[1], 61, 34],
+    [trees[0], 14, 78],
 
 
-    [buildings[4], 35,70], 
-    [houses[0], 50,38], [houses[1], 55,38],  [houses[2], 55,42],[houses[3], 60,42], 
 
-    [trees[0], 45, 48],[trees[2], 43, 48],[trees[2], 42, 48],[trees[0], 41, 44],[trees[2], 44, 40],[trees[2], 85,78],[trees[0], 77, 70],[trees[2], 79,76],[trees[0], 77, 70],
-    [trees[2], 68,75],[trees[0], 70, 70], [trees[2], 75,75],[trees[0], 82, 72],
-    [trees[1], 40, 28],[trees[1], 43, 28],[trees[1], 42, 25],[trees[1], 80, 80],[trees[1], 65, 80],
-    [buoy, 90, 90],[buoy, 55, 75]
+
+    // Buoys
+    [buoy, 90, 90], 
+    [buoy, 55, 75]
 ];
+
 
 const islandTraits = {
     names: ['spin-time', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
@@ -73,32 +131,80 @@ class IslandElement {
     }
 
     create() {
-        const offsetRotation = this.createOffsetRotation();
-        island.appendChild(offsetRotation);
+        this.offsetRotation = this.createOffsetRotation();
+        island.appendChild(this.offsetRotation);
         
-        const orbitingObject = this.createOrbitingObject();
-        offsetRotation.appendChild(orbitingObject);
+        this.orbitingObject = this.createOrbitingObject();
+        this.offsetRotation.appendChild(this.orbitingObject);
         
-        this.isElement = orbitingObject;
-        this.offsetRotation = offsetRotation;
-        this.setupZIndex();
+        this.caclAnimPercent();
     }
 
-    setupZIndex() {
+    caclAnimPercent() {
         const { left, top } = this;
         const x = left - 50;
         const y = top - 50;
         const radius = Math.sqrt((x ** 2) + (y ** 2));
-
+        
         this.angle = calculateAngleFixedA({ x, y }, radius) || 0;
         this.startingPercent = 100 * (this.angle / 360);
         this.startingZ = heightToZindex(y);
-        this.topPercent = (100 - this.startingPercent) % 100;
+        this.topPercent = this.calcNeededPercent(100);
         this.topZ = heightToZindex(radius);
-        this.botPercent = (100 + 50 - this.startingPercent) % 100;
+        this.botPercent = this.calcNeededPercent(50);
         this.bottomZ = heightToZindex(-radius);
         
-        this.createZindexAnimation();
+        this.createZAnims();
+        this.createSpriteAnims();
+    }
+
+    createSpriteAnims(){
+        if ( !this.type.secondSrc){
+            return
+        } 
+        const frame2Percs = [ 12, 62]
+        const frame1Percs = [38, 88]
+        const src1 = this.type.imgSrc;
+        const src2 = this.type.secondSrc
+        let frames = []
+
+        for (let i of frame1Percs ){
+            frames.push(
+                {
+                    percent: this.calcNeededPercent(i),
+                    src: src1
+                }
+            )
+        }
+        for (let i of frame2Percs ){
+            frames.push(
+                {
+                    percent: this.calcNeededPercent(i),
+                    src: src2
+                }
+            )
+        }
+
+        const animationName = `updateSprite${this.id}`;
+        let keyframes = `@keyframes ${animationName} {`
+ 
+        keyframes += `0% { background-image: url(${src1})}`
+        for (let i of frames){
+            if (i.percent !== 0 && i.percent !== 100){
+                keyframes += `${i.percent}% { background-image: url(${i.src}) }`
+            }
+        }
+        keyframes += `100% { background-image: url(${src1})}}`
+        createAnimation(keyframes);
+        this.orbitingObject.style.animation = `${animationName} var(--spin-time)  steps(1) infinite`
+        // Return the div
+        return this.orbitingObject;
+    }
+
+
+
+    calcNeededPercent(wantedPerc){
+        return ( 100 + wantedPerc - this.startingPercent) % 100
     }
 
     createOffsetRotation() {
@@ -112,15 +218,26 @@ class IslandElement {
     }
 
     createOrbitingObject() {
-        const orbitingObject = document.createElement('img');
-        orbitingObject.src = this.type.imgSrc;
+        // Create a div element instead of an img
+        const orbitingObject = document.createElement('div');
+
+        // Apply the background image
         this.setStyle(orbitingObject, {
-            height: this.type.height,
-            width: this.type.width,
-            transform: `translate(${this.type.offsetX}, ${this.type.offsetY})`,
+            height: this.type.height, // Set height
+            width: this.type.width,   // Set width
+            transform: `translate(${this.type.offsetX}, ${this.type.offsetY})`, // Position
+            backgroundImage: `url(${this.type.imgSrc})`, // Set the background image
+            backgroundSize: 'contain',  // Ensure the image fits within the div
+            backgroundRepeat: 'no-repeat', // Avoid repeating the background
+            backgroundPosition: 'center', // Center the image
         });
+
+        // Add the class for additional styling
         orbitingObject.classList.add('island-element');
+
+        // Return the div
         return orbitingObject;
+
     }
 
     setStyle(element, styles) {
@@ -129,7 +246,7 @@ class IslandElement {
         });
     }
 
-    createZindexAnimation() {
+    createZAnims() {
         this.animationName = `updateZ${this.id}`;
         const keyframes = `
         @keyframes ${this.animationName} {
@@ -139,7 +256,7 @@ class IslandElement {
             ${100}% { z-index: ${this.startingZ} }
         }`;
         createAnimation(keyframes);
-        this.offsetRotation.style.animation = `anti-rotate var(--spin-time) linear infinite, ${this.animationName} var(--spin-time) ease infinite`;
+        this.offsetRotation.style.animation = ` anti-rotate var(--spin-time) linear infinite, ${this.animationName} var(--spin-time) ease infinite`;
     }
 }
 
