@@ -1,13 +1,14 @@
-/* --- Sky Background --- */
-.var-holder{
+/* --- Variables --- */
+:root {
     --spin-time: 10s;
     --x-stretch: 2;
-    --y-stretch: .5;
+    --y-stretch: 0.5;
 }
 
+/* --- Sky Background Styles --- */
 .sky-background {
     position: absolute;
-    width: 100%; /* Matches full canvas width */
+    width: 100%; /* Full canvas width */
     height: 50%; /* Partial canvas height */
     background-color: rgb(20, 20, 78);
     background-size: contain;
@@ -15,32 +16,28 @@
     z-index: 0;
 }
 
-.waves{
+.waves {
     position: absolute;
-    top:32%;
-    left:0%;
+    top: 32%;
+    left: 0%;
     height: 12%;
     width: 200%;
-
-    image-rendering: pixelated;
-    background: url('../images/titleScreen/background/waves.png');
-    background-repeat: repeat-x; /* Repeat horizontally */
+    background: url('../images/titleScreen/background/waves.png') repeat-x; /* Repeat horizontally */
     background-size: auto 100%;
-    animation:scroll var(--spin-time) linear infinite;
-    z-index: 1
+    animation: scroll var(--spin-time) linear infinite;
+    z-index: 1;
 }
-
 
 .water {
     position: absolute;
     top: 40%;
     left: 0%;
-    height:60%;
+    height: 60%;
     width: 200%;
     background-color: rgb(37, 79, 144);
 }
 
-/* --- Title Screen --- */
+/* --- Title Screen Styles --- */
 .title-screen {
     position: relative;
     width: 100vw;
@@ -49,61 +46,58 @@
     perspective: 800px; /* Add depth */
 }
 
-/* --- Island --- */
+/* --- Island Styles --- */
 .island {
     position: absolute;
     top: 60%;
     left: 50%;
     width: 30vw;
     height: 30vw;
-    background: url('../images/titleScreen/islandBase.png') no-repeat center;
+    background: url('../images/titleScreen/island/islandBase.png') no-repeat center;
     background-size: contain;
-    image-rendering: pixelated;
     animation: island-spin var(--spin-time) linear infinite;
+    image-rendering: pixelated;
     z-index: 2;
 }
 
-
-
-.offset-rotation{
-    transform-origin: center;
+.offset-rotation {
     position: absolute;
     top: 20%;
     left: 50%;
+    transform-origin: center;
     animation: anti-rotate var(--spin-time) linear infinite; /* Keeps tree upright */
 }
 
-
-/*  TREE ELEMENTS*/
-.island-element{
+/* --- Island Element Styles --- */
+.island-element {
     position: absolute;
     image-rendering: pixelated;
 }
 
+/* --- Keyframes --- */
 @keyframes scroll {
     0% {
         transform: translateX(-100vw);
     }
     100% {
-        transform: translateX( 0);
+        transform: translateX(0);
     }
 }
 
 @keyframes island-spin {
     0% {
-        transform: translate( -50%, -50%) scale(var(--x-stretch), var(--y-stretch)) rotate(0deg);
+        transform: translate(-50%, -50%) scale(var(--x-stretch), var(--y-stretch)) rotate(0deg);
     }
     100% {
-        transform: translate( -50%, -50%)  scale(var(--x-stretch), var(--y-stretch)) rotate(360deg);
+        transform: translate(-50%, -50%) scale(var(--x-stretch), var(--y-stretch)) rotate(360deg);
     }
 }
 
-/* Counter-Rotation Animation */
 @keyframes anti-rotate {
     0% {
-        transform: translate( -50%, -50%) rotate(0deg) scale(var(--x-unstretch), var(--y-unstretch)) ;
+        transform: translate(-50%, -50%) rotate(0deg) scale(var(--x-unstretch), var(--y-unstretch));
     }
     100% {
-        transform: translate( -50%,-50%) rotate(-360deg) scale(var(--x-unstretch), var(--y-unstretch)); /* Full counter-rotation */ 
+        transform: translate(-50%, -50%) rotate(-360deg) scale(var(--x-unstretch), var(--y-unstretch)); /* Full counter-rotation */
     }
 }

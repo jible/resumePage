@@ -1,6 +1,10 @@
 const animSheet = document.createElement('style');
 
 // Island Element Type Definition
+const timeManager = {
+
+}
+
 class IslandElementType {
     constructor(imgSrc, height, width, offsetX, offsetY) {
         this.imgSrc = imgSrc;
@@ -12,44 +16,17 @@ class IslandElementType {
 }
 
 // World Configuration
-const tree = new IslandElementType("images/titleScreen/tree2.png", "4vw", "4vw", "-50%", "-90%");
+const tree = new IslandElementType("images/titleScreen/trees/tree2.png", "4vw", "4vw", "-50%", "-90%");
+const salesForce = new IslandElementType("images/titleScreen/buildings/salesForce.png", "15vw", "15vw", "-50%", "-95%");
+const coitTower = new IslandElementType("images/titleScreen/buildings/coitTower.png", "10vw", "10vw", "-50%", "-95%");
+const transAmerica = new IslandElementType("images/titleScreen/buildings/transAmerica.png", "10vw", "10vw", "-50%", "-92%");
 const islandElementsInfo = [
-    [tree, 50, 50],
-    [tree, 50, 60],
-    [tree, 60, 50],
-    [tree, 50, 40],
-    [tree, 40, 50],
-    [tree, 50, 100],
-    [tree, 70, 70],
-    [tree, 30, 30],
-    [tree, 20, 80],
-    [tree, 80, 20],
-    [tree, 90, 90],
-    [tree, 10, 10],
-    [tree, 60, 80],
-    [tree, 80, 60],
-    [tree, 30, 90],
-    [tree, 90, 30],
-    [tree, 40, 70],
-    [tree, 70, 40],
-    [tree, 20, 40],
-    [tree, 40, 20],
-    [tree, 60, 100],
-    [tree, 100, 60],
-    [tree, 50, 20],
-    [tree, 30, 60],
-    [tree, 100, 50],
-    [tree, 20, 20],
-    [tree, 15, 75],
-    [tree, 75, 15],
-    [tree, 25, 50],
-    [tree, 50, 25],
-    [tree, 55, 65],
+    [salesForce, 38, 65], [coitTower, 80,50], [transAmerica, 55, 55,50]
 ];
 
 const islandTraits = {
     names: ['spin-time', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
-    values: [`10s`, '2', '.5', '.5', '2']
+    values: ['10s', '2', '0.5', '0.5', '2'],
 };
 
 // Island Element Class
@@ -66,19 +43,22 @@ class IslandElement {
         const offsetRotation = this.createOffsetRotation();
         island.appendChild(offsetRotation);
         
-        const orbitingObject = this.orbitingObject = this.createOrbitingObject();
+        const orbitingObject = this.createOrbitingObject();
         offsetRotation.appendChild(orbitingObject);
+        
         this.isElement = orbitingObject;
         this.offsetRotation = offsetRotation;
         this.setupZIndex();
     }
 
     setupZIndex() {
-        const x = this.left - 50;
-        const y = this.top - 50;
+        const { left, top } = this;
+        const x = left - 50;
+        const y = top - 50;
         const radius = Math.sqrt((x ** 2) + (y ** 2));
+
         this.angle = calculateAngleFixedA({ x, y }, radius) || 0;
-        this.startingPercent = 100 * (this.angle) / 360;
+        this.startingPercent = 100 * (this.angle / 360);
         this.startingZ = heightToZindex(y);
         this.topPercent = (100 - this.startingPercent) % 100;
         this.topZ = heightToZindex(radius);
@@ -91,33 +71,39 @@ class IslandElement {
     createOffsetRotation() {
         const offsetRotation = document.createElement('div');
         offsetRotation.classList.add('offset-rotation');
-        offsetRotation.style.top = `${this.top}%`;
-        offsetRotation.style.left = `${this.left}%`;
+        this.setStyle(offsetRotation, {
+            top: `${this.top}%`,
+            left: `${this.left}%`,
+        });
         return offsetRotation;
     }
 
     createOrbitingObject() {
         const orbitingObject = document.createElement('img');
-        orbitingObject.setAttribute('src', this.type.imgSrc);
-        orbitingObject.style.height = this.type.height;
-        orbitingObject.style.width = this.type.width;
+        orbitingObject.src = this.type.imgSrc;
+        this.setStyle(orbitingObject, {
+            height: this.type.height,
+            width: this.type.width,
+            transform: `translate(${this.type.offsetX}, ${this.type.offsetY})`,
+        });
         orbitingObject.classList.add('island-element');
-        orbitingObject.style.transform =`translate(${this.type.offsetX}, ${this.type.offsetY})`;
         return orbitingObject;
+    }
+
+    setStyle(element, styles) {
+        Object.keys(styles).forEach(property => {
+            element.style[property] = styles[property];
+        });
     }
 
     createZindexAnimation() {
         this.animationName = `updateZ${this.id}`;
         const keyframes = `
         @keyframes ${this.animationName} {
-            ${0}% {
-                z-index: ${this.startingZ}
-            }
-            ${this.topPercent === 0 || this.topPercent === 100 ? '' : `${this.topPercent}% { z-index: ${this.topZ} }`}
-            ${this.botPercent === 0 || this.botPercent === 100 ? '' : `${this.botPercent}% { z-index: ${this.bottomZ} }`}
-            ${100}% {
-                z-index: ${this.startingZ}
-            }
+            ${0}% { z-index: ${this.startingZ} }
+            ${this.topPercent !== 0 && this.topPercent !== 100 ? `${this.topPercent}% { z-index: ${this.topZ} }` : ''}
+            ${this.botPercent !== 0 && this.botPercent !== 100 ? `${this.botPercent}% { z-index: ${this.bottomZ} }` : ''}
+            ${100}% { z-index: ${this.startingZ} }
         }`;
         createAnimation(keyframes);
         this.offsetRotation.style.animation = `anti-rotate var(--spin-time) linear infinite, ${this.animationName} var(--spin-time) ease infinite`;
@@ -127,19 +113,16 @@ class IslandElement {
 // SETTING UP SCENE
 const animHolder = document.createElement("style");
 document.head.appendChild(animHolder);
-const baseIslandElementZindex = 10;
+
 const island = document.getElementById("island");
 const varHolder = document.getElementById("title-screen");
-
 const islandElements = setUpIslandElements();
-document.head.appendChild(animSheet);
-
-let style = setIslandTraits();
+const style = setIslandTraits();
 varHolder.setAttribute('style', style);
 requestAnimationFrame(update);
 
 function update() {
-    // requestAnimationFrame(update);
+    // In the future, logic for updating the animation can be added
 }
 
 // FUNCTION DECLARATIONS
@@ -148,18 +131,11 @@ function setIslandTraits() {
 }
 
 function makeStyle(name, value) {
-    return `--${name}:${value}; `;
+    return `--${name}: ${value}; `;
 }
 
 function setUpIslandElements() {
-    const islandElements = [];
-    let ID = 0;
-    for (let i of islandElementsInfo) {
-        const newElement = new IslandElement(i[0], i[1], i[2], ID);
-        islandElements.push(newElement);
-        ID++;
-    }
-    return islandElements;
+    return islandElementsInfo.map(([type, left, top], ID) => new IslandElement(type, left, top, ID));
 }
 
 function calculateAngleFixedA(b, radius) {
@@ -167,9 +143,7 @@ function calculateAngleFixedA(b, radius) {
     const dotProduct = pointA.x * b.x + pointA.y * b.y;
     const cosTheta = dotProduct / (radius * radius);
     const angleInDegrees = Math.acos(cosTheta) * (180 / Math.PI);
-    const crossProduct = pointA.x * b.y - pointA.y * b.x;
-
-    return crossProduct < 0 ? 360 - angleInDegrees : angleInDegrees; 
+    return (pointA.x * b.y - pointA.y * b.x) < 0 ? 360 - angleInDegrees : angleInDegrees; 
 }
 
 function heightToZindex(height) {
@@ -180,7 +154,6 @@ function createAnimation(keyframes) {
     animHolder.innerHTML += keyframes;
 }
 
-function intToCssTime(arg){
-    return`${arg}s`
+function intToCssTime(arg) {
+    return `${arg}s`;
 }
-
