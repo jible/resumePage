@@ -18,10 +18,17 @@ class IslandElementType {
 // World Configuration
 const tree = new IslandElementType("images/titleScreen/trees/tree2.png", "4vw", "4vw", "-50%", "-90%");
 const salesForce = new IslandElementType("images/titleScreen/buildings/salesForce.png", "15vw", "15vw", "-50%", "-95%");
-const coitTower = new IslandElementType("images/titleScreen/buildings/coitTower.png", "10vw", "10vw", "-50%", "-95%");
+const coitTower = new IslandElementType("images/titleScreen/buildings/coitTower.png", "8vw", "8vw", "-50%", "-95%");
 const transAmerica = new IslandElementType("images/titleScreen/buildings/transAmerica.png", "10vw", "10vw", "-50%", "-92%");
+const palcArts = new IslandElementType("images/titleScreen/buildings/palceArts.png", "3vw", "3vw", "-50%", "-90%");
+const buoy = new IslandElementType("images/titleScreen/water/buoy.png", "2vw", "2vw", "-50%", "-90%");
+const lightHouse = new IslandElementType("images/titleScreen/buildings/lightHouse.png", "5vw", "5vw", "-50%", "-90%");
+
 const islandElementsInfo = [
-    [salesForce, 38, 65], [coitTower, 80,50], [transAmerica, 55, 55,50]
+    [salesForce, 38, 65], [coitTower, 80,50], [transAmerica, 55, 55], [palcArts, 70, 30],[lightHouse, 20, 20],
+
+
+    [buoy, 90, 90]
 ];
 
 const islandTraits = {
