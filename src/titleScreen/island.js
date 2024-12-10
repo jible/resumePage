@@ -17,23 +17,49 @@ class IslandElementType {
 
 // World Configuration
 const tree = new IslandElementType("images/titleScreen/trees/tree2.png", "4vw", "4vw", "-50%", "-90%");
-const salesForce = new IslandElementType("images/titleScreen/buildings/salesForce.png", "15vw", "15vw", "-50%", "-95%");
-const coitTower = new IslandElementType("images/titleScreen/buildings/coitTower.png", "8vw", "8vw", "-50%", "-95%");
-const transAmerica = new IslandElementType("images/titleScreen/buildings/transAmerica.png", "10vw", "10vw", "-50%", "-92%");
+const salesForce = new IslandElementType("images/titleScreen/buildings/salesForce.png", "25vw", "25vw", "-50%", "-95%");
+const coitTower = new IslandElementType("images/titleScreen/buildings/coitTower.png", "12vw", "12vw", "-50%", "-95%");
+const transAmerica = new IslandElementType("images/titleScreen/buildings/transAmerica.png", "20vw", "20vw", "-50%", "-92%");
 const palcArts = new IslandElementType("images/titleScreen/buildings/palceArts.png", "3vw", "3vw", "-50%", "-90%");
 const buoy = new IslandElementType("images/titleScreen/water/buoy.png", "2vw", "2vw", "-50%", "-90%");
-const lightHouse = new IslandElementType("images/titleScreen/buildings/lightHouse.png", "5vw", "5vw", "-50%", "-90%");
+const lightHouse = new IslandElementType("images/titleScreen/buildings/lightHouse.png", "7vw", "7vw", "-50%", "-90%");
+const sutroTower = new IslandElementType("images/titleScreen/buildings/sutroTower.png", "15vw", "15vw", "-50%", "-100%");
+const bofa = new IslandElementType("images/titleScreen/buildings/bofa.png", "20vw", "20vw", "-50%", "-100%");
+const buildings = [
+    new IslandElementType("images/titleScreen/buildings/building1.png", "5vw", "5vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/buildings/building2.png", "5vw", "5vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/buildings/building3.png", "5vw", "5vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/buildings/building4.png", "5vw", "5vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/buildings/building5.png", "5vw", "5vw", "-50%", "-100%"),
+]
+const houses = [
+    new IslandElementType("images/titleScreen/buildings/houses/house1.png", "3vw", "3vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/buildings/houses/house2.png", "3vw", "3vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/buildings/houses/house3.png", "3vw", "3vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/buildings/houses/house4.png", "3vw", "3vw", "-50%", "-100%"),
+]
+const trees = [
+    new IslandElementType("images/titleScreen/trees/tree1.png", "3vw", "3vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/trees/tree2.png", "6vw", "6vw", "-50%", "-100%"),
+    new IslandElementType("images/titleScreen/trees/tree3.png", "3vw", "3vw", "-50%", "-100%"),
+]
 
 const islandElementsInfo = [
-    [salesForce, 38, 65], [coitTower, 80,50], [transAmerica, 55, 55], [palcArts, 70, 30],[lightHouse, 20, 20],
+    [salesForce, 33, 55], [coitTower, 80,50], [transAmerica, 55, 55], [palcArts, 70, 30],[lightHouse, 8, 13],[sutroTower, 25, 35],
 
 
-    [buoy, 90, 90]
+    [buildings[4], 35,70], 
+    [houses[0], 50,38], [houses[1], 55,38],  [houses[2], 55,42],[houses[3], 60,42], 
+
+    [trees[0], 45, 48],[trees[2], 43, 48],[trees[2], 42, 48],[trees[0], 41, 44],[trees[2], 44, 40],[trees[2], 85,78],[trees[0], 77, 70],[trees[2], 79,76],[trees[0], 77, 70],
+    [trees[2], 68,75],[trees[0], 70, 70], [trees[2], 75,75],[trees[0], 82, 72],
+    [trees[1], 40, 28],[trees[1], 43, 28],[trees[1], 42, 25],[trees[1], 80, 80],[trees[1], 65, 80],
+    [buoy, 90, 90],[buoy, 55, 75]
 ];
 
 const islandTraits = {
     names: ['spin-time', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
-    values: ['10s', '2', '0.5', '0.5', '2'],
+    values: ['10s', '2.5', '0.5', '0.4', '2'],
 };
 
 // Island Element Class
