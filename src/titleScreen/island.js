@@ -117,8 +117,8 @@ const islandElementsInfo = [
 
 
 const islandTraits = {
-    names: ['spin-time', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
-    values: ['100s', '2.5', '0.5', '0.4', '2'],
+    names: ['spin-time', 'spin-direction', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
+    values: ['500s', 'forwards','2.5', '0.5', '0.4', '2'],
 };
 
 // Island Element Class
@@ -319,14 +319,19 @@ function yuh(newTime) {
 
 const slider = document.getElementById('mySlider');
 
-// Add an event listener to the slider
+// Update the slider event listener
 slider.addEventListener('input', function() {
     // Get the current value of the slider
-    const value = slider.value;
-    yuh( Math.abs( value ));
-
-
-    // Call any function you want to execute with the new value
+    let value = slider.value;
+    if (value == 0) value = 1; // Ensure value isn't zero
+    yuh(Math.abs(value)); // Update spin time
+    
+    // Change animation direction based on the value
+    if (value < 0) {
+        varHolder.style.setProperty('--spin-direction', 'reverse');
+    } else {
+        varHolder.style.setProperty('--spin-direction', 'normal');
+    }
+    
     console.log("Slider value changed to: " + value);
-    // You can also use this value to control other features, like your time manager
 });

@@ -3,6 +3,7 @@
     --spin-time: 10s;
     --x-stretch: 2;
     --y-stretch: 0.5;
+    --spin-direction: forwards;
 }
 
 /* --- Sky Background Styles --- */
@@ -14,14 +15,14 @@
     background-size: contain;
     image-rendering: pixelated;
     z-index: 0;
-    animation: background-day-night 100s infinite ;
+    animation: background-day-night 100s infinite var(--spin-direction);
 }
 
 .cloud{
     z-index:2;
     opacity: 0.6; /* Slight transparency */
     image-rendering: pixelated;
-    animation: cloud-scroll 30s linear infinite;
+    animation: cloud-scroll 30s linear infinite var(--spin-direction);
 }
 
 .waves {
@@ -32,7 +33,7 @@
     width: 200%;
     background: url('../images/titleScreen/background/waves.png') repeat-x; /* Repeat horizontally */
     background-size: auto 100%;
-    animation: wave-scroll var(--spin-time) linear infinite;
+    animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction);
     z-index: 1;
 }
 
@@ -63,7 +64,7 @@
     height: 30vw;
     background: url('../images/titleScreen/island/islandBase.png') no-repeat center;
     background-size: contain;
-    animation: island-spin var(--spin-time) linear infinite;
+    animation: island-spin var(--spin-time) linear infinite var(--spin-direction);
     image-rendering: pixelated;
     z-index: 2;
 }
@@ -73,7 +74,7 @@
     top: 20%;
     left: 50%;
     transform-origin: center;
-    animation: anti-rotate var(--spin-time) linear infinite; /* Keeps tree upright */
+    animation: anti-rotate var(--spin-time) linear infinite ; /* Keeps tree upright */
 }
 
 /* --- Island Element Styles --- */
