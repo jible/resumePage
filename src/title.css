@@ -21,7 +21,7 @@
     z-index:2;
     opacity: 0.6; /* Slight transparency */
     image-rendering: pixelated;
-    animation: scroll 30s linear infinite;
+    animation: cloud-scroll 30s linear infinite;
 }
 
 .waves {
@@ -32,7 +32,7 @@
     width: 200%;
     background: url('../images/titleScreen/background/waves.png') repeat-x; /* Repeat horizontally */
     background-size: auto 100%;
-    animation: scroll var(--spin-time) linear infinite;
+    animation: wave-scroll var(--spin-time) linear infinite;
     z-index: 1;
 }
 
@@ -82,13 +82,24 @@
     image-rendering: crisp-edges;
 }
 
+
+
 /* --- Keyframes --- */
-@keyframes scroll {
+@keyframes wave-scroll {
     0% {
-        transform: translateX(0);
+        transform: translateX(-100vw);
     }
     100% {
-        transform: translateX(-100vw);
+        transform: translateX(0);
+    }
+}
+
+@keyframes cloud-scroll {
+    0% {
+        transform: translateX(0vw);
+    }
+    100% {
+        transform: translateX(100vw);
     }
 }
 
