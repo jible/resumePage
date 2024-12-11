@@ -118,7 +118,7 @@ const islandElementsInfo = [
 
 const islandTraits = {
     names: ['spin-time', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
-    values: ['10s', '2.5', '0.5', '0.4', '2'],
+    values: ['100s', '2.5', '0.5', '0.4', '2'],
 };
 
 // Island Element Class
@@ -308,3 +308,25 @@ function createAnimation(keyframes) {
 function intToCssTime(arg) {
     return `${arg}s`;
 }
+
+
+function yuh(newTime) {
+    // Update the CSS variable directly on :root element
+    varHolder.style.setProperty('--spin-time', intToCssTime(newTime));
+
+}
+
+
+const slider = document.getElementById('mySlider');
+
+// Add an event listener to the slider
+slider.addEventListener('input', function() {
+    // Get the current value of the slider
+    const value = slider.value;
+    yuh( Math.abs( value ));
+
+
+    // Call any function you want to execute with the new value
+    console.log("Slider value changed to: " + value);
+    // You can also use this value to control other features, like your time manager
+});

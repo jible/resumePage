@@ -138,3 +138,31 @@
         background-color: lightblue
     }
 }
+
+
+
+/* slider stuff */
+.slider {
+    position: absolute; /* Allow positioning with top/right */
+    bottom: 20px;      /* Space from the bottom */
+    right: 20px;       /* Space from the right */
+    width: 150px;      /* Desired width for the slider */
+    z-index: 10;       /* Ensure it appears above other elements */
+    -webkit-appearance: none; /* Remove default appearance on webkit browsers */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    background: #4CAF50; /* Green background color for thumb */
+    height: 15px; /* Height of the thumb */
+    width: 15px; /* Width of the thumb */
+    border-radius: 50%; /* Circular thumb */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.slider::-webkit-slider-runnable-track {
+    background: #ddd; /* Track color */
+    height: 5px; /* Track height */
+    border-radius: 5px; /* Rounded edges for track */
+}
