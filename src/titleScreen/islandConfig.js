@@ -6,7 +6,7 @@ export const islandElementsInfo = [
     [landmarks["salesForce"], 33, 55], 
     [landmarks["coitTower"], 80, 50], 
     [landmarks['transAmerica'], 55, 55], 
-    [landmarks['palcArts'], 70, 30],
+    [landmarks['palaceArts'], 70, 30],
     [landmarks["lightHouse"], 8, 13], 
     [landmarks['sutroTower'], 25, 35],
     [landmarks['ggb'], 58, 90],

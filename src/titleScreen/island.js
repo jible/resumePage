@@ -1,6 +1,7 @@
 import { islandElementsInfo, islandTraits } from "./islandConfig.js";
+import { IslandElementType } from "./islandTypes.js";
 const animSheet = document.createElement('style');
-
+console.log(islandElementsInfo)
 // Island Element Class
 class IslandElement {
     constructor(type, left, top, id) {

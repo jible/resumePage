@@ -1,4 +1,4 @@
-class IslandElementType {
+export class IslandElementType {
     constructor(imgSrc, height, width, offsetX, offsetY, secondSrc = null) {
         this.imgSrc = imgSrc;
         this.height = height;
