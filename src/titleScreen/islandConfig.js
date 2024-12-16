@@ -1,4 +1,4 @@
-import { buildings, landmarks, trees, houses, waterObjects } from "./islandTypes.js";
+import { buildings, landmarks, trees, houses } from "./islandTypes.js";
 
 
 export const islandElementsInfo = [
@@ -62,9 +62,11 @@ export const islandElementsInfo = [
     [trees[0], 14, 78],
 
 
+
+
     // Buoys
-    [waterObjects["buoy"], 90, 90], 
-    [waterObjects["buoy"], 55, 75]
+    [landmarks["buoy"], 90, 90], 
+    [landmarks["buoy"], 55, 75]
 ];
 
 
