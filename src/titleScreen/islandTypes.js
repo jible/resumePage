@@ -5,49 +5,134 @@ export class IslandElementType {
         this.width = width;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
-        this.secondSrc = secondSrc;
     }
 }
 
-// Centralized data configuration
 const ELEMENT_CONFIG = {
-    landmarks: {
-        tree: ["images/titleScreen/trees/tree2.png", "4vw", "4vw", "-50%", "-90%"],
-        salesForce: ["images/titleScreen/buildings/salesForce.png", "25vw", "25vw", "-50%", "-95%"],
-        coitTower: ["images/titleScreen/buildings/coitTower.png", "12vw", "12vw", "-50%", "-95%"],
-        transAmerica: ["images/titleScreen/buildings/transAmerica.png", "20vw", "20vw", "-50%", "-92%"],
-        palaceArts: ["images/titleScreen/buildings/palceArts.png", "6vw", "6vw", "-50%", "-90%"],
-        buoy: ["images/titleScreen/water/buoy.png", "2vw", "2vw", "-50%", "-90%"],
-        lightHouse: ["images/titleScreen/buildings/lightHouse.png", "7vw", "7vw", "-50%", "-90%"],
-        sutroTower: ["images/titleScreen/buildings/sutroTower.png", "15vw", "15vw", "-50%", "-100%"],
-        bofa: ["images/titleScreen/buildings/bofa.png", "10vw", "10vw", "-50%", "-100%"],
-        ggb: ["images/titleScreen/buildings/ggbSide.png", "20vw", "20vw", "-50%", "-100%", "images/titleScreen/buildings/ggbFront.png"]
-    },
-    buildings: [
-        "images/titleScreen/buildings/building1.png",
-        "images/titleScreen/buildings/building2.png",
-        "images/titleScreen/buildings/building3.png",
-        "images/titleScreen/buildings/building4.png",
-        "images/titleScreen/buildings/building5.png"
-    ],
-    houses: [
-        "images/titleScreen/buildings/houses/house1.png",
-        "images/titleScreen/buildings/houses/house2.png",
-        "images/titleScreen/buildings/houses/house3.png",
-        "images/titleScreen/buildings/houses/house4.png"
-    ],
-    trees: [
-        ["images/titleScreen/trees/tree1.png", "3vw", "3vw"],
-        ["images/titleScreen/trees/tree2.png", "6vw", "6vw"],
-        ["images/titleScreen/trees/tree3.png", "3vw", "3vw"]
+    name: 'default',
+    sample: true,
+    src: ['n/a'],
+    size: ["0vw", "0vw"],
+    offset: ["-50%", "-100%"],
+    subclasses: [
+        {
+            name: "salesForce",
+            src: ["images/titleScreen/buildings/salesForce.png"],
+            size: ["25vw", "25vw"],
+            offset: ["-50%", "-95%"]
+        },
+        {
+            name: "coitTower",
+            src: ["images/titleScreen/buildings/coitTower.png"],
+            size: ["12vw", "12vw"],
+            offset: ["-50%", "-95%"]
+        },
+        {
+            name: 'transAmerica',
+            src: ["images/titleScreen/buildings/transAmerica.png"],
+            size: ["20vw", "20vw"],
+            offset: ["-50%", "-92%"]
+        },
+        {
+            name: 'palaceArts',
+            src: ["images/titleScreen/buildings/palceArts.png"],
+            size: ["6vw", "6vw"],
+            offset: ["-50%", "-90%"]
+        },
+        {
+            name: 'lightHouse',
+            src: ["images/titleScreen/buildings/lightHouse.png"],
+            size: ["7vw", "7vw"],
+            offset: ["-50%", "-90%"]
+        },
+        {
+            name: 'sutroTower',
+            src: ["images/titleScreen/buildings/sutroTower.png"],
+            size: ["15vw", "15vw"],
+            offset: ["-50%", "-100%"]
+        },
+        {
+            name: 'bofa',
+            src: ["images/titleScreen/buildings/bofa.png"],
+            size: ["10vw", "10vw"],
+            offset: ["-50%", "-100%"]
+        },
+        {
+            name: 'ggb',
+            src: ["images/titleScreen/buildings/ggbSide.png"],
+            size: ["20vw", "20vw"],
+            offset: ["-50%", "-100%"]
+        },
+        {
+            name: 'buoy',
+            src: ["images/titleScreen/water/buoy.png"],
+            size: ["2vw", "2vw"],
+            offset: ["-50%", "-90%"]
+        },
+        {
+            name: 'building',
+            sample: true,
+            size: ["5vw", "5vw"],
+            offset: ["-50%", "-100%"],
+            subclasses: [
+                { src: ["images/titleScreen/buildings/building1.png"] },
+                { src: ["images/titleScreen/buildings/building2.png"] },
+                { src: ["images/titleScreen/buildings/building3.png"] },
+                { src: ["images/titleScreen/buildings/building4.png"] },
+                { src: ["images/titleScreen/buildings/building5.png"] }
+            ]
+        },
+        {
+            name: 'houses',
+            sample: true,
+            size: ["3vw", "3vw"],
+            offset: ["-50%", "-100%"],
+            subclasses: [
+                { src: ["images/titleScreen/buildings/houses/house1.png"] },
+                { src: ["images/titleScreen/buildings/houses/house2.png"] },
+                { src: ["images/titleScreen/buildings/houses/house3.png"] },
+                { src: ["images/titleScreen/buildings/houses/house4.png"] }
+            ]
+        },
+        {
+            name: 'trees',
+            sample: true,
+            offset: ["-50%", "-100%"],
+            subclasses: [
+                { src: ["images/titleScreen/trees/tree1.png"], size: ["3vw", "3vw"] },
+                { src: ["images/titleScreen/trees/tree2.png"], size: ["6vw", "6vw"] },
+                { src: ["images/titleScreen/trees/tree3.png"], size: ["3vw", "3vw"] }
+            ]
+        }
     ]
 };
 
-// Create IslandElementType instances
-export const landmarks = Object.fromEntries(
-    Object.entries(ELEMENT_CONFIG.landmarks).map(([key, value]) => [key, new IslandElementType(...value)])
-);
 
-export const buildings = ELEMENT_CONFIG.buildings.map(src => new IslandElementType(src, "5vw", "5vw", "-50%", "-100%"));
-export const houses = ELEMENT_CONFIG.houses.map(src => new IslandElementType(src, "3vw", "3vw", "-50%", "-100%"));
-export const trees = ELEMENT_CONFIG.trees.map(([src, height, width]) => new IslandElementType(src, height, width, "-50%", "-100%"));
+function createObjectTypes(config) {
+    const elementMap = new Map();
+    makeType(config, null, 0)
+
+
+    function makeType( current, parent, index){
+        const inheritableKeys = ['size', 'offset'];
+        for (const key of inheritableKeys) {
+            if ( !current[key]){
+                current[key] = parent[key]
+            } 
+        }
+        if (!current.name){ 
+            current.name = `${parent.name}${index}`
+        }
+        elementMap.set(current.name, new IslandElementType(current.src, current.size[0], current.size[1], current.offset[0], current.offset[1]))
+        if (current.subclasses) {
+            current.subclasses.forEach((child, i) => makeType(child, current, i));
+     
+        }
+    }
+    console.log(elementMap)
+    return elementMap
+}
+
+// Export all elements
+export const elementTypes = createObjectTypes(ELEMENT_CONFIG);
+

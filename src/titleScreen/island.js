@@ -1,11 +1,11 @@
 import { islandElementsInfo, islandTraits } from "./islandConfig.js";
-import { IslandElementType } from "./islandTypes.js";
+import { IslandElementType, elementTypes } from "./islandTypes.js";
 const animSheet = document.createElement('style');
 console.log(islandElementsInfo)
 // Island Element Class
 class IslandElement {
     constructor(type, left, top, id) {
-        this.type = type;
+        this.type = elementTypes.get(type);
         this.left = left;
         this.top = top;
         this.id = id;
@@ -105,7 +105,9 @@ class IslandElement {
 
         // Apply the background image
         this.setStyle(orbitingObject, {
+            
             height: this.type.height, // Set height
+
             width: this.type.width,   // Set width
             transform: `translate(${this.type.offsetX}, ${this.type.offsetY})`, // Position
             backgroundImage: `url(${this.type.imgSrc})`, // Set the background image
@@ -151,15 +153,17 @@ const varHolder = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
 const style = setIslandTraits();
 varHolder.setAttribute('style', style);
-requestAnimationFrame(update);
 
-function update() {
-    // In the future, logic for updating the animation can be added
-}
 
 // FUNCTION DECLARATIONS
-function setIslandTraits() {
-    return islandTraits.names.map((name, i) => makeStyle(name, islandTraits.values[i])).join('');
+function setIslandTraits() {   
+    let style = '';
+    for (let i of islandTraits){
+        
+        style += (makeStyle(i[0], i[1]) + ';')
+    }
+    return style
+   
 }
 
 function makeStyle(name, value) {
@@ -190,29 +194,3 @@ function intToCssTime(arg) {
     return `${arg}s`;
 }
 
-
-function yuh(newTime) {
-    // Update the CSS variable directly on :root element
-    varHolder.style.setProperty('--spin-time', intToCssTime(newTime));
-
-}
-
-
-const slider = document.getElementById('mySlider');
-
-// Update the slider event listener
-slider.addEventListener('input', function() {
-    // Get the current value of the slider
-    let value = slider.value;
-    if (value == 0) value = 1; // Ensure value isn't zero
-    yuh(Math.abs(value)); // Update spin time
-    
-    // Change animation direction based on the value
-    if (value < 0) {
-        varHolder.style.setProperty('--spin-direction', 'reverse');
-    } else {
-        varHolder.style.setProperty('--spin-direction', 'normal');
-    }
-    
-    console.log("Slider value changed to: " + value);
-});

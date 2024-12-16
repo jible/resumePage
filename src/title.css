@@ -60,8 +60,8 @@
     position: absolute;
     top: 60%;
     left: 50%;
-    width: 30vw;
-    height: 30vw;
+    width: 50vw;
+    height: 50vw;
     background: url('../images/titleScreen/island/islandBase.png') no-repeat center;
     background-size: contain;
     animation: island-spin var(--spin-time) linear infinite var(--spin-direction);

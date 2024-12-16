@@ -1,76 +1,80 @@
-import { buildings, landmarks, trees, houses } from "./islandTypes.js";
-
-
 export const islandElementsInfo = [
     // Landmarks
-    [landmarks["salesForce"], 33, 55], 
-    [landmarks["coitTower"], 80, 50], 
-    [landmarks['transAmerica'], 55, 55], 
-    [landmarks['palaceArts'], 70, 30],
-    [landmarks["lightHouse"], 8, 13], 
-    [landmarks['sutroTower'], 25, 35],
-    [landmarks['ggb'], 58, 90],
-    [landmarks['bofa'], 50, 60],
+    ['salesForce', 33, 55], 
+    ['coitTower', 80, 50], 
+    ['transAmerica', 55, 55], 
+    ['palaceArts', 70, 30],
+    ['lightHouse', 8, 13], 
+    ['sutroTower', 25, 35],
+    ['ggb', 58, 90],
+    ['bofa', 50, 60],
 
     // Buildings
-    [buildings[4], 35, 70], 
+    ['building4', 35, 70], 
 
     // Houses
-    [houses[0], 50, 38], 
-    [houses[1], 55, 38],  
-    [houses[2], 55, 42],
-    [houses[3], 60, 42], 
+    ['houses0', 50, 38], 
+    ['houses1', 55, 38],  
+    ['houses2', 55, 42],
+    ['houses3', 60, 42], 
 
     // Trees
-    [trees[0], 45, 48], 
-    [trees[2], 43, 48], 
-    [trees[2], 42, 48], 
-    [trees[0], 41, 44], 
-    [trees[2], 44, 40], 
-    [trees[2], 85, 78], 
-    [trees[0], 77, 70], 
-    [trees[2], 79, 76], 
-    [trees[0], 77, 70], 
-    [trees[2], 68, 75], 
-    [trees[0], 70, 70], 
-    [trees[2], 75, 75], 
-    [trees[0], 82, 72],
-    [trees[1], 40, 28], 
-    [trees[1], 43, 28], 
-    [trees[1], 42, 25], 
-    [trees[1], 80, 80], 
-    [trees[1], 65, 80],
-    [trees[0], 64, 52],
-    [trees[0], 25, 51],
-    [trees[0], 43, 83],
-    [trees[2], 66, 83],
-    [trees[0], 80, 34],
-    [trees[1], 25, 20],
-    [trees[0], 11, 43],
-    [trees[2], 12, 35],
-    [trees[1], 84, 64],
+    ['trees0', 45, 48], 
+    ['trees2', 43, 48], 
+    ['trees2', 42, 48], 
+    ['trees0', 41, 44], 
+    ['trees2', 44, 40], 
+    ['trees2', 85, 78], 
+    ['trees0', 77, 70], 
+    ['trees2', 79, 76], 
+    ['trees0', 77, 70], 
+    ['trees2', 68, 75], 
+    ['trees0', 70, 70], 
+    ['trees2', 75, 75], 
+    ['trees0', 82, 72],
+    ['trees1', 40, 28], 
+    ['trees1', 43, 28], 
+    ['trees1', 42, 25], 
+    ['trees1', 80, 80], 
+    ['trees1', 65, 80],
+    ['trees0', 64, 52],
+    ['trees0', 25, 51],
+    ['trees0', 43, 83],
+    ['trees2', 66, 83],
+    ['trees0', 80, 34],
+    ['trees1', 25, 20],
+    ['trees0', 11, 43],
+    ['trees2', 12, 35],
+    ['trees1', 84, 64],
 
-    [trees[2], 74, 24],
-    [trees[0], 63, 60],
-    [trees[1], 78, 45],
-    [trees[2], 21, 74],
-    [trees[0], 34, 21],
-    [trees[1], 72, 39],
-    [trees[0], 87, 43],
-    [trees[2], 28, 62],
-    [trees[1], 61, 34],
-    [trees[0], 14, 78],
-
-
-
+    ['trees2', 74, 24],
+    ['trees0', 63, 60],
+    ['trees1', 78, 45],
+    ['trees2', 21, 74],
+    ['trees0', 34, 21],
+    ['trees1', 72, 39],
+    ['trees0', 87, 43],
+    ['trees2', 28, 62],
+    ['trees1', 61, 34],
+    ['trees0', 14, 78],
 
     // Buoys
-    [landmarks["buoy"], 90, 90], 
-    [landmarks["buoy"], 55, 75]
+    ['buoy', 90, 90], 
+    ['buoy', 55, 75]
 ];
 
 
-export const islandTraits = {
-    names: ['spin-time', 'spin-direction', 'x-stretch', 'y-stretch', 'x-unstretch', 'y-unstretch'],
-    values: ['500s', 'forwards','2.5', '0.5', '0.4', '2'],
-};
+
+export const islandTraits = [
+    ['spin-time', '500s'],
+    ['spin-direction', 'forwards'],
+    ['x-stretch', '2.5'],
+    ['y-stretch', '0.5'],
+    ['x-unstretch', '0.4'],
+    ['y-unstretch', '2']
+];
+
+// Usage Example
+// for (const [key, value] of islandTraits) {
+//     console.log(`${key}: ${value}`);
+// }
