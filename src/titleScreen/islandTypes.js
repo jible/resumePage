@@ -1,12 +1,24 @@
 export class IslandElementType {
-    constructor(imgSrc, height, width, offsetX, offsetY, secondSrc = null) {
+    constructor(imgSrc, height, width, offsetX, offsetY, animation = "none") {
         this.imgSrc = imgSrc;
         this.height = height;
         this.width = width;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
+        this.animation = animation
+        
     }
 }
+/*
+ANIMATION TYPES:
+
+ROTATE: 
+    takes 2 frames. plays the first frame at the top and the bottom and the second frame on the left and right part of the island
+STATIC:
+    animates independent of the rotation. takes as many frames as desired.
+
+
+*/
 
 const ELEMENT_CONFIG = {
     name: 'default',
@@ -59,9 +71,10 @@ const ELEMENT_CONFIG = {
         },
         {
             name: 'ggb',
-            src: ["images/titleScreen/buildings/ggbSide.png"],
+            src: ["images/titleScreen/buildings/ggbSide.png", "images/titleScreen/buildings/ggbFront.png"],
             size: ["20vw", "20vw"],
-            offset: ["-50%", "-100%"]
+            offset: ["-50%", "-100%"],
+            animation: 'rotate'
         },
         {
             name: 'buoy',
@@ -116,20 +129,19 @@ function createObjectTypes(config) {
     function makeType( current, parent, index){
         const inheritableKeys = ['size', 'offset'];
         for (const key of inheritableKeys) {
-            if ( !current[key]){
+            if ( !current[key] && parent ){
                 current[key] = parent[key]
             } 
         }
-        if (!current.name){ 
+        if (!current.name && parent){ 
             current.name = `${parent.name}${index}`
         }
-        elementMap.set(current.name, new IslandElementType(current.src, current.size[0], current.size[1], current.offset[0], current.offset[1]))
+        elementMap.set(current.name, new IslandElementType(current.src, current.size[0], current.size[1], current.offset[0], current.offset[1], current.animation))
         if (current.subclasses) {
             current.subclasses.forEach((child, i) => makeType(child, current, i));
      
         }
     }
-    console.log(elementMap)
     return elementMap
 }
 

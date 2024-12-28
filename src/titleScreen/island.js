@@ -1,7 +1,6 @@
 import { islandElementsInfo, islandTraits } from "./islandConfig.js";
 import { IslandElementType, elementTypes } from "./islandTypes.js";
 const animSheet = document.createElement('style');
-console.log(islandElementsInfo)
 // Island Element Class
 class IslandElement {
     constructor(type, left, top, id) {
@@ -41,46 +40,51 @@ class IslandElement {
     }
 
     createSpriteAnims(){
-        if ( !this.type.secondSrc){
-            return
-        } 
-        const frame2Percs = [ 12, 62]
-        const frame1Percs = [38, 88]
-        const src1 = this.type.imgSrc;
-        const src2 = this.type.secondSrc
-        let frames = []
-
-        for (let i of frame1Percs ){
-            frames.push(
-                {
-                    percent: this.calcNeededPercent(i),
-                    src: src1
-                }
-            )
-        }
-        for (let i of frame2Percs ){
-            frames.push(
-                {
-                    percent: this.calcNeededPercent(i),
-                    src: src2
-                }
-            )
-        }
-
-        const animationName = `updateSprite${this.id}`;
-        let keyframes = `@keyframes ${animationName} {`
- 
-        keyframes += `0% { background-image: url(${src1})}`
-        for (let i of frames){
-            if (i.percent !== 0 && i.percent !== 100){
-                keyframes += `${i.percent}% { background-image: url(${i.src}) }`
+        if (!this.type.animation)return
+        if (this.type.animation == "rotate"){
+            const frame2Percs = [ 12, 62 ]
+            const frame1Percs = [ 38, 88 ]
+            
+            console.log("type:",this.type.imgSrc)
+            const src1 = this.type.imgSrc[0];
+            const src2 = this.type.imgSrc[1]
+            let frames = []
+    
+            for (let i of frame1Percs ){
+                frames.push(
+                    {
+                        percent: this.calcNeededPercent(i),
+                        src: src1
+                    }
+                )
             }
+            for (let i of frame2Percs ){
+                frames.push(
+                    {
+                        percent: this.calcNeededPercent(i),
+                        src: src2
+                    }
+                )
+            }
+    
+
+            const animationName = `updateSprite${this.id}`;
+            let keyframes = `@keyframes ${animationName} {`
+    
+            keyframes += `0% { background-image: url(${src1})}`
+            for (let i of frames){
+                if (i.percent !== 0 && i.percent !== 100){
+                    keyframes += `${i.percent}% { background-image: url(${i.src}) }`
+                }
+            }
+            keyframes += `100% { background-image: url(${src1})}}`
+            createAnimation(keyframes);
+            this.orbitingObject.style.animation = `${animationName} var(--spin-time)  steps(1) infinite`
+            // Return the div
+            return this.orbitingObject;
         }
-        keyframes += `100% { background-image: url(${src1})}}`
-        createAnimation(keyframes);
-        this.orbitingObject.style.animation = `${animationName} var(--spin-time)  steps(1) infinite`
-        // Return the div
-        return this.orbitingObject;
+        
+        
     }
 
 
