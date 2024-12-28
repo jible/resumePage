@@ -1,5 +1,5 @@
 import { islandElementsInfo, islandTraits } from "./islandConfig.js";
-import { IslandElementType, elementTypes } from "./islandTypes.js";
+import { elementTypes } from "./islandTypes.js";
 const animSheet = document.createElement('style');
 // Island Element Class
 class IslandElement {
@@ -45,7 +45,6 @@ class IslandElement {
             const frame2Percs = [ 12, 62 ]
             const frame1Percs = [ 38, 88 ]
             
-            console.log("type:",this.type.imgSrc)
             const src1 = this.type.imgSrc[0];
             const src2 = this.type.imgSrc[1]
             let frames = []
@@ -114,7 +113,7 @@ class IslandElement {
 
             width: this.type.width,   // Set width
             transform: `translate(${this.type.offsetX}, ${this.type.offsetY})`, // Position
-            backgroundImage: `url(${this.type.imgSrc})`, // Set the background image
+            backgroundImage: `url(${this.type.imgSrc[0]})`, // Set the background image
             backgroundSize: 'contain',  // Ensure the image fits within the div
             backgroundRepeat: 'no-repeat', // Avoid repeating the background
             backgroundPosition: 'center', // Center the image
