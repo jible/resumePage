@@ -113,7 +113,7 @@ const ELEMENT_CONFIG = {
             offset: ["-50%", "-100%"],
             subclasses: [
                 { src: ["images/titleScreen/trees/tree1.png"], size: ["3vw", "3vw"] },
-                { src: ["images/titleScreen/trees/tree2.png"], size: ["6vw", "6vw"] },
+                { src: ["images/titleScreen/trees/tree2.png"], size: ["4vw", "4vw"] },
                 { src: ["images/titleScreen/trees/tree3.png"], size: ["3vw", "3vw"] }
             ]
         }

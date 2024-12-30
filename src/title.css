@@ -23,27 +23,31 @@
     opacity: 0.6; /* Slight transparency */
     image-rendering: pixelated;
     animation: cloud-scroll 30s linear infinite var(--spin-direction);
+    height: 100vw;
+    width: 100vw;
+    image-rendering: pixelated;
 }
 
 .waves {
     position: absolute;
     top: 32%;
     left: 0%;
-    height: 12%;
+    height: 5%;
     width: 200%;
-    background: url('../images/titleScreen/background/waves.png') repeat-x; /* Repeat horizontally */
+    background: url('../images/titleScreen/background/wavesV2.png') repeat-x; /* Repeat horizontally */
     background-size: auto 100%;
     animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction);
     z-index: 1;
+    image-rendering: pixelated;
 }
 
 .water {
     position: absolute;
-    top: 40%;
+    top: 37%;
     left: 0%;
     height: 60%;
     width: 200%;
-    background-color: rgb(37, 79, 144);
+    background-color: rgb(66, 165, 245);
 }
 
 /* --- Title Screen Styles --- */
@@ -62,7 +66,7 @@
     left: 50%;
     width: 30vw;
     height: 30vw;
-    background: url('../images/titleScreen/island/islandBase.png') no-repeat center;
+    background: url('../images/titleScreen/island/recoloredIsland.png') no-repeat center;
     background-size: contain;
     animation: island-spin var(--spin-time) linear infinite var(--spin-direction);
     image-rendering: pixelated;

@@ -66,7 +66,7 @@ export const islandElementsInfo = [
 
 
 export const islandTraits = [
-    ['spin-time', '500s'],
+    ['spin-time', '50s'],
     ['spin-direction', 'forwards'],
     ['x-stretch', '2.5'],
     ['y-stretch', '0.5'],
