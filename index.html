@@ -9,24 +9,23 @@
 </head>
 <body>
     <!-- Navigation Bar overlaying the canvas -->
-    <!-- <nav class="overlay-nav">
+    <nav class="overlay-nav">
         <a href="https://your-social-link.com">Social</a>
         <a href="resume.pdf">Resume</a>
         <a href="https://github.com/jible">GitHub</a>
         
-    </nav> -->
+    </nav>
     <div id = 'title-screen' class="title-screen var-holder">
         <!-- Sky Background -->
         <div class="sky-background"></div>
         
-        <img class = "cloud" src = "./images/titleScreen/background/cloud1.png" style=" top: 6vh; left: 100vw; height: 5vh; width: auto"> 
+        <img class = "cloud" src = "./images/titleScreen/background/cloud1.png" style=" top: 6vh; left: 100vw;"> 
 
 
         <div class="waves"></div>
         <div class="water"></div>
         <!-- Spinning Island -->
         <div class="island" id="island"></div>
-        <input type="range" id="mySlider" class="slider" min="-100" max="100" value="500" style =" z-index: 100;" />
     </div>
     
     <script type="module" src="src/titleScreen/island.js"></script>

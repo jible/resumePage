@@ -23,18 +23,18 @@
     opacity: 0.6; /* Slight transparency */
     image-rendering: pixelated;
     animation: cloud-scroll 30s linear infinite var(--spin-direction);
-    height: 100vw;
-    width: 100vw;
+    height: 10vw;
+    width: 10vw;
     image-rendering: pixelated;
 }
 
 .waves {
     position: absolute;
-    top: 32%;
+    top: 38%;
     left: 0%;
     height: 5%;
     width: 200%;
-    background: url('../images/titleScreen/background/wavesV2.png') repeat-x; /* Repeat horizontally */
+    background: url('../images/titleScreen/background/wavesV2.png');
     background-size: auto 100%;
     animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction);
     z-index: 1;
@@ -43,9 +43,9 @@
 
 .water {
     position: absolute;
-    top: 37%;
+    top: 42%;
     left: 0%;
-    height: 60%;
+    height: 63%;
     width: 200%;
     background-color: rgb(66, 165, 245);
 }

@@ -7,7 +7,7 @@ export const islandElementsInfo = [
     ['lightHouse', 8, 13], 
     ['sutroTower', 25, 35],
     ['ggb', 58, 90],
-    ['bofa', 50, 60],
+    ['bofa', 45, 60],
 
     // Buildings
     ['building4', 35, 70], 
