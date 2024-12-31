@@ -45,7 +45,7 @@
     position: absolute;
     top: 42%;
     left: 0%;
-    height: 63%;
+    height: 58%;
     width: 200%;
     background-color: rgb(66, 165, 245);
 }
@@ -174,7 +174,10 @@
 
 
 .title-container {
-    
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
     z-index: 500;
     text-align: center;
   }
@@ -254,3 +257,27 @@
       transform: translateY(-5px);
     }
   }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 20px; /* Distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center alignment correction */
+    font-size: 1.5rem; /* Smaller font size */
+    color: #ffcd3c; /* Golden yellow to match the title */
+    text-shadow: 2px 2px #9933ff, 3px 3px #333; /* Purple + dark shadow */
+    font-weight: bold; /* Make it stand out */
+    z-index: 1000; /* Keep it above background elements */
+    animation: scroll-bounce 2s ease-in-out infinite; /* Add animation */
+    text-align: center; /* Center the text */
+}
+
+/* Bounce Animation for Scroll Hint */
+@keyframes scroll-bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
