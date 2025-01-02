@@ -1,0 +1,78 @@
+/* Base styles for the projects section */
+.projects {
+    padding: 40px;
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Project list container */
+#project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual project item */
+.project-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(33% - 20px); /* Adjusts width for responsiveness */
+    min-width: 250px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Project title */
+.project-item h3 {
+    font-size: 1.5em;
+    margin: 15px 10px;
+    color: #333;
+}
+
+/* Responsive images */
+.responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top: 1px solid #ddd;
+}
+
+/* GitHub repository link */
+.project-item h3:nth-of-type(2) {
+    font-size: 1em;
+    margin: 10px 0 15px 0;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.project-item h3:nth-of-type(2):hover {
+    color: #0056b3;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .project-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-item {
+        width: 100%;
+    }
+}

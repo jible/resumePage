@@ -16,11 +16,25 @@ function makePreview(parent,currentproject){
     title.textContent = currentproject.name;
     project.appendChild(title);
 
-    // Project github
+   // Project GitHub link
     const github = document.createElement('h3');
-    github.textContent = "Github Repository";
-    github.style = currentproject.github;
+    const githubLink = document.createElement('a');
+    githubLink.textContent = "GitHub Repository";
+    githubLink.href = currentproject.github; // Use the GitHub URL
+    githubLink.target = "_blank"; // Open in new tab
+    githubLink.rel = "noopener noreferrer"; // Security best practice
+    github.appendChild(githubLink);
     project.appendChild(github);
+
+    // Playable Link
+    const playText = document.createElement('h3');
+    const playLink = document.createElement('a');
+    playLink.textContent = "Play";
+    playLink.href = currentproject.playableLink; // Use the GitHub URL
+    playLink.target = "_blank"; // Open in new tab
+    playLink.rel = "noopener noreferrer"; // Security best practice
+    playText.appendChild(playLink);
+    project.appendChild(playText);
 
    // Image loading with fixed width and dynamic height
     for (let img of currentproject.imgs) {
@@ -38,9 +52,8 @@ function makePreview(parent,currentproject){
     
 
 }
-
 // Fetch the JSON data
-fetch('src/projects.json').then((response) => response.json()).then((data) => {
+fetch('src/projectList/projects.json').then((response) => response.json()).then((data) => {
         const projects = data.projects; // Access the projects array
         console.log(projects); // Log the projects array to verify the data
 
