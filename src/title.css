@@ -66,7 +66,7 @@
     left: 50%;
     width: 30vw;
     height: 30vw;
-    background: url('../images/titleScreen/island/recoloredIsland.png') no-repeat center;
+    background: url('../images/titleScreen/island/low-res-island-base.png') no-repeat center;
     background-size: contain;
     animation: island-spin var(--spin-time) linear infinite var(--spin-direction);
     image-rendering: pixelated;
