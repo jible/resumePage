@@ -7,7 +7,7 @@ function makePreview(parent,currentproject){
         return;
     }
     const project = document.createElement("div");
-    parent.classList.add("project-item")
+    project.classList.add("project-item")
     parent.append(project);
 
 
@@ -48,7 +48,16 @@ function makePreview(parent,currentproject){
         project.appendChild(image);
     }
 
+    // description 
+    const descriptionLabel = document.createElement('h3')
+    descriptionLabel.innerHTML = "Project Description: "
+    const description = document.createElement('div')
+    description.innerHTML = currentproject.description;
+    description.classList.add('gameDescription')
 
+
+    project.appendChild(descriptionLabel)
+    project.appendChild(description)
     
 
 }

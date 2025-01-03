@@ -1,7 +1,7 @@
 /* Base styles for the projects section */
 .projects {
     padding: 40px;
-    background-color: #f8f9fa;
+    background-color: rgb(66, 165, 245);
     color: #333;
     text-align: center;
 }
@@ -74,5 +74,46 @@
 @media (max-width: 480px) {
     .project-item {
         width: 100%;
+    }
+}
+
+
+/* Label for the description */
+.gameDescription h3 {
+    font-size: 1.3em;
+    margin: 10px 0;
+    color: #555;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Container for the description text */
+.gameDescription {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Optional: Add a hover effect for interactivity */
+.gameDescription:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .gameDescription {
+        font-size: 0.95em;
+        padding: 8px 12px;
+    }
+
+    .gameDescription h3 {
+        font-size: 1.1em;
     }
 }

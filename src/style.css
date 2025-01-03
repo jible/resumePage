@@ -10,6 +10,7 @@ body, html {
     overflow-x: hidden;
     overflow-y: auto;
     font-family: Arial, sans-serif;
+    background-color: rgb(66, 165, 245);
 }
 
 /* ----------------------------------------

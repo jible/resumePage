@@ -37,7 +37,7 @@
 
         },
         {
-            "name": "The Tail of Two Tides",
+            "name": "A Tail of Two Tides",
             "github": "https://github.com/IcySmoooth/GMTK_2024",
             "playableLink": "https://emiree-draws.itch.io/tail-of-two-tides",
             "imgs": [
@@ -54,6 +54,27 @@
                 "C# programming",
                 "GitHub version control",
                 "Communication and teamwork"
+            ],
+            "priotiy": "1"
+        },
+        {
+            "name": "Pixelation Tool",
+            "github": "https://github.com/jible/Pixel-Art-Maker",
+            "playableLink": "https://jible.github.io/Pixel-Art-Maker/",
+            "imgs": [
+                "./images/sampleGames/pixelationToolGamePlay0.png",
+                "./images/sampleGames/pixelationToolGameplay1.png"
+            ],
+            "description": "This is a tool I made for my friend's tool Jam. I really like retro game aesthetics and sometimes I have trouble making game assets so I made a tool that crunches images down and applies a palette to them. The user can upload a photo, slide the block size to the right to make the image more pixelated, then they can apply a palette to the image.",
+            "constribution": [
+                "I programmed all aspectes of this projects."
+            ],
+            "highlights":[],
+            "skillsDemonstrated": [
+                "Web development",
+                "Javascript programming",
+                "CSS style sheets",
+                "Using HTML canvases to modify images"
             ],
             "priotiy": "1"
         }
