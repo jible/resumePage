@@ -29,24 +29,25 @@
 
 .waves {
     position: absolute;
-    top: 38%;
+    top: 41%;
     left: 0%;
-    height: 5%;
+    height: 3%;
     width: 200%;
-    background: url('../images/titleScreen/background/wavesV2.png');
+    background: url('../images/titleScreen/background/waves1.png');
     background-size: auto 100%;
-    animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction);
+    animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction),
+    wave-sprites 5s infinite steps(1) alternate;
     z-index: 1;
     image-rendering: pixelated;
 }
 
 .water {
     position: absolute;
-    top: 42%;
+    top: 43%;
     left: 0%;
     height: 58%;
     width: 200%;
-    background-color: rgb(66, 165, 245);
+    background-color: rgb(0, 95, 223);
 }
 
 /* --- Title Screen Styles --- */
@@ -77,7 +78,7 @@
     top: 20%;
     left: 50%;
     transform-origin: center;
-    animation: anti-rotate var(--spin-time) linear infinite ; /* Keeps tree upright */
+    animation: anti-rotate var(--spin-time) linear infinite ;
 }
 
 /* --- Island Element Styles --- */
@@ -97,6 +98,18 @@
         transform: translateX(0);
     }
 }
+@keyframes wave-sprites {
+    0% {
+      background-image: url('../images/titleScreen/background/waves1.png');
+    }
+    50% {
+      background-image: url('../images/titleScreen/background/waves2.png');
+    }
+    100% {
+      background-image: url('../images/titleScreen/background/waves3.png');
+    }
+  }
+  
 
 @keyframes cloud-scroll {
     0% {

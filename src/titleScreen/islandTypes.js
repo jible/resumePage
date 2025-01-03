@@ -53,14 +53,14 @@ const ELEMENT_CONFIG = {
         },
         {
             name: 'lightHouse',
-            src: ["images/titleScreen/buildings/lightHouse.png"],
+            src: ["images/titleScreen/buildings/lightHouseV2.png"],
             size: ["7vw", "7vw"],
             offset: ["-50%", "-90%"]
         },
         {
             name: 'sutroTower',
-            src: ["images/titleScreen/buildings/sutroTower.png"],
-            size: ["15vw", "15vw"],
+            src: ["images/titleScreen/buildings/sutroTowerV2.png"],
+            size: ["12vw", "12vw"],
             offset: ["-50%", "-100%"]
         },
         {

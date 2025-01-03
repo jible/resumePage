@@ -74,7 +74,3 @@ export const islandTraits = [
     ['y-unstretch', '2']
 ];
 
-// Usage Example
-// for (const [key, value] of islandTraits) {
-//     console.log(`${key}: ${value}`);
-// }
