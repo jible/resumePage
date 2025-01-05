@@ -24,7 +24,7 @@
                 "./images/sampleGames/zelmoreTitle.png",
                 "./images/sampleGames/zelmoreFighting.png"
             ],
-            "description": "The Tales of Zelmore is a 2 player fighting game I made with my friend Garrett for a class at UCSC. The assignment was to create a real version of a video game from a tv show or movie. We chose The Tales of Zelmore from the tv show The Amazing World of Gumball. We had 2 weeks to make this project",
+            "description": "The Tales of Zelmore is a 2 player fighting game I made in collaboration with my friend Garrett for a class at UCSC. The assignment was to create a real version of a video game from a tv show or movie. We chose The Tales of Zelmore from the tv show The Amazing World of Gumball. We had 2 weeks to make this project",
             "contribution": [
                 "I programmed the hero character controller and state machine",
                 "I programmed the menus",
@@ -60,7 +60,7 @@
             
             "highlights":[
                 "I created a routine-based movement system that would move the player from one lane to another when they input a direction. They are able to change their mind mid-move, to move back to where they came from.",
-                "When programming the obstacle instatiation, "
+                "When programming the obstacle instatiation, I put it into one easy function that included documentation. This made it easy for my partner to sync the obstacle instantiation to the music"
             ],
             "skillsDemonstrated": [
                 "Unity Game Engine",
