@@ -36,7 +36,7 @@
     background: url('../images/titleScreen/background/waves1.png');
     background-size: auto 100%;
     animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction),
-    wave-sprites 5s infinite steps(1) alternate;
+    wave-sprites 2s infinite steps(1) alternate;
     z-index: 1;
     image-rendering: pixelated;
 }
@@ -102,10 +102,10 @@
     0% {
       background-image: url('../images/titleScreen/background/waves1.png');
     }
-    50% {
+    33% {
       background-image: url('../images/titleScreen/background/waves2.png');
     }
-    100% {
+    66% {
       background-image: url('../images/titleScreen/background/waves3.png');
     }
   }
@@ -270,6 +270,9 @@
     }
   }
 
+
+  
+
   .scroll-hint {
     position: absolute;
     bottom: 20px; /* Distance from the bottom */
@@ -282,6 +285,13 @@
     z-index: 1000; /* Keep it above background elements */
     animation: scroll-bounce 2s ease-in-out infinite; /* Add animation */
     text-align: center; /* Center the text */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Bounce Animation for Scroll Hint */

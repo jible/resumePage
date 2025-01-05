@@ -158,6 +158,24 @@ const style = setIslandTraits();
 varHolder.setAttribute('style', style);
 
 
+
+
+const scrollHint = document.getElementsByClassName('scroll-hint')[0];
+
+document.body.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 0) {
+        scrollHint.classList.add('hidden'); // Hide the element
+    } else {
+        scrollHint.classList.remove('hidden'); // Show the element
+    }
+});
+
+
+
+
+
+
+
 // FUNCTION DECLARATIONS
 function setIslandTraits() {   
     let style = '';

@@ -6,11 +6,34 @@
     text-align: center;
 }
 
-.projects h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #555;
+.projects h2{
+    position: relative;
+    
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center alignment correction */
+    font-size: 3rem; /* Smaller font size */
+    color: #ffcd3c; /* Golden yellow to match the title */
+    text-shadow: 2px 2px #9933ff, 3px 3px #333; /* Purple + dark shadow */
+    font-weight: bold; /* Make it stand out */
+    z-index: 1000; /* Keep it above background elements */
+    animation: scroll-bounce 2s ease-in-out infinite; /* Add animation */
+    text-align: center; /* Center the text */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+#pixel-art-maker{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: #FFD700;
+    text-shadow: 2px 2px #A4243B;
+    margin-bottom: 20px;
+}
+
 
 /* Project list container */
 #project-list {
@@ -41,6 +64,15 @@
     font-size: 1.5em;
     margin: 15px 10px;
     color: #333;
+}
+
+.project-item a{
+    color: #ff4800;
+     text-decoration: none;
+}
+.project-item a:hover{
+    color: #ff7e5f;
+  text-decoration: underline;
 }
 
 /* Responsive images */
@@ -99,6 +131,8 @@
     text-align: left;
     margin-bottom: 15px;
 }
+
+
 
 /* Optional: Add a hover effect for interactivity */
 .gameDescription:hover {

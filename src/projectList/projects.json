@@ -9,6 +9,8 @@
             [
                 "path/to/image-or-video.jpg"
             ],
+            
+            "highlights":[],
             "description": "page",
             "priotiy": "0"
 
@@ -16,16 +18,21 @@
         {
             "name": "The Tale of Zelmore",
             "github": "https://github.com/tblagarrett/Zelmore",
+            "titleImage": "./images/sampleGames/titles/zelmore.png",
             "playableLink": "https://tblagarrett.github.io/Zelmore/",
             "imgs": [
                 "./images/sampleGames/zelmoreTitle.png",
                 "./images/sampleGames/zelmoreFighting.png"
             ],
             "description": "The Tales of Zelmore is a 2 player fighting game I made with my friend Garrett for a class at UCSC. The assignment was to create a real version of a video game from a tv show or movie. We chose The Tales of Zelmore from the tv show The Amazing World of Gumball. We had 2 weeks to make this project",
-            "constribution": [
+            "contribution": [
                 "I programmed the hero character controller and state machine",
                 "I programmed the menus",
-                "I drew all of the hero's animations and title screen visualson Piskel"
+                "I drew all of the hero's animations and title screen visuals using Piskel"
+            ],
+            
+            "highlights":["I crafted a compelx player state machine with states and routines that could be interrupted by certain events, like being stunned",
+                            "I programmed hitboxes and hurtboxes to handel attacks between the characters"
             ],
             "skillsDemonstrated": [
                 "JavaScript programming",
@@ -38,6 +45,7 @@
         },
         {
             "name": "A Tail of Two Tides",
+            "titleImage": "./images/sampleGames/titles/tailOfTides.png",
             "github": "https://github.com/IcySmoooth/GMTK_2024",
             "playableLink": "https://emiree-draws.itch.io/tail-of-two-tides",
             "imgs": [
@@ -45,9 +53,14 @@
                 "./images/sampleGames/tailofTwoTidesGamePlay.png"
             ],
             "description": "The Tail of Two Tides is a Rythm game I made with 3 other friends for the GMTK 2024 Summer Game Jam. The player has to hit the notes in a guitar hero style, then swap to collect notes, like coins in subway surfers. The player wins if they complete all four rounds.",
-            "constribution": [
+            "contribution": [
                 "I programmed the dog pirates movement.",
                 "I also programmed the obstacles and the notes for the dog pirate in a simple way to the person in charge of syncing them to the music could easily spawn them with a function call."
+            ],
+            
+            "highlights":[
+                "I created a routine-based movement system that would move the player from one lane to another when they input a direction. They are able to change their mind mid-move, to move back to where they came from.",
+                "When programming the obstacle instatiation, "
             ],
             "skillsDemonstrated": [
                 "Unity Game Engine",
@@ -59,14 +72,15 @@
         },
         {
             "name": "Pixelation Tool",
+            "titleCss" : "pixel-art-maker",
             "github": "https://github.com/jible/Pixel-Art-Maker",
             "playableLink": "https://jible.github.io/Pixel-Art-Maker/",
             "imgs": [
                 "./images/sampleGames/pixelationToolGamePlay0.png",
-                "./images/sampleGames/pixelationToolGameplay1.png"
+                "./images/sampleGames/pixelationToolGamePlay1.png"
             ],
             "description": "This is a tool I made for my friend's tool Jam. I really like retro game aesthetics and sometimes I have trouble making game assets so I made a tool that crunches images down and applies a palette to them. The user can upload a photo, slide the block size to the right to make the image more pixelated, then they can apply a palette to the image.",
-            "constribution": [
+            "contribution": [
                 "I programmed all aspectes of this projects."
             ],
             "highlights":[],
