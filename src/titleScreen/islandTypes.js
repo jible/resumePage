@@ -53,7 +53,7 @@ const ELEMENT_CONFIG = {
         },
         {
             name: 'lightHouse',
-            src: ["images/titleScreen/buildings/lightHouseV2.png"],
+            src: ["images/titleScreen/buildings/lighthouseV2.png"],
             size: ["7vw", "7vw"],
             offset: ["-50%", "-90%"]
         },
