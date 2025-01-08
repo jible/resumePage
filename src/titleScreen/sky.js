@@ -1,4 +1,3 @@
-import 
 export function spawnBackgroundElement() {
     const skyBackground = document.querySelector('.sky-background');
 
