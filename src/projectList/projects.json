@@ -23,13 +23,13 @@
             ],
             "description": "The Tales of Zelmore is a 2 player fighting game I made in collaboration with my friend Garrett for a class at UCSC. The assignment was to create a real version of a video game from a tv show or movie. We chose The Tales of Zelmore from the tv show The Amazing World of Gumball. We had 2 weeks to make this project",
             "contribution": [
-                "I programmed the hero character controller and state machine",
-                "I programmed the menus",
-                "I drew all of the hero's animations and title screen visuals using Piskel"
+                "I programmed the hero character controller and state machine.",
+                "I programmed the menus.",
+                "I drew all of the hero's animations and title screen visuals using Piskel."
             ],
             "highlights": [
-                "I crafted a complex player state machine with states and routines that could be interrupted by certain events, like being stunned",
-                "I programmed hitboxes and hurtboxes to handle attacks between the characters"
+                "I crafted a complex player state machine with states and routines that could be interrupted by certain events, like being stunned.",
+                "I programmed hit boxes and hurt boxes to handle attacks between the characters."
             ],
             "skillsDemonstrated": [
                 "JavaScript programming",

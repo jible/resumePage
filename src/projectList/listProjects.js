@@ -47,9 +47,14 @@ function makePreview(parent, currentproject) {
     project.appendChild(description.contentDiv);
 
     // My Contributions
-    const contribution = createSection("My Contributions: ", currentproject.contribution);
-    project.appendChild(contribution.label);
-    project.appendChild(contribution.contentDiv);
+    const contributionsLabel = document.createElement('h3');
+    contributionsLabel.innerHTML = "Contributions: ";
+    project.appendChild(contributionsLabel);
+
+    const contributions = document.createElement('div');
+    contributions.appendChild(createSkillList(currentproject.contribution));
+    contributions.classList.add('gameDescription');
+    project.appendChild(contributions);
 
     // Highlights
     const highlightLabel = document.createElement('h3');
