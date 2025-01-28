@@ -10,11 +10,11 @@ const varHolder = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
 const style = setIslandTraits();
 varHolder.setAttribute('style', style);
-
-
-
-
 const scrollHint = document.getElementsByClassName('scroll-hint')[0];
+
+window.addEventListener('load', () => {
+    document.body.classList.remove('no-animations');
+  });
 
 document.body.addEventListener('scroll', () => {
     if (document.body.scrollTop > 0) {

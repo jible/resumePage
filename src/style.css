@@ -39,6 +39,12 @@ PROJECT STYLES
     color: #ffffff;
 }
 
+
+.no-animations * {
+    animation: none !important;
+    transition: none !important;
+  }
+
 /* Projects Section Styling */
 .projects {
     padding: 20px;
