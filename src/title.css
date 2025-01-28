@@ -21,7 +21,7 @@
 .cloud{
     z-index:2;
     image-rendering: pixelated;
-    animation: cloud-scroll 30s linear infinite var(--spin-direction);
+    animation: cloud-scroll 30s linear var(--spin-direction);
     height: 10vw;
     width: 10vw;
     image-rendering: pixelated;
@@ -212,9 +212,9 @@
 
   .main-title {
     z-index: 1000; /* Matches the container's z-index */
-    font-size: 4rem;
+    font-size: 3rem;
     color: #ffcd3c; /* Golden yellow */
-    text-shadow: 4px 4px #9933ff, 6px 6px #333; /* Purple + dark shadow */
+    text-shadow: 4px 4px #a13f1e, 6px 6px #333; /* Purple + dark shadow */
     display: flex;
     align-items: center;
     justify-content: center;
