@@ -14,7 +14,7 @@ export function spawnBackgroundElement() {
     bgObject.classList.add("cloud")
     // Randomize position and delay
     bgObject.style.left = '-10%';
-    bgObject.style.bottom = `${Math.random() * 70 + 10}%`; // Between 10% and 80%
+    bgObject.style.bottom = `${Math.random() * 90 + 10}%`; // Between 10% and 80%
     bgObject.style.animationDelay = '0s';
     bgObject.style.brackgroundSize = 'contain'
     bgObject.style.position = 'absolute';
@@ -23,7 +23,6 @@ export function spawnBackgroundElement() {
         bgObject.remove();
     });
 
-    console.log(skyBackground)
     skyBackground.appendChild(bgObject);
 }
 
