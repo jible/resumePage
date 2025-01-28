@@ -4,9 +4,9 @@ export function spawnBackgroundElement() {
     // Randomly select a background element type (cloud/star)
 
     let cloudPaths = [
-        '/images/titleScreen/background/cloud1.png',
-        '/images/titleScreen/background/cloud2.png',
-        '/images/titleScreen/background/cloud3.png'
+        'images/titleScreen/background/cloud1.png',
+        'images/titleScreen/background/cloud2.png',
+        'images/titleScreen/background/cloud3.png'
     ]
     let bgObject = document.createElement('img')
 
