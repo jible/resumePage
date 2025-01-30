@@ -37,7 +37,6 @@
 
 /* Project list container */
 #project-list {
-    font-family: Veranda, sans-serif;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -115,6 +114,7 @@
 
 /* Label for the description */
 .gameDescription h3 {
+
     font-size: 1.3em;
     margin: 10px 0;
     color: #555;
@@ -122,8 +122,15 @@
     text-align: left;
 }
 
+.description-list-item {
+    font-family: Veranda, sans-serif;
+
+}
+
 /* Container for the description text */
 .gameDescription {
+    font-family: Veranda, sans-serif;
+
     font-size: 1em;
     line-height: 1.6;
     color: #333;

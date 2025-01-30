@@ -52,7 +52,7 @@ function makePreview(parent, currentproject) {
     project.appendChild(contributionsLabel);
 
     const contributions = document.createElement('div');
-    contributions.appendChild(createSkillList(currentproject.contribution));
+    contributions.appendChild(createBulletPointList(currentproject.contribution));
     contributions.classList.add('gameDescription');
     project.appendChild(contributions);
 
@@ -62,7 +62,7 @@ function makePreview(parent, currentproject) {
     project.appendChild(highlightLabel);
 
     const highlights = document.createElement('div');
-    highlights.appendChild(createSkillList(currentproject.highlights));
+    highlights.appendChild(createBulletPointList(currentproject.highlights));
     highlights.classList.add('gameDescription');
     project.appendChild(highlights);
     
@@ -75,7 +75,7 @@ function makePreview(parent, currentproject) {
     project.appendChild(skillsLabel);
 
     const skills = document.createElement('div');
-    skills.appendChild(createSkillList(currentproject.skillsDemonstrated));
+    skills.appendChild(createBulletPointList(currentproject.skillsDemonstrated));
     skills.classList.add('gameDescription');
     project.appendChild(skills);
 
@@ -109,6 +109,7 @@ function createBulletPointList(items) {
     items.forEach(item => {
         const listItem = document.createElement('li');
         listItem.textContent = item;
+        listItem.classList.add('description-list-item')
         list.appendChild(listItem);
     });
     return list;
@@ -144,8 +145,3 @@ function createImageElement(src) {
     return image;
 }
 
-// Function to create skill list from array of skills
-function createSkillList(skills) {
-    const skillsList = createBulletPointList(skills);
-    return skillsList;
-}
