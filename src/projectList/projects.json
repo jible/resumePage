@@ -21,18 +21,19 @@
                 "./images/sampleGames/zelmoreTitle.png",
                 "./images/sampleGames/zelmoreFighting.png"
             ],
-            "description": "The Tales of Zelmore is a 2 player fighting game I made in collaboration with my friend Garrett for a class at UCSC. The assignment was to create a real version of a video game from a tv show or movie. We chose The Tales of Zelmore from the tv show The Amazing World of Gumball. We had 2 weeks to make this project",
+            "description": "The Tales of Zelmore is a 2 player fighting game I made in collaboration with Garrett Blake. We wanted to create a real version of The Tales of Zelmore, a video game from the tv show, The Amazing World of Gumball. We finished this project in two weeks",
             "contribution": [
                 "I programmed the hero character controller and state machine.",
                 "I programmed the menus.",
                 "I drew all of the hero's animations and title screen visuals using Piskel."
             ],
             "highlights": [
-                "I crafted a complex player state machine with states and routines that could be interrupted by certain events, like being stunned.",
+                "I crafted a complex player state machine with states and routines that could be interrupted by certain events, like being stunned/hurt.",
                 "I programmed hit boxes and hurt boxes to handle attacks between the characters."
             ],
             "skillsDemonstrated": [
                 "JavaScript programming",
+                "Making games in Phaser",
                 "GitHub version control",
                 "Communication and teamwork",
                 "Pixel art"
@@ -48,14 +49,14 @@
                 "./images/sampleGames/tailofTwoTidesTitle.png",
                 "./images/sampleGames/tailofTwoTidesGamePlay.png"
             ],
-            "description": "The Tail of Two Tides is a Rhythm game I made with 3 other friends for the GMTK 2024 Summer Game Jam. The player has to hit the notes in a guitar hero style, then swap to collect notes, like coins in subway surfers. The player wins if they complete all four rounds.",
+            "description": "The Tail of Two Tides is a Rhythm game I made with 3 peers for the GMTK 2024 Summer Game Jam. The player has to hit the notes in a guitar hero style, then swap to collect notes, like coins in subway surfers. The player wins if they complete all four rounds.",
             "contribution": [
                 "I programmed the dog pirate's movement.",
                 "I also programmed the obstacles and the notes for the dog pirate in a simple way so the person in charge of syncing them to the music could easily spawn them with a function call."
             ],
             "highlights": [
-                "I created a routine-based movement system that would move the player from one lane to another when they input a direction. They are able to change their mind mid-move, to move back to where they came from.",
-                "When programming the obstacle instantiation, I put it into one easy function that included documentation. This made it easy for my partner to sync the obstacle instantiation to the music"
+                "I created a routine-based movement system that would move the player from one lane to another when they input a direction. They are able to change their mind mid-move, to move back to the lane they came from.",
+                "I wrote the system that instances the obstacles and notes for the dog. I made sure to keep this code modular so it would be easy to build the rest of the game systems on top of it."
             ],
             "skillsDemonstrated": [
                 "Unity Game Engine",
@@ -78,7 +79,12 @@
             "contribution": [
                 "I programmed all aspects of this project."
             ],
-            "highlights": [],
+            "highlights": [
+                "I learned how to use html canvases to modify images on the pixel level.",
+                "I brainstormed varying methods for compressing images to emulate a retro video game look.",
+                "I made a complex palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
+
+            ],
             "skillsDemonstrated": [
                 "Web development",
                 "JavaScript programming",
