@@ -116,6 +116,13 @@ const ELEMENT_CONFIG = {
                 { src: ["images/titleScreen/trees/tree2.png"], size: ["4vw", "4vw"] },
                 { src: ["images/titleScreen/trees/tree3.png"], size: ["3vw", "3vw"] }
             ]
+        },
+        {
+            name: 'buildboard',
+            src: ["images/titleScreen/buildings/buildboard.png"],
+            offset: ["-50%", "-100%"],
+            size: ["8vw", "8vw"],
+            
         }
     ]
 };

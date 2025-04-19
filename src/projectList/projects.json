@@ -80,9 +80,9 @@
                 "I programmed all aspects of this project."
             ],
             "highlights": [
-                "I learned how to use html canvases to modify images on the pixel level.",
+                "I learned how to use HTML canvases to modify images on the pixel level.",
                 "I brainstormed varying methods for compressing images to emulate a retro video game look. The page includes",
-                "I made a complex palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
+                "I made a palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
 
             ],
             "skillsDemonstrated": [
@@ -102,21 +102,20 @@
                 "./images/sampleGames/portfolioGamePlay0.png",
                 "./images/sampleGames/portfolioGamePlay1.png"
             ],
-            "description": "This was a super difficult project, with many itterations.",
+            "description": "TThis is the page you are currently viewing. I worked on this page for several months during school, working it into different projects to find ways to imporve it.",
             "contribution": [
                 "I programmed all aspects of this project."
             ],
             "highlights": [
-                "I learned how to use html canvases to modify images on the pixel level.",
-                "I brainstormed varying methods for compressing images to emulate a retro video game look. The page includes",
-                "I made a complex palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
+                "I had to thoroughly understand HTML object hierarchy and CSS animations, to create the illusion of 3D space and depth",
+                "I made all of the art assets",
+                "I used javascript to create css animations during runtime to allow easy changes, like moving elements on the island."
 
             ],
             "skillsDemonstrated": [
                 "Web development",
                 "JavaScript programming",
-                "CSS style sheets",
-                "Using HTML canvases to modify images"
+                "CSS style sheets"
             ],
             "priority": "1"
         }

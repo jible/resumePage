@@ -11,7 +11,7 @@ export const islandElementsInfo = [
 
     // Buildings
     ['building4', 35, 70], 
-
+    ['buildboard', 15, 70],
     // Houses
     ['houses0', 50, 38], 
     ['houses1', 55, 38],  
