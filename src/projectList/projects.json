@@ -55,8 +55,8 @@
                 "I also programmed the obstacles and the notes for the dog pirate in a simple way so the person in charge of syncing them to the music could easily spawn them with a function call."
             ],
             "highlights": [
-                "I created a routine-based movement system that would move the player from one lane to another when they input a direction. They are able to change their mind mid-move, to move back to the lane they came from.",
-                "I wrote the system that instances the obstacles and notes for the dog. I made sure to keep this code modular so it would be easy to build the rest of the game systems on top of it."
+                "I created a routine-based movement system that would move the player from one lane to another when the user inputs a direction. Users can interrupt the current routine to move back to the lane they started from.",
+                "I wrote the system that instances the obstacles and notes for the dog. I made sure to keep this code modular so it could easily communicate with the rythm system.."
             ],
             "skillsDemonstrated": [
                 "Unity Game Engine",
@@ -75,13 +75,40 @@
                 "./images/sampleGames/pixelationToolGamePlay0.png",
                 "./images/sampleGames/pixelationToolGamePlay1.png"
             ],
-            "description": "This is a tool I made for my friend's tool Jam. I really like retro game aesthetics and sometimes I have trouble making game assets so I made a tool that crunches images down and applies a palette to them. The user can upload a photo, slide the block size to the right to make the image more pixelated, then they can apply a palette to the image.",
+            "description": "I really like retro game aesthetics and sometimes I have trouble making game assets so I made a tool that crunches images down and applies a palette to them. This is great for taking pictures and using them for video game background. The user can upload a photo, slide the block size to the right to make the image more pixelated, then they can apply a palette to the image.",
             "contribution": [
                 "I programmed all aspects of this project."
             ],
             "highlights": [
                 "I learned how to use html canvases to modify images on the pixel level.",
-                "I brainstormed varying methods for compressing images to emulate a retro video game look.",
+                "I brainstormed varying methods for compressing images to emulate a retro video game look. The page includes",
+                "I made a complex palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
+
+            ],
+            "skillsDemonstrated": [
+                "Web development",
+                "JavaScript programming",
+                "CSS style sheets",
+                "Using HTML canvases to modify images"
+            ],
+            "priority": "1"
+        },
+        {
+            "name": "Portfolio Page",
+            "titleCss": "pixel-art-maker",
+            "github": "https://github.com/jible/resumePage",
+            "playableLink": "https://jible.github.io/resumePage/",
+            "imgs": [
+                "./images/sampleGames/portfolioGamePlay0.png",
+                "./images/sampleGames/portfolioGamePlay1.png"
+            ],
+            "description": "This was a super difficult project, with many itterations.",
+            "contribution": [
+                "I programmed all aspects of this project."
+            ],
+            "highlights": [
+                "I learned how to use html canvases to modify images on the pixel level.",
+                "I brainstormed varying methods for compressing images to emulate a retro video game look. The page includes",
                 "I made a complex palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
 
             ],
