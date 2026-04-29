@@ -10,7 +10,7 @@
 .sky-background {
     position: absolute;
     width: 100%; /* Full canvas width */
-    height: 50%; /* Partial canvas height */
+    height: 100%; /* Partial canvas height */
     background-color: rgb(20, 20, 78);
     background-size: contain;
     image-rendering: pixelated;
@@ -29,21 +29,20 @@
 
 .waves {
     position: absolute;
-    top: 41%;
+    top: 55%;
     left: 0%;
     height: 3%;
     width: 200%;
     background: url('../images/titleScreen/background/waves1.png');
     background-size: auto 100%;
-    animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction),
-    wave-sprites 2s infinite steps(1) alternate;
+    animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction);
     z-index: 1;
     image-rendering: pixelated;
 }
 
 .water {
     position: absolute;
-    top: 43%;
+    top: 58%;
     left: 0%;
     height: 58%;
     width: 200%;
@@ -62,7 +61,7 @@
 /* --- Island Styles --- */
 .island {
     position: absolute;
-    top: 65%;
+    top: 73%;
     left: 50%;
     width: 30vw;
     height: 30vw;
@@ -118,17 +117,6 @@ It should bounce a compress
         transform: translateX(0);
     }
 }
-@keyframes wave-sprites {
-    0% {
-      background-image: url('../images/titleScreen/background/waves1.png');
-    }
-    33% {
-      background-image: url('../images/titleScreen/background/waves2.png');
-    }
-    66% {
-      background-image: url('../images/titleScreen/background/waves3.png');
-    }
-  }
   
 
 @keyframes cloud-scroll {
@@ -207,7 +195,7 @@ It should bounce a compress
 
 .title-container {
     position: absolute;
-    top: 10%;
+    top: 4%;
     left: 50%;
     transform: translate(-50%);
     z-index: 500;

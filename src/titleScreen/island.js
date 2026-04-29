@@ -1,11 +1,13 @@
-import { islandElementsInfo, islandTraits } from "./islandConfig.js";
+import { CloudFrequency, islandElementsInfo, islandTraits } from "./islandConfig.js";
 
-import {spawnBackgroundElement} from "./sky.js"
+import {spawnBackgroundElement, spawnInitialBackgroundElements} from "./sky.js"
 import { IslandElement } from "./IslandElementClass.js";
 
 // SETTING UP SCENE
 
 const island = document.getElementById("island");
+const skyBackground = document.querySelector('.sky-background');
+
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
 const style = getIslandTraits();
@@ -23,10 +25,27 @@ document.body.addEventListener('scroll', () => {
         scrollHint.classList.remove('hidden'); // Show the element
     }
 });
+spawnInitialBackgroundElements();
+var spawnInterval = setInterval(spawnBackgroundElement, CloudFrequency);
 
+document.addEventListener('visibilitychange', () =>{
+    if (document.hidden){
+        clearInterval(spawnInterval);
+
+    }
+    if (!document.hidden){
+        var children = skyBackground.children;
+        Array.from(children).forEach(child => {
+            child.remove()
+        });
+        spawnInitialBackgroundElements()
+        spawnInterval = setInterval(spawnBackgroundElement, CloudFrequency);
+    }
+    
+    
+});
 
 // Spawn a new background object every 3 seconds
-setInterval(spawnBackgroundElement, 3000);
 
 
 

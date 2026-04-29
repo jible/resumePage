@@ -63,14 +63,14 @@ export const islandElementsInfo = [
     ['buoy', 55, 75]
 ];
 
-
+export const CloudFrequency = 3000;
 
 export const islandTraits = [
     ['spin-time', '50s'],
     ['spin-direction', 'forwards'],
     ['x-stretch', '2.5'],
-    ['y-stretch', '0.5'],
+    ['y-stretch', '0.33'],
     ['x-unstretch', '0.4'],
-    ['y-unstretch', '2']
+    ['y-unstretch', '3'],
 ];
 
