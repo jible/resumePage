@@ -6,10 +6,10 @@ import { IslandElement } from "./IslandElementClass.js";
 // SETTING UP SCENE
 
 const island = document.getElementById("island");
-const varHolder = document.getElementById("title-screen");
+const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
-const style = setIslandTraits();
-varHolder.setAttribute('style', style);
+const style = getIslandTraits();
+titleScreen.setAttribute('style', style);
 const scrollHint = document.getElementsByClassName('scroll-hint')[0];
 
 window.addEventListener('load', () => {
@@ -32,7 +32,7 @@ setInterval(spawnBackgroundElement, 3000);
 
 
 // FUNCTION DECLARATIONS
-function setIslandTraits() {   
+function getIslandTraits() {   
     let style = '';
     for (let i of islandTraits){
         

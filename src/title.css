@@ -87,7 +87,27 @@
     image-rendering: crisp-edges;
 }
 
+/* title Image
+It should bounce a compress
+*/
+@keyframes  titleBounce {
+    0% {transform: translateY(0px) ;}
+    50% {transform: translateY(50px);}
+    100% {transform: translateY(0px) ;}
+}
+@keyframes  titleCompression {
+    0% {transform: scaleY(100%);}
+    50% {transform : scaleY(95%);}
+    100% {transform: scaleY(100%);}
+}
 
+.title-squish-containter{
+    animation: titleCompression 4s ease-in-out infinite;
+}
+
+.title-text{
+    animation: titleBounce 5s ease-in-out infinite;
+}
 
 /* --- Keyframes --- */
 @keyframes wave-scroll {
@@ -230,17 +250,7 @@
     margin-top: 10px;
   }
   
-  .icon {
-    font-size: 3rem;
-  }
-  
-  .icon.joystick {
-    animation: bounce 2s infinite;
-  }
-  
-  .icon.gear {
-    animation: rotate 3s linear infinite;
-  }
+
   
   /* Animations */
   @keyframes bounce {
