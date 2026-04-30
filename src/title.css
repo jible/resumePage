@@ -31,7 +31,7 @@
     position: absolute;
     top: 55%;
     left: 0%;
-    height: 5%;
+    height: min(5vh, 30px);
     width: 200%;
     background: url('../images/titleScreen/background/wavesv5.png');
     background-size: auto 100%;
@@ -42,7 +42,7 @@
 
 .water {
     position: absolute;
-    top: 58%;
+    top: 56%;
     left: 0%;
     height: 58%;
     width: 200%;
@@ -106,6 +106,7 @@ It should bounce a compress
 
 .title-text{
     animation: titleBounce 5s ease-in-out infinite;
+    max-width: 90VW;
 }
 
 /* --- Keyframes --- */
