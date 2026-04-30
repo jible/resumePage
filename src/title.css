@@ -22,8 +22,8 @@
     z-index:2;
     image-rendering: pixelated;
     animation: cloud-scroll 30s linear var(--spin-direction);
-    height: 5vw;
-    width: 5vw;
+    height: max(7vw, 7vh);
+    width: max( 7vh, 7vw);
     image-rendering: pixelated;
 }
 
@@ -31,9 +31,9 @@
     position: absolute;
     top: 55%;
     left: 0%;
-    height: 3%;
+    height: 5%;
     width: 200%;
-    background: url('../images/titleScreen/background/waves1.png');
+    background: url('../images/titleScreen/background/wavesv5.png');
     background-size: auto 100%;
     animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction);
     z-index: 1;
@@ -46,7 +46,7 @@
     left: 0%;
     height: 58%;
     width: 200%;
-    background-color: rgb(0, 95, 223);
+    background-color: rgb(10, 89, 132);
 }
 
 /* --- Title Screen Styles --- */

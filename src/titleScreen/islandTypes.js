@@ -37,13 +37,13 @@ const ELEMENT_CONFIG = {
             name: "coitTower",
             src: ["images/titleScreen/buildings/coitTower.png"],
             size: ["12vw", "12vw"],
-            offset: ["-50%", "-95%"]
+            offset: ["-50%", "-100%"]
         },
         {
             name: 'transAmerica',
             src: ["images/titleScreen/buildings/transAmerica.png"],
             size: ["20vw", "20vw"],
-            offset: ["-50%", "-92%"]
+            offset: ["-50%", "-95%"]
         },
         {
             name: 'palaceArts',

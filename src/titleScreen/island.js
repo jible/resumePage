@@ -45,9 +45,6 @@ document.addEventListener('visibilitychange', () =>{
     
 });
 
-// Spawn a new background object every 3 seconds
-
-
 
 
 // FUNCTION DECLARATIONS
