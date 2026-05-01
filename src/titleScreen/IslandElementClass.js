@@ -46,41 +46,32 @@ export class IslandElement {
     createSpriteAnims(){
         if (!this.type.animation)return
         if (this.type.animation == "rotate"){
-            const frame2Percs = [ 12, 62 ]
-            const frame1Percs = [ 38, 88 ]
-            
-            const src1 = this.type.imgSrc[0];
-            const src2 = this.type.imgSrc[1]
+            // Stores what part (in percents) of the animation each sprite is set at
+            let framePercents = [];
             let frames = []
-    
-            for (let i of frame1Percs ){
+
+            for (let i = 0; i < this.type.imgSrc.length; i++){
+                let framePercent = (((100/(this.type.imgSrc.length) ) * (i)) +  (100/ (this.type.imgSrc.length * 2)))% 100 
+
                 frames.push(
                     {
-                        percent: this.calcNeededPercent(i),
-                        src: src1
-                    }
+                        percent: this.calcNeededPercent(framePercent),
+                        src: this.type.imgSrc[i]
+                    } 
                 )
+                
             }
-            for (let i of frame2Percs ){
-                frames.push(
-                    {
-                        percent: this.calcNeededPercent(i),
-                        src: src2
-                    }
-                )
-            }
-    
 
             const animationName = `updateSprite${this.id}`;
             let keyframes = `@keyframes ${animationName} {`
     
-            keyframes += `0% { background-image: url(${src1})}`
+            keyframes += `0% { background-image: url(${this.type.imgSrc[this.type.imgSrc.length - 1]})}`
             for (let i of frames){
                 if (i.percent !== 0 && i.percent !== 100){
                     keyframes += `${i.percent}% { background-image: url(${i.src}) }`
                 }
             }
-            keyframes += `100% { background-image: url(${src1})}}`
+            keyframes += `100% { background-image: url(${this.type.imgSrc[this.type.imgSrc.length - 1]})}}`
             createAnimation(keyframes);
             this.orbitingObject.style.animation = `${animationName} var(--spin-time)  steps(1) infinite`
             // Return the div
@@ -92,8 +83,8 @@ export class IslandElement {
 
 
 
-    calcNeededPercent(wantedPerc){
-        return ( 100 + wantedPerc - this.startingPercent) % 100
+    calcNeededPercent(wantedPercent){
+        return ( 100 + wantedPercent - this.startingPercent) % 100
     }
 
     createOffsetRotation() {

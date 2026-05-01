@@ -71,7 +71,7 @@ const ELEMENT_CONFIG = {
         },
         {
             name: 'ggb',
-            src: ["images/titleScreen/buildings/ggbSide.png", "images/titleScreen/buildings/ggbFront.png"],
+            src: ["images/titleScreen/buildings/ggbAngle2.png", "images/titleScreen/buildings/ggbFront.png","images/titleScreen/buildings/ggbAngle1.png", "images/titleScreen/buildings/ggbSide.png","images/titleScreen/buildings/ggbAngle2.png", "images/titleScreen/buildings/ggbFront.png", "images/titleScreen/buildings/ggbAngle1.png",  "images/titleScreen/buildings/ggbSide.png"],
             size: ["20vw", "20vw"],
             offset: ["-50%", "-100%"],
             animation: 'rotate'
