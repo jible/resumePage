@@ -65,11 +65,18 @@
     left: 50%;
     width: 30vw;
     height: 30vw;
-    background: url('../images/titleScreen/island/low-res-island-base.png') no-repeat center;
     background-size: contain;
-    animation: island-spin var(--spin-time) linear infinite var(--spin-direction);
+    animation: 
+        island-spin var(--spin-time) linear infinite var(--spin-direction),
+        islandWavesSprite 2.5s steps(1) alternate infinite;
     image-rendering: pixelated;
     z-index: 2;
+}
+
+@keyframes islandWavesSprite {
+    0% {background-image: url('../images/titleScreen/island/low-res-island-base1.png');}
+    33% {background-image: url('../images/titleScreen/island/low-res-island-base2.png');}
+    66% {background-image: url('../images/titleScreen/island/low-res-island-base3.png');}    
 }
 
 .offset-rotation {
