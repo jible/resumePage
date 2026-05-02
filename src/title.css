@@ -65,7 +65,7 @@
     left: 50%;
     width: 30vw;
     height: 30vw;
-    background-size: contain;
+    background-size: cover;
     animation: 
         island-spin var(--spin-time) linear infinite var(--spin-direction),
         islandWavesSprite 2.5s steps(1) alternate infinite;
