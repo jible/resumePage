@@ -66,6 +66,7 @@
     width: 30vw;
     height: 30vw;
     background-size: cover;
+    background-image: url('../images/titleScreen/island/low-res-island-base1.png');
     animation: 
         island-spin var(--spin-time) linear infinite var(--spin-direction),
         islandWavesSprite 2.5s steps(1) alternate infinite;
