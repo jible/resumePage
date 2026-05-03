@@ -36,7 +36,7 @@ export function RandomlySpawnBackgroundElement() {
 
 // spawns a sky element anchored at x,y
 // Automatically spawns clouds in bunches
-function SpawnSkyElements(isDay, x = -10,y = null ){
+function SpawnSkyElements(isDay, x = -30,y = null ){
     if (y==null){
         y = Math.random() * 80 + 15
     }
