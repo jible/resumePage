@@ -1,14 +1,51 @@
 /* --- Variables --- */
-:root {
+@property --y-stretch {
+    syntax: '<number>';
+    initial-value: 2.5;
+    inherits: true;
+}
+@property --y-unstretch {
+    syntax: '<number>';
+    initial-value: 4;
+    inherits: true;
+}
+@property --x-stretch {
+    syntax: '<number>';
+    initial-value: 2.5;
+    inherits: true;
+}
+@property --x-unstretch {
+    syntax: '<number>';
+    initial-value: 4;
+    inherits: true;
+}
+
+body {
     --start-anim: 3s;
     --spin-time: 25s;
     --x-stretch: 2.5;
     --x-unstretch: 0.4;
     --y-stretch: 0.5;
-    --y-unstretch: 3;
+    --y-unstretch: 2;
     --spin-direction: forwards;
+    animation: camera-sweep 3s linear 1;
 }
 
+@keyframes camera-sweep{
+    0% {
+        --y-stretch: .1;
+        --y-unstretch: .1;
+        --x-stretch: .1;
+        --x-unstretch: .1;
+    }
+    
+    100%{
+        --y-stretch: 0.5;
+        --y-unstretch: 2;
+        --x-stretch: 2.5;
+        --x-unstretch: .4;
+    }
+}
 
 /* --- Sky Background Styles --- */
 .sky-background {
