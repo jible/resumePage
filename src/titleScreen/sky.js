@@ -62,8 +62,8 @@ function SpawnSkyElement(image, x, y){
     bgObject.src = image;
     bgObject.classList.add("cloud")
     // Randomize position and delay
-    bgObject.style.left = `${x}%` // '-10%';
-    bgObject.style.bottom = `${y}%`// `${Math.random() * 90 + 10}%`; // Between 10% and 80%
+    bgObject.style.left = `${x}%`;
+    bgObject.style.bottom = `${y}%`;
     bgObject.style.animationDelay = '0s';
     bgObject.style.brackgroundSize = 'contain'
     bgObject.style.position = 'absolute';

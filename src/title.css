@@ -23,7 +23,7 @@
 }
 
 body {
-    --start-anim: 1.5s;
+    --start-anim: 3s;
     --spin-time: 25s;
     --x-stretch: 2.5;
     --x-unstretch: calc(1/var(--x-stretch));
@@ -31,11 +31,20 @@ body {
     --y-unstretch: calc(1/var(--y-stretch));
 
     --spin-direction: forwards;
-    animation: camera-sweep var(--start-anim) ease-in 1;
+    animation: camera-sweep-island-stretch var(--start-anim) ease-out 1;
+}
+@keyframes camera-sweep-sky {
+    0%{
+        height:0;
+    }
+    100%{
+        height:50%;
+    }
 }
 
-@keyframes camera-sweep{
+@keyframes camera-sweep-island-stretch{
     0% {
+        top:90%;
         --y-stretch: 2;
         --y-unstretch: .5;
         --x-stretch: 2;
@@ -48,25 +57,48 @@ body {
 
     }
 }
+@keyframes camera-sweep-island-position {
+    0%{top: 50vw};
+}
+
+@keyframes  title-fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes camera-sweep-water {
+    0% {
+        top: -100%;
+        height:200%;
+    }
+    100%{
+        height: 50%;
+        top: 0;
+    }
+}
 
 /* --- Sky Background Styles --- */
 .sky-background {
+    size: relative;
     position: relative;
+    top: 0;
     width: 100%; /* Full canvas width */
     height: 50%; /* Partial canvas height */
     background-color: rgb(20, 20, 78);
     background-size: contain;
     image-rendering: pixelated;
     z-index: 0;
-    animation: background-day-night 100s infinite var(--spin-direction);
+    animation: 
+        background-day-night 100s infinite var(--spin-direction),
+        camera-sweep-sky var(--start-anim) 1 ease-out;
 }
 
 .cloud{
+    position:relative;
+    size: relative;
     z-index:2;
-    image-rendering: pixelated;
     animation: cloud-scroll 30s linear var(--spin-direction);
-    height: max(7vw, 7vh);
-    width: max( 7vh, 7vw);
+    aspect-ratio: 1/1;
+    height: 20%;
     image-rendering: pixelated;
 }
 
@@ -85,9 +117,11 @@ body {
 
 .water {
     position: relative;
+    top: 0;
     height: 50%;
     width: 100%;
     background-color: rgb(10, 89, 132);
+    animation: camera-sweep-water var(--start-anim) 1 ease-out;
 }
 
 /* --- Title Screen Styles --- */
@@ -97,8 +131,6 @@ body {
     height: 100%;
     background: #87ceeb; /* Sky background */
     perspective: 800px; /* Add depth */
-
-
 }
 
 /* --- Island Styles --- */
@@ -112,7 +144,8 @@ body {
     background-image: url('../images/titleScreen/island/low-res-island-base-sheet.png');
     animation: 
         island-spin var(--spin-time) linear infinite var(--spin-direction),
-        islandWavesSprite 2.5s steps(1) alternate infinite;
+        islandWavesSprite 2.5s steps(1) alternate infinite,
+        camera-sweep-island-position var(--start-anim) 1;
     image-rendering: pixelated;
     z-index: 2;
 }
@@ -156,7 +189,10 @@ It should bounce a compress
 }
 
 .title-text{
-    animation: titleBounce 5s ease-in-out infinite;
+    opacity: 0;
+    animation: 
+        titleBounce 5s ease-in-out infinite,
+        title-fade-in var(--start-anim) ease-in 1  forwards;
     max-width: 90VW;
 }
 
@@ -191,10 +227,10 @@ It should bounce a compress
 
 @keyframes anti-rotate {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg) scale( var(--x-unstretch), var(--y-unstretch) );
+        transform: translate(-50%, -50%) rotate(0deg) scale(calc(1/var(--x-stretch)), calc(1/var(--y-stretch)));
     }
     100% {
-        transform: translate(-50%, -50%) rotate(-360deg) scale( var(--x-unstretch), var(--y-unstretch) ); /* Full counter-rotation */
+        transform: translate(-50%, -50%) rotate(-360deg) scale(calc(1/var(--x-stretch)), calc(1/var(--y-stretch))); /* Full counter-rotation */
     }
 }
 
