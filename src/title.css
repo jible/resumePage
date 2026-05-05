@@ -110,7 +110,7 @@ body {
     top: 0;
     height: 50%;
     width: 100%;
-    background-color: rgb(10, 89, 132);
+    background-image:linear-gradient(to bottom, rgba(10, 89, 132,1), rgb(63, 111, 136));
     animation: camera-sweep-water var(--start-anim) 1 ease-out;
 }
 @keyframes camera-sweep-water {
