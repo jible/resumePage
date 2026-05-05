@@ -1,4 +1,4 @@
-import { CloudFrequency, islandElementsInfo, islandTraits } from "./islandConfig.js";
+import { CloudFrequency, islandElementsInfo,  } from "./islandConfig.js";
 
 import {RandomlySpawnBackgroundElement, spawnInitialBackgroundElements} from "./sky.js"
 import { IslandElement } from "./IslandElementClass.js";
@@ -10,8 +10,6 @@ const skyBackground = document.querySelector('.sky-background');
 
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
-const style = getIslandTraits();
-titleScreen.setAttribute('style', style);
 const scrollHint = document.getElementsByClassName('scroll-hint')[0];
 
 window.addEventListener('load', () => {
@@ -45,22 +43,6 @@ document.addEventListener('visibilitychange', () =>{
     
 });
 
-
-
-// FUNCTION DECLARATIONS
-function getIslandTraits() {   
-    let style = '';
-    for (let i of islandTraits){
-        
-        style += (makeStyle(i[0], i[1]) + ';')
-    }
-    return style
-   
-}
-
-function makeStyle(name, value) {
-    return `--${name}: ${value}; `;
-}
 
 function setUpIslandElements() {
     return islandElementsInfo.map(([type, left, top], ID) => new IslandElement(type, left, top, ID));

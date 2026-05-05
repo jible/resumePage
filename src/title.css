@@ -1,16 +1,20 @@
 /* --- Variables --- */
 :root {
-    --spin-time: 10s;
-    --x-stretch: 2;
+    --start-anim: 3s;
+    --spin-time: 25s;
+    --x-stretch: 2.5;
+    --x-unstretch: 0.4;
     --y-stretch: 0.5;
+    --y-unstretch: 3;
     --spin-direction: forwards;
 }
 
+
 /* --- Sky Background Styles --- */
 .sky-background {
-    position: absolute;
+    position: relative;
     width: 100%; /* Full canvas width */
-    height: 100%; /* Partial canvas height */
+    height: 50%; /* Partial canvas height */
     background-color: rgb(20, 20, 78);
     background-size: contain;
     image-rendering: pixelated;
@@ -28,8 +32,8 @@
 }
 
 .waves {
-    position: absolute;
-    top: 55%;
+    position: relative;
+    bottom: 1%;
     left: 0%;
     height: min(5vh, 30px);
     width: 200%;
@@ -41,11 +45,9 @@
 }
 
 .water {
-    position: absolute;
-    top: 56%;
-    left: 0%;
-    height: 58%;
-    width: 200%;
+    position: relative;
+    height: 50%;
+    width: 100%;
     background-color: rgb(10, 89, 132);
 }
 
@@ -56,15 +58,17 @@
     height: 100%;
     background: #87ceeb; /* Sky background */
     perspective: 800px; /* Add depth */
+
+
 }
 
 /* --- Island Styles --- */
 .island {
-    position: absolute;
-    top: 73%;
+    position: relative;
+    aspect-ratio:  1/1;
+    top: 30%;
     left: 50%;
-    width: 30vw;
-    height: 30vw;
+    width: 30%;
     background-size: 300% 100%;
     background-image: url('../images/titleScreen/island/low-res-island-base-sheet.png');
     animation: 
@@ -133,7 +137,7 @@ It should bounce a compress
         transform: translateX(0vw);
     }
     100% {
-        transform: translateX(110vw);
+        transform: translateX(150vw);
     }
 }
 
