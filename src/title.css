@@ -23,7 +23,7 @@
 }
 
 body {
-    --start-anim: 3s;
+    --start-anim: 1.5s;
     --spin-time: 25s;
     --x-stretch: 2.5;
     --x-unstretch: calc(1/var(--x-stretch));
@@ -33,14 +33,7 @@ body {
     --spin-direction: forwards;
     animation: camera-sweep-island-stretch var(--start-anim) ease-out 1;
 }
-@keyframes camera-sweep-sky {
-    0%{
-        height:0;
-    }
-    100%{
-        height:50%;
-    }
-}
+
 
 @keyframes camera-sweep-island-stretch{
     0% {
@@ -57,24 +50,13 @@ body {
 
     }
 }
-@keyframes camera-sweep-island-position {
-    0%{top: 50vw};
-}
+
 
 @keyframes  title-fade-in {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
-@keyframes camera-sweep-water {
-    0% {
-        top: -100%;
-        height:200%;
-    }
-    100%{
-        height: 50%;
-        top: 0;
-    }
-}
+
 
 /* --- Sky Background Styles --- */
 .sky-background {
@@ -90,6 +72,14 @@ body {
     animation: 
         background-day-night 100s infinite var(--spin-direction),
         camera-sweep-sky var(--start-anim) 1 ease-out;
+}
+@keyframes camera-sweep-sky {
+    0%{
+        height:0;
+    }
+    100%{
+        height:50%;
+    }
 }
 
 .cloud{
@@ -123,6 +113,16 @@ body {
     background-color: rgb(10, 89, 132);
     animation: camera-sweep-water var(--start-anim) 1 ease-out;
 }
+@keyframes camera-sweep-water {
+    0% {
+        top: 0%;
+        height:100%;
+    }
+    100%{
+        height: 50%;
+        top: 0;
+    }
+}
 
 /* --- Title Screen Styles --- */
 .title-screen {
@@ -137,7 +137,7 @@ body {
 .island {
     position: relative;
     aspect-ratio:  1/1;
-    top: 30%;
+    top: 40%;
     left: 50%;
     width: 30%;
     background-size: 300% 100%;
@@ -148,6 +148,10 @@ body {
         camera-sweep-island-position var(--start-anim) 1;
     image-rendering: pixelated;
     z-index: 2;
+}
+
+@keyframes camera-sweep-island-position {
+    0%{top: 100vh;}
 }
 
 @keyframes islandWavesSprite {
