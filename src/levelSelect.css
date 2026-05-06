@@ -1,7 +1,7 @@
 /* Base styles for the projects section */
 .projects {
     padding: 40px;
-    background-color:  rgb(63, 111, 136);
+    background-image: linear-gradient( to bottom, rgb(3, 48, 28) ,rgb(20, 85, 56) );
 
     color: #333;
     text-align: center;

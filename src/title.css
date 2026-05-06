@@ -93,8 +93,8 @@ body {
 }
 
 .waves {
-    position: relative;
-    bottom: 1%;
+    position: absolute;
+    bottom: 100%;
     left: 0%;
     height: min(5vh, 30px);
     width: 200%;
@@ -110,7 +110,7 @@ body {
     top: 0;
     height: 50%;
     width: 100%;
-    background-image:linear-gradient(to bottom, rgba(10, 89, 132,1), rgb(63, 111, 136));
+    background-image:linear-gradient(to bottom, rgba(10, 89, 132,1), rgb(3, 48, 28));
     animation: camera-sweep-water var(--start-anim) 1 ease-out;
 }
 @keyframes camera-sweep-water {
@@ -337,8 +337,6 @@ It should bounce a compress
   }
 
 
-  
-
   .scroll-hint {
     position: absolute;
     bottom: 20px; /* Distance from the bottom */
@@ -351,7 +349,8 @@ It should bounce a compress
     z-index: 1000; /* Keep it above background elements */
     animation: scroll-bounce 2s ease-in-out infinite; /* Add animation */
     text-align: center; /* Center the text */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 1s ease, visibility 0.3s ease;
+    
 }
 
 .hidden {
@@ -359,6 +358,17 @@ It should bounce a compress
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+.title-cover{
+    position:absolute;
+    z-index : 1000;
+    background-color: #121212;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+}
+
+
 
 /* Bounce Animation for Scroll Hint */
 @keyframes scroll-bounce {

@@ -11,10 +11,13 @@ const skyBackground = document.querySelector('.sky-background');
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
 const scrollHint = document.getElementsByClassName('scroll-hint')[0];
+const titleScreenCover = titleScreen.getElementsByClassName("title-cover")[0];
 
 window.addEventListener('load', () => {
     document.body.classList.remove('no-animations');
 });
+
+
 
 document.body.addEventListener('scroll', () => {
     if (document.body.scrollTop > 0) {
@@ -22,6 +25,7 @@ document.body.addEventListener('scroll', () => {
     } else {
         scrollHint.classList.remove('hidden'); // Show the element
     }
+
 });
 spawnInitialBackgroundElements();
 var spawnInterval = setInterval(RandomlySpawnBackgroundElement, CloudFrequency);
