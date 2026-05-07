@@ -6,19 +6,21 @@
     color: #333;
     text-align: center;
 }
-
-.project-holder{
-    flex:auto;
+.project{
+    background-color: #9933ff;
     
 }
 
-.project-left{
-    left:0%;
+.project-holder{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.project-holder:nth-child(even){
+    flex-direction:row-reverse;
 }
 
-.project-right{
-    right:0%;
-}
 .projects h2{
     position: relative;
     

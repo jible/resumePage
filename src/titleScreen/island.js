@@ -38,8 +38,10 @@ document.addEventListener('visibilitychange', () =>{
     if (!document.hidden){
         var children = skyBackground.children;
         Array.from(children).forEach(child => {
-            child.remove()
-        });
+            if (child.classList.contains("cloud")){
+                child.remove()
+            }
+            });
         spawnInitialBackgroundElements()
         spawnInterval = setInterval(RandomlySpawnBackgroundElement, CloudFrequency);
     }
