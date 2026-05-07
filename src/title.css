@@ -94,7 +94,7 @@ body {
 
 .waves {
     position: absolute;
-    bottom: 100%;
+    bottom: -1px;
     left: 0%;
     height: min(5vh, 30px);
     width: 200%;
