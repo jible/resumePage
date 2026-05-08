@@ -1,179 +1,66 @@
 
 .projects {
-    padding: 40px;
     background-image: linear-gradient( to bottom, rgb(6, 41, 60) ,rgb(20, 85, 56) );
-
     color: #333;
-    text-align: center;
+
+}
+
+/* .project-list {
+    
+} */
+
+.project-holder{
+    position:relative;
+    display: flex;
+    background-image: url("/images/projectSelect/path3.png");
+    background-size: 100% 100%;
+    image-rendering: pixelated;
+    width:100%;
+}
+
+
+
+.project-holder:nth-child(4n + 1){
+    justify-content: flex-end;    
+    text-align: right;
+    background-image: url("/images/projectSelect/path2.png");
+
 }
 .project{
     background-color: #9933ff;
-    
+    width: 75%;
+    height: 20px;
+
 }
 
-.project-holder{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
+.project-divider{
+    width:100%;
+    aspect-ratio: 5/1;
+    background-image: url("/images/projectSelect/path1.png");
+    background-size:100% 100%;
+    image-rendering: pixelated;
     
 }
-.project-holder:nth-child(even){
-    flex-direction:row-reverse;
+.project-divider:nth-child(4n){
+    
+    
+    transform:scaleY(-1);
+
 }
+
+
+
 
 .projects h2{
     position: relative;
     
     left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center alignment correction */
+    transform: translateX(-50%) ; /* Center alignment correction */
     font-size: 3rem; /* Smaller font size */
     color: #ffcd3c; /* Golden yellow to match the title */
     text-shadow: 2px 2px #9933ff, 3px 3px #333; /* Purple + dark shadow */
     font-weight: bold; /* Make it stand out */
     z-index: 1000; /* Keep it above background elements */
-    animation: scroll-bounce 2s ease-in-out infinite; /* Add animation */
     text-align: center; /* Center the text */
     transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-#pixel-art-maker{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-
-    font-size: 20px;
-    font-family: 'Press Start 2P', cursive;
-    text-align: center;
-    color: #FFD700;
-    text-shadow: 2px 2px #A4243B;
-    margin-bottom: 20px;
-}
-
-
-/* Project list container */
-#project-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Individual project item */
-.project-item {
-    font-family: Veranda, sans-serif;
-
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: calc(33% - 20px); /* Adjusts width for responsiveness */
-    min-width: 250px;
-    overflow: hidden;
-    z-index: 20; 
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Project title */
-.project-item h3 {
-    font-size: 1.5em;
-    margin: 15px 10px;
-    color: #333;
-}
-
-.project-item a{
-    color: #ff4800;
-     text-decoration: none;
-}
-.project-item a:hover{
-    color: #ff7e5f;
-  text-decoration: underline;
-}
-
-/* Responsive images */
-.responsive-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-top: 1px solid #ddd;
-}
-
-/* GitHub repository link */
-.project-item h3:nth-of-type(2) {
-    font-size: 1em;
-    margin: 10px 0 15px 0;
-    color: #007bff;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.project-item h3:nth-of-type(2):hover {
-    color: #0056b3;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .project-item {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    .project-item {
-        width: 100%;
-    }
-}
-
-
-/* Label for the description */
-.gameDescription h3 {
-
-    font-size: 1.3em;
-    margin: 10px 0;
-    color: #555;
-    font-weight: bold;
-    text-align: left;
-}
-
-.description-list-item {
-    font-family: Veranda, sans-serif;
-
-}
-
-/* Container for the description text */
-.gameDescription {
-    font-family: Veranda, sans-serif;
-
-    font-size: 1em;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    margin-bottom: 15px;
-}
-
-
-
-/* Optional: Add a hover effect for interactivity */
-.gameDescription:hover {
-    background-color: #f1f1f1;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .gameDescription {
-        font-size: 0.95em;
-        padding: 8px 12px;
-    }
-
-    .gameDescription h3 {
-        font-size: 1.1em;
-    }
 }
