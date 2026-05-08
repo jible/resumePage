@@ -12,7 +12,7 @@
 .project-holder{
     position:relative;
     display: flex;
-    background-image: url("/images/projectSelect/path3.png");
+    background-image: url("../images/projectSelect/path3.png");
     background-size: 100% 100%;
     image-rendering: pixelated;
     width:100%;
@@ -23,7 +23,7 @@
 .project-holder:nth-child(4n + 1){
     justify-content: flex-end;    
     text-align: right;
-    background-image: url("/images/projectSelect/path2.png");
+    background-image: url("../images/projectSelect/path2.png");
 
 }
 .project{
@@ -36,7 +36,7 @@
 .project-divider{
     width:100%;
     aspect-ratio: 5/1;
-    background-image: url("/images/projectSelect/path1.png");
+    background-image: url("../images/projectSelect/path1.png");
     background-size:100% 100%;
     image-rendering: pixelated;
     
