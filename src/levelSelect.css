@@ -54,6 +54,7 @@
     border-radius: 30px;
     padding: 2%;
     flex:1;
+    margin: 5px;
 
 }
 /* .relevant-links{
@@ -65,7 +66,7 @@
 }
 
 .extra_info{
-    
+
 }
 
 .small-sections{
@@ -79,6 +80,11 @@
     width: 60%;
     height:auto;
     
+}
+
+.gameplay-gif{
+    width: 60%;
+    border-radius: 30px;
 }
 
 .projects h1{
@@ -105,3 +111,6 @@
     font-family: Verdana;
 
 }
+/* .project pre{
+
+} */

@@ -59,7 +59,7 @@
                             <h3>Description</h3>
                             <p1>
                                 I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam.
-                                The theme was built to scale, so we made a rhythm game about winning over a scaly mermaid.
+                                The theme was "Built to Scale", so we made a rhythm game about winning over a scaly mermaid.
                                 You alternate between navigating rocky waters and pressing the right key on note.
                                 I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles
                                 collision. I am particularly proud of how the pirate can change directions in the middle of moving from one 
@@ -80,8 +80,25 @@
                             </div>
                             
                         </div>
-                        <div class = "extra_info">
+                        
+                    </div>
+                    <div class = "extra_info">
+                        <div class="info-section ">
+                            <h3>Highlights</h3>
 
+                            <img src="./images/sampleGames/TailDog.gif" class = "gameplay-gif">
+                            <h4>Boat Movement</h4>
+                            <p1>
+                                While working on this project, I learned how to use Unity coroutines.
+                                coroutines are functions that take place over multiple game frames.
+                                In this case, when the player made an input, I would start a coroutine for moving the
+                                boat in the input direction (after checking that it would not move the boat out of bounds).
+                                Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself.
+                                I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would 
+                                cancel the current coroutine and start a new one, moving in the newly inputted direction.
+                            </p1>
+                            
+                            
                         </div>
                     </div>
                     <button class="show-more">Show More</button>                        
