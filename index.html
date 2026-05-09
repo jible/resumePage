@@ -50,12 +50,13 @@
     <div class="projects">
         <h1>Project Select</h1>
         <div class="project-list">
-            <div class ="project-holder">
-                <div class = "project">
-                    <img src="./images/sampleGames/titles/tailOfTides.png" class = "project-title-image">
+            <div class ="project-row" style="background-image: url('../images/projectSelect/bottomLeftPath.png');">
+                <div class = "project-node" style = "background-image: url('../images/projectSelect/NodeLeft.png');"></div>
+                <div class = "project-card">
+                    <img src="./images/sampleGames/titles/tailOfTides.png" class = "project__title-image">
                     <div class = "basic-info project-info">
                         
-                        <div class=" info-section description">
+                        <div class="project__subsection">
                             <h3>Description</h3>
                             <p1>
                                 I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam.
@@ -67,11 +68,11 @@
                             </p1>
                         </div>
                         <div class = "small-sections">
-                            <div class=" info-section skills">
+                            <div class="project__subsection">
                                 <h3>Skills</h3>
                                 <p1>C#, Unity, Working With Multiple Programmers</p1>
                             </div>
-                            <div class="info-section relevant-links">
+                            <div class="project__subsection">
                                 <h3>Relevant Links</h3>
                                 <div class ="links">
                                     <a href="https://github.com/IcySmoooth/GMTK_2024" target = "_blank">Code Base </a> <br/>
@@ -82,8 +83,7 @@
                         </div>
                         
                     </div>
-                    <div class = "extra_info">
-                        <div class="info-section ">
+                    <div class="project__subsection expandable">
                             <h3>Highlights</h3>
 
                             <img src="./images/sampleGames/TailDog.gif" class = "gameplay-gif">
@@ -100,22 +100,22 @@
                             
                             
                         </div>
-                    </div>
                     <button class="show-more">Show More</button>                        
 
                 </div>
             </div>
             <div class = "project-divider"></div>
-            <div class ="project-holder">
-                <div class = "project">
-                    <img src="./images/sampleGames/titles/tailOfTides.png" class = "project-title-image">
-                    <div class = "project-info">
+            <div class ="project-row" style="background-image: url('images/projectSelect/rightLongPath.png');">
+                <div class = "project-node" style = "background-image: url('../images/projectSelect/NodeRight.png');"></div>
+                <div class = "project-card">
+                    <img src="./images/sampleGames/titles/tailOfTides.png" class = "project__title-image">
+                    <div class = "basic-info project-info">
                         
-                        <div class=" info-section description">
+                        <div class="project__subsection">
                             <h3>Description</h3>
                             <p1>
                                 I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam.
-                                The theme was built to scale, so we made a rhythm game about winning over a scaly mermaid.
+                                The theme was "Built to Scale", so we made a rhythm game about winning over a scaly mermaid.
                                 You alternate between navigating rocky waters and pressing the right key on note.
                                 I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles
                                 collision. I am particularly proud of how the pirate can change directions in the middle of moving from one 
@@ -123,14 +123,14 @@
                             </p1>
                         </div>
                         <div class = "small-sections">
-                            <div class=" info-section skills">
+                            <div class="project__subsection">
                                 <h3>Skills</h3>
                                 <p1>C#, Unity, Working With Multiple Programmers</p1>
                             </div>
-                            <div class="info-section relevant-links">
+                            <div class="project__subsection">
                                 <h3>Relevant Links</h3>
                                 <div class ="links">
-                                    <a href="https://github.com/IcySmoooth/GMTK_2024" target = "_blank">Code Base </a>
+                                    <a href="https://github.com/IcySmoooth/GMTK_2024" target = "_blank">Code Base </a> <br/>
                                     <a href="https://emiree-draws.itch.io/tail-of-two-tides" target = "_blank">Playable game</a>
                                 </div>
                             </div>
@@ -138,14 +138,34 @@
                         </div>
                         
                     </div>
+                    <div class="project__subsection expandable">
+                            <h3>Highlights</h3>
+
+                            <img src="./images/sampleGames/TailDog.gif" class = "gameplay-gif">
+                            <h4>Boat Movement</h4>
+                            <p1>
+                                While working on this project, I learned how to use Unity coroutines.
+                                Coroutines are functions that take place over multiple game frames.
+                                In this case, when the player made an input, I would start a coroutine for moving the
+                                boat in the input direction (after checking that it would not move the boat out of bounds).
+                                Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself.
+                                I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would 
+                                cancel the current coroutine and start a new one, moving in the newly inputted direction.
+                            </p1>
+                            
+                            
+                        </div>
+                    <button class="show-more">Show More</button>                        
+
                 </div>
             </div>
-            <div class = "project-divider"></div>
-            <div class ="project-holder">
+            <div class = "project-divider " style="transform: scaleY(-1);"></div>
+            <div class ="project-row" style="background-image: url('images/projectSelect/longLeftPath.png');">
+                
                 <div class = "project">project 3</div>
             </div>
             <div class = "project-divider"></div>
-            <div class ="project-holder">
+            <div class ="project-row">
                 <div class = "project">project 4</div>
             </div>
 
