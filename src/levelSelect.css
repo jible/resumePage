@@ -27,11 +27,12 @@
 
 }
 .project{
+    font-family: Verdana;
     background-color: #d4b76a;
     border-radius: 50px;
-    width: 75%;
+    width: 65%;
     padding: 2%;
-
+    text-align: center;
 }
 
 .project-divider{
@@ -43,10 +44,7 @@
     
 }
 .project-divider:nth-child(4n){
-    
-    
     transform:scaleY(-1);
-
 }
 
 .info-section{
@@ -55,17 +53,22 @@
     border-style: solid;
     border-radius: 30px;
     padding: 2%;
+
 }
 
 .project-info{
     display: grid;
     grid-template-columns: 50% 50%;
+    
+    
 }
 
-.info-section:nth-child(odd){
-    text-align: left;
-}
 
+.project-title-image{
+    width: 60%;
+    height:auto;
+    
+}
 
 .projects h1{
     padding:2%;
@@ -85,4 +88,9 @@
 .projects h2{
     font-size: 50px;
     text-align: center;
+}
+
+.project p1{
+    font-family: Verdana;
+
 }
