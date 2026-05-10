@@ -1,7 +1,7 @@
 [
     {
         "name": "Tail of Two Tides",
-        "titleImage":"/images/sampleGames/titles/tailofTwoTidesTitle.png",
+        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
         "linkTitles":[
             "Playable Game",
             "Codebase"
@@ -22,7 +22,7 @@
     },
     {
         "name": "Tail of Two Tides",
-        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
         "linkTitles":[
             "Playable Game",
             "Codebase"
@@ -43,7 +43,7 @@
     },
     {
         "name": "Tail of Two Tides",
-        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
         "linkTitles":[
             "Playable Game",
             "Codebase"
@@ -64,7 +64,7 @@
     },
     {
         "name": "Tail of Two Tides",
-        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
         "linkTitles":[
             "Playable Game",
             "Codebase"
@@ -85,7 +85,7 @@
     },
     {
         "name": "Tail of Two Tides",
-        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
         "linkTitles":[
             "Playable Game",
             "Codebase"
