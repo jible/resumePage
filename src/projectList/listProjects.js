@@ -62,7 +62,6 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
     
 
     let Highlights = ``;
-    console.log(project.highlights)
     Object.entries(project.highlights).forEach(([key,value]) => {
         Highlights += `<img src="${value.gif}" class = "gameplay-gif">`;
         Highlights += `<h4>${key}</h4>`;
@@ -72,7 +71,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
 
     ProjectsSection.innerHTML += `
     <div class ="project-row" style="background-image: url(images/projectSelect/${pathImage}.png); justify-content: ${projectRowPinStyle}">
-        <div class = "project-node" style = "background-image: url('images/projectSelect/node${PathSide}.png');"></div>
+        <div class = "project-node" style = "background-image: url(images/projectSelect/node${PathSide}.png);"></div>
         <div class = "project-card">
             <img src="${project.titleImage}" class = "project__title-image">
             <div class = "basic-info project-info">
