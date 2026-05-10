@@ -1,123 +1,107 @@
-{
-    "projects": [
-        {
-            "name": "sample",
-            "github": "https://github.com/me/game",
-            "github pages": "",
-            "itch": "",
-            "imgs": [
-                "path/to/image-or-video.jpg"
-            ],
-            "highlights": [],
-            "description": "page",
-            "priority": "0"
-        },
-        {
-            "name": "The Tale of Zelmore",
-            "github": "https://github.com/tblagarrett/Zelmore",
-            "titleImage": "./images/sampleGames/titles/zelmore.png",
-            "playableLink": "https://tblagarrett.github.io/Zelmore/",
-            "imgs": [
-                "./images/sampleGames/zelmoreTitle.png",
-                "./images/sampleGames/zelmoreFighting.png"
-            ],
-            "description": "The Tales of Zelmore is a 2 player fighting game I made in collaboration with Garrett Blake. We wanted to create a real version of The Tales of Zelmore, a video game from the tv show, The Amazing World of Gumball. We finished this project in two weeks",
-            "contribution": [
-                "I programmed the hero character controller and state machine.",
-                "I programmed the menus.",
-                "I drew all of the hero's animations and title screen visuals using Piskel."
-            ],
-            "highlights": [
-                "I crafted a complex player state machine with states and routines that could be interrupted by certain events, like being stunned/hurt.",
-                "I programmed hit boxes and hurt boxes to handle attacks between the characters."
-            ],
-            "skillsDemonstrated": [
-                "JavaScript programming",
-                "Making games in Phaser",
-                "GitHub version control",
-                "Communication and teamwork",
-                "Pixel art"
-            ],
-            "priority": "1"
-        },
-        {
-            "name": "A Tail of Two Tides",
-            "titleImage": "./images/sampleGames/titles/tailOfTides.png",
-            "github": "https://github.com/IcySmoooth/GMTK_2024",
-            "playableLink": "https://emiree-draws.itch.io/tail-of-two-tides",
-            "imgs": [
-                "./images/sampleGames/tailofTwoTidesTitle.png",
-                "./images/sampleGames/tailofTwoTidesGamePlay.png"
-            ],
-            "description": "The Tail of Two Tides is a Rhythm game I made with 3 peers for the GMTK 2024 Summer Game Jam. The player has to hit the notes in a guitar hero style, then swap to collect notes, like coins in subway surfers. The player wins if they complete all four rounds.",
-            "contribution": [
-                "I programmed the dog pirate's movement.",
-                "I also programmed the obstacles and the notes for the dog pirate in a simple way so the person in charge of syncing them to the music could easily spawn them with a function call."
-            ],
-            "highlights": [
-                "I created a routine-based movement system that would move the player from one lane to another when the user inputs a direction. Users can interrupt the current routine to move back to the lane they started from.",
-                "I wrote the system that instances the obstacles and notes for the dog. I made sure to keep this code modular so it could easily communicate with the rythm system.."
-            ],
-            "skillsDemonstrated": [
-                "Unity Game Engine",
-                "C# programming",
-                "GitHub version control",
-                "Communication and teamwork"
-            ],
-            "priority": "1"
-        },
-        {
-            "name": "Pixelation Tool",
-            "titleCss": "pixel-art-maker",
-            "github": "https://github.com/jible/Pixel-Art-Maker",
-            "playableLink": "https://jible.github.io/Pixel-Art-Maker/",
-            "imgs": [
-                "./images/sampleGames/pixelationToolGamePlay0.png",
-                "./images/sampleGames/pixelationToolGamePlay1.png"
-            ],
-            "description": "I really like retro game aesthetics and sometimes I have trouble making game assets so I made a tool that crunches images down and applies a palette to them. This is great for taking pictures and using them for video game background. The user can upload a photo, slide the block size to the right to make the image more pixelated, then they can apply a palette to the image.",
-            "contribution": [
-                "I programmed all aspects of this project."
-            ],
-            "highlights": [
-                "I learned how to use HTML canvases to modify images on the pixel level.",
-                "I brainstormed varying methods for compressing images to emulate a retro video game look. The page includes",
-                "I made a palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
-
-            ],
-            "skillsDemonstrated": [
-                "Web development",
-                "JavaScript programming",
-                "CSS style sheets",
-                "Using HTML canvases to modify images"
-            ],
-            "priority": "1"
-        },
-        {
-            "name": "Portfolio Page",
-            "titleCss": "pixel-art-maker",
-            "github": "https://github.com/jible/resumePage",
-            "playableLink": "https://jible.github.io/resumePage/",
-            "imgs": [
-                "./images/sampleGames/portfolioGamePlay0.png",
-                "./images/sampleGames/portfolioGamePlay1.png"
-            ],
-            "description": "This is the page you are currently viewing. I worked on this page for several months during school, working it into different projects to find ways to imporve it.",
-            "contribution": [
-                "I programmed all aspects of this project."
-            ],
-            "highlights": [
-                "I had to thoroughly understand HTML object hierarchy and CSS animations, to create the illusion of 3D space and depth",
-                "I made all of the art assets",
-                "I used javascript to create css animations during runtime to allow easy changes, like moving elements on the island."
-
-            ],
-            "skillsDemonstrated": [
-                "Web development",
-                "JavaScript programming",
-                "CSS style sheets"
-            ],
-            "priority": "1"
+[
+    {
+        "name": "Tail of Two Tides",
+        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "linkTitles":[
+            "Playable Game",
+            "Codebase"
+        ],
+        "links":[
+            "https://emiree-draws.itch.io/tail-of-two-tides",
+            "https://github.com/IcySmoooth/GMTK_2024"
+        ],
+        "skills": "C#, Unity, Working With Multiple Programmers",
+        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "highlights": {
+            "Unity Coroutines": {
+                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
+                "gif": "./images/sampleGames/TailDog.gif"
+            }
         }
-    ]
-}
+        
+    },
+    {
+        "name": "Tail of Two Tides",
+        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "linkTitles":[
+            "Playable Game",
+            "Codebase"
+        ],
+        "links":[
+            "https://emiree-draws.itch.io/tail-of-two-tides",
+            "https://github.com/IcySmoooth/GMTK_2024"
+        ],
+        "skills": "C#, Unity, Working With Multiple Programmers",
+        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "highlights": {
+            "Unity Coroutines": {
+                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
+                "gif": "./images/sampleGames/TailDog.gif"
+            }
+        }
+        
+    },
+    {
+        "name": "Tail of Two Tides",
+        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "linkTitles":[
+            "Playable Game",
+            "Codebase"
+        ],
+        "links":[
+            "https://emiree-draws.itch.io/tail-of-two-tides",
+            "https://github.com/IcySmoooth/GMTK_2024"
+        ],
+        "skills": "C#, Unity, Working With Multiple Programmers",
+        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "highlights": {
+            "Unity Coroutines": {
+                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
+                "gif": "./images/sampleGames/TailDog.gif"
+            }
+        }
+        
+    },
+    {
+        "name": "Tail of Two Tides",
+        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "linkTitles":[
+            "Playable Game",
+            "Codebase"
+        ],
+        "links":[
+            "https://emiree-draws.itch.io/tail-of-two-tides",
+            "https://github.com/IcySmoooth/GMTK_2024"
+        ],
+        "skills": "C#, Unity, Working With Multiple Programmers",
+        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "highlights": {
+            "Unity Coroutines": {
+                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
+                "gif": "./images/sampleGames/TailDog.gif"
+            }
+        }
+        
+    },
+    {
+        "name": "Tail of Two Tides",
+        "titleImage":"/images/sampleGames/titles/tailOfTides.png",
+        "linkTitles":[
+            "Playable Game",
+            "Codebase"
+        ],
+        "links":[
+            "https://emiree-draws.itch.io/tail-of-two-tides",
+            "https://github.com/IcySmoooth/GMTK_2024"
+        ],
+        "skills": "C#, Unity, Working With Multiple Programmers",
+        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "highlights": {
+            "Unity Coroutines": {
+                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
+                "gif": "./images/sampleGames/TailDog.gif"
+            }
+        }
+        
+    }
+]

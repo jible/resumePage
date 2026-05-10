@@ -1,13 +1,11 @@
 
-.projects {
+#projects {
     background-image: linear-gradient( to bottom, rgb(6, 41, 60) ,rgb(20, 85, 56) );
     color: #333;
 
 }
 
-/* .project-list {
-    
-} */
+
 
 .project-row{
     position:relative;
@@ -24,10 +22,7 @@
     background-image: url("../images/projectSelect/path8.png");
 }
 
-.project-row:nth-child(4n + 1){
-    justify-content: flex-end;    
-    text-align: right;
-}
+
 
 .project-node{
     position:absolute;
@@ -101,7 +96,7 @@
     border-radius: 30px;
 }
 
-.projects h1{
+#projects h1{
     padding:2%;
     position: relative;
     
@@ -116,12 +111,12 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.projects h2{
+#projects h2{
     font-size: 50px;
     text-align: center;
 }
 
-.projects p1{
+#projects p1{
     font-family: Verdana;
 
 }
