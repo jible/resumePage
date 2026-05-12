@@ -1,27 +1,31 @@
 [
     {
         "name": "Tail of Two Tides",
-        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
+        "titleImage":"images/sampleGames/zeldaDungeonGeneratorTitle.png",
         "linkTitles":[
-            "Playable Game",
+            "Playable Demo",
             "Codebase"
         ],
         "links":[
-            "https://emiree-draws.itch.io/tail-of-two-tides",
-            "https://github.com/IcySmoooth/GMTK_2024"
+            "https://jible.github.io/ZeldaDungeonGenerator/",
+            "https://github.com/jible/ZeldaDungeonGenerator"
         ],
-        "skills": "C#, Unity, Working With Multiple Programmers",
-        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "skills": "JavaScript, Phaser Game Library (a text-based engine), and Procedural Generation",
+        "description": "I made this demo with Phoebe Royer, Carter Grubel, and Grabiel Allen. It is a prototype Zelda Dungeon Generator. I was in charge of the random dungeon layout generation, making most of the tile-maps for the rooms, player movement, player animations, and the key functionality. The original submission for this project had a character customizer, which didn't work with the animated character, so I made this fork to clean it up and highlight my contributions. ",
         "highlights": {
-            "Unity Coroutines": {
-                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
+            "Room Layout Generation": {
+                "text":"I am proud of the algorithm I created that generates the matrix layout. It is  customizable, allowing the programmer to change the room count, the max width and height, the coordinates the first room is in, and customizable room types with door requirements (ie: maze room can only spawn with doors connecting the north and sourth side. I like to say the algorithm is like a breatdth first generation. It starts in the root room and looks in each direction in a random order. The first direction it looks in is guarenteed to place a room (if there isn't already a room in that direction), then the following directions have decreasing odds. Each room this room adds is considered a child of this room. Then it looks at each of its child rooms and uses the same method to give them child rooms. To keep it balanced after the second search, it assigns each room a depth or generation value, which is how many parents this room has before hitting the root. Going forward, You give each generation children, before you move onto giving the next generation children. Otherwise it would just chain one set of rooms instead of making them branch out evenly. The doors are added to the rooms by only connecting them to their parent and children, rather than all neighboring rooms. After hitting the max room count, it goes through and assigns room types. Some rooms have requirements, like there can only be one room of this type, this room has to be on the lowest level depth (last generation), or this room-type can only be assigned to rooms with doors on the North Side and South Side. Additionally some rooms always appear in a certain room number. For instance, the first room must be the entrance type and the last room must be the boss-room type.",
+                "gif": "./images/sampleGames/TailDog.gif"
+            },
+            "Custom Rooms": {
+                "text":"I am proud of the algorithm I created that generates the matrix layout. It is highly customizable, allowing the designer to change the pre-made tile maps for each room and give each room requirements, like what direction they have to have neighbors in.",
                 "gif": "./images/sampleGames/TailDog.gif"
             }
         }
         
     },
     {
-        "name": "Tail of Two Tides",
+        "name": "Zedla dungeon Generator Prototype",
         "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
         "linkTitles":[
             "Playable Game",
