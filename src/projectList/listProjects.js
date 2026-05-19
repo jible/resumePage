@@ -21,7 +21,7 @@ function RenderProjects(data){
         let ProjectDivider = document.createElement("div");
         ProjectDivider.classList.add("project-divider");
         if (ProjectRowIsLeft){
-            ProjectDivider.style.transform="scaleX(-1)";
+            ProjectDivider.style.transform="scaleY(-1)";
 
         }
         ProjectsSection.appendChild(ProjectDivider)
@@ -100,12 +100,28 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
             <div class="project__subsection">
                     <h3>Highlights</h3>
                     ${Highlights}
-                    
-                    
-                    
+                
                 </div>
             <button class="show-more">Show More</button>                        
 
         </div>
     </div>`;
+
+    let buttons = ProjectsSection.querySelectorAll(".show-more");
+    let button = buttons[buttons.length - 1];
+
+    let expandedSections = ProjectsSection.querySelectorAll(".show-more");
+    let expandedSection = expandedSections[expandedSections.length -1]
+
+    button.addEventListener("click", (e) =>{
+        console.log("wow")
+        if (button.innerHTML == "Show More"){
+            button.innerHTML == "Show Less"
+            expandedSection.classList.add("hidden")
+        } else {
+            button.innerHTML == "Show More"
+            expandedSection.classList.remove("hidden")
+            
+        }
+    })
 }
