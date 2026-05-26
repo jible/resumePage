@@ -1,6 +1,6 @@
 [
     {
-        "name": "Tail of Two Tides",
+        "name": "Zelda Dungeon Generator Prototype",
         "titleImage":"images/sampleGames/zeldaDungeonGeneratorTitle.png",
         "linkTitles":[
             "Playable Demo",
@@ -25,27 +25,6 @@
         
     },
     {
-        "name": "Zedla dungeon Generator Prototype",
-        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
-        "linkTitles":[
-            "Playable Game",
-            "Codebase"
-        ],
-        "links":[
-            "https://emiree-draws.itch.io/tail-of-two-tides",
-            "https://github.com/IcySmoooth/GMTK_2024"
-        ],
-        "skills": "C#, Unity, Working With Multiple Programmers",
-        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
-        "highlights": {
-            "Unity Coroutines": {
-                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
-                "gif": "./images/sampleGames/TailDog.gif"
-            }
-        }
-        
-    },
-    {
         "name": "Tail of Two Tides",
         "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
         "linkTitles":[
@@ -67,44 +46,20 @@
         
     },
     {
-        "name": "Tail of Two Tides",
-        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
+        "name": "Cast into Flame",
+        "titleImage":"images/sampleGames/titles/castInFlame.png",
         "linkTitles":[
             "Playable Game",
             "Codebase"
         ],
         "links":[
-            "https://emiree-draws.itch.io/tail-of-two-tides",
-            "https://github.com/IcySmoooth/GMTK_2024"
+            "https://jibl.itch.io/cast-in-flame",
+            "https://github.com/jible/capstone"
         ],
-        "skills": "C#, Unity, Working With Multiple Programmers",
-        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "skills": "Godot, Working with multiple programmers, Github version control, resolving complex merge conflicts",
+        "description": "I made this game with Jack Sims, Rosalind Dixon, Phoebe Royer, Jackson McClame, and Carter Gruebel as our senior capstone project. We had 10 weeks to make it. I took the lead on programming and I was responsible for a lot of the tools and systems we used. ",
         "highlights": {
-            "Unity Coroutines": {
-                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
-                "gif": "./images/sampleGames/TailDog.gif"
-            }
-        }
-        
-    },
-    {
-        "name": "Tail of Two Tides",
-        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
-        "linkTitles":[
-            "Playable Game",
-            "Codebase"
-        ],
-        "links":[
-            "https://emiree-draws.itch.io/tail-of-two-tides",
-            "https://github.com/IcySmoooth/GMTK_2024"
-        ],
-        "skills": "C#, Unity, Working With Multiple Programmers",
-        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
-        "highlights": {
-            "Unity Coroutines": {
-                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
-                "gif": "./images/sampleGames/TailDog.gif"
-            }
+          
         }
         
     }
