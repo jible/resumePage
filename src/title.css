@@ -190,6 +190,8 @@ It should bounce a compress
 
 .title-squish-container{
     animation: titleCompression 4s ease-in-out infinite;
+    height: 50%;
+    width: auto;
 }
 
 .title-text{
@@ -197,7 +199,11 @@ It should bounce a compress
     animation: 
         titleBounce 5s ease-in-out infinite,
         title-fade-in var(--start-anim) ease-in 1  forwards;
-    max-width: 90VW;
+    max-width: 90%;
+}
+
+.hidden {
+    display: none
 }
 
 /* --- Keyframes --- */

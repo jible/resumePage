@@ -1,5 +1,31 @@
 [
     {
+        "name": "Cast into Flame",
+        "titleImage":"images/sampleGames/titles/castInFlame.png",
+        "linkTitles":[
+            "Playable Game",
+            "Codebase"
+        ],
+        "links":[
+            "https://jibl.itch.io/cast-in-flame",
+            "https://github.com/jible/capstone"
+        ],
+        "skills": "Godot, Teamwork, Github version control, resolving complex merge conflicts",
+        "description": "I made this game with Jack Sims, Rosalind Dixon, Phoebe Royer, Jackson McClame, and Carter Gruebel as our senior capstone project. We had 10 weeks to make it. I took the lead on programming and I was responsible for a lot of the tools and systems we used including, the character controller, enemy AI, mini-map, and world generation. ",
+        "highlights": {
+          "Player Controller": {
+            "text" : "I made the player controller, using a state machine. My design for the player took inspiration from the game Core Keeper. The biggest feature we drew from Core Keeper was the player facing the direction of the mouse instead of which way they were going. This allowed for more advanced combat. The player was designed with animations for each action in each direction. One challenge I gave myself was allowing the player to change directions without resetting an animation. For example, if the player is in the middle of their stride, walking West and the turn North and continue walking, it will not reset the walking cycle. Unfortunately, we did not continue with the project, so we did not get finalized art to demonstrate the full functionality.",
+            "gif" : "./images/sampleGames/castInFlameGameplay1.gif"
+          }
+          ,
+          "World Generation": {
+            "text" : "I iterated on the world generations several times before settling on the final design. I took the opportunity prototype the tile-based world generation in a different class. I spent one week looking into Perlin-noise and other popular world generation techniques. You can find the prototype for the world generation <a href= \"https://jible.github.io/world-gen-prototype/\" target =\"_blank\">here</a> and the source code <a href= \"https://github.com/jible/world-gen-prototype \" target =\"_blank\">here</a>. It wasn't made for users to actually see so pardon the buggy behavior when switching tabs. Before we reeled in the scope of the project, we planned to do 9 levels: one for each circle of Hell. So, I made used different generation techniques that would suit each level and experimented with different color palettes. For the project, we ended up using the generation technique made for the lust circle, which is a simple random walk generation. It made the most interesting layout that suited our gameplay best.",
+            "gif" : "./images/sampleGames/castinFlameGeneration.gif"
+          }
+        }
+        
+    },
+    {
         "name": "Zelda Dungeon Generator Prototype",
         "titleImage":"images/sampleGames/zeldaDungeonGeneratorTitle.png",
         "linkTitles":[
@@ -10,11 +36,11 @@
             "https://jible.github.io/ZeldaDungeonGenerator/",
             "https://github.com/jible/ZeldaDungeonGenerator"
         ],
-        "skills": "JavaScript, Phaser Game Library (a text-based engine), and Procedural Generation",
-        "description": "I made this demo with Phoebe Royer, Carter Grubel, and Grabiel Allen. It is a prototype Zelda Dungeon Generator. I was in charge of the random dungeon layout generation, making most of the tile-maps for the rooms, player movement, player animations, and the key functionality. The original submission for this project had a character customizer, which didn't work with the animated character, so I made this fork to clean it up and highlight my contributions. ",
+        "skills": "JavaScript, Phaser Game Library, and Procedural Generation",
+        "description": "I made this demo with Phoebe Royer, Carter Gruebel, and Gabriel Allen. It is a prototype Zelda Dungeon Generator. I was in charge of the random dungeon layout generation, making most of the tile-maps for the rooms, player movement, player animations, and the key functionality. The original submission for this project had a character customizer, which didn't work with the animated character, so I made this fork to clean it up and highlight my contributions. ",
         "highlights": {
             "Room Layout Generation": {
-                "text":"I am proud of the algorithm I created that generates the matrix layout. It is  customizable, allowing the programmer to change the room count, the max width and height, the coordinates the first room is in, and customizable room types with door requirements (ie: maze room can only spawn with doors connecting the north and sourth side. I like to say the algorithm is like a breatdth first generation. It starts in the root room and looks in each direction in a random order. The first direction it looks in is guarenteed to place a room (if there isn't already a room in that direction), then the following directions have decreasing odds. Each room this room adds is considered a child of this room. Then it looks at each of its child rooms and uses the same method to give them child rooms. To keep it balanced after the second search, it assigns each room a depth or generation value, which is how many parents this room has before hitting the root. Going forward, You give each generation children, before you move onto giving the next generation children. Otherwise it would just chain one set of rooms instead of making them branch out evenly. The doors are added to the rooms by only connecting them to their parent and children, rather than all neighboring rooms. After hitting the max room count, it goes through and assigns room types. Some rooms have requirements, like there can only be one room of this type, this room has to be on the lowest level depth (last generation), or this room-type can only be assigned to rooms with doors on the North Side and South Side. Additionally some rooms always appear in a certain room number. For instance, the first room must be the entrance type and the last room must be the boss-room type.",
+                "text":"I am proud of the algorithm I created that generates the matrix layout. It is  customizable, allowing the programmer to change the room count, the max width and height, the coordinates the first room is in, and customizable room types with door requirements (ie: maze room can only spawn with doors connecting the north and South side. I like to say the algorithm is like a breadth first generation. It starts in the root room and looks in each direction in a random order. The first direction it looks in is guaranteed to place a room (if there isn't already a room in that direction), then the following directions have decreasing odds. Each room this room adds is considered a child of this room. Then it looks at each of its child rooms and uses the same method to give them child rooms. To keep it balanced after the second search, it assigns each room a depth or generation value, which is how many parents this room has before hitting the root. Going forward, You give each generation children, before you move onto giving the next generation children. Otherwise it would just chain one set of rooms instead of making them branch out evenly. The doors are added to the rooms by only connecting them to their parent and children, rather than all neighboring rooms. After hitting the max room count, it goes through and assigns room types. Some rooms have requirements, like there can only be one room of this type, this room has to be on the lowest level depth (last generation), or this room-type can only be assigned to rooms with doors on the North Side and South Side. Additionally some rooms always appear in a certain room number. For instance, the first room must be the entrance type and the last room must be the boss-room type.",
                 "gif": "./images/sampleGames/TailDog.gif"
             },
             "Custom Rooms": {
@@ -26,7 +52,7 @@
     },
     {
         "name": "Tail of Two Tides",
-        "titleImage":"images/sampleGames/tailofTwoTidesTitle.png",
+        "titleImage":"images/sampleGames/titles/tailOfTides.png",
         "linkTitles":[
             "Playable Game",
             "Codebase"
@@ -35,7 +61,7 @@
             "https://emiree-draws.itch.io/tail-of-two-tides",
             "https://github.com/IcySmoooth/GMTK_2024"
         ],
-        "skills": "C#, Unity, Working With Multiple Programmers",
+        "skills": "C#, Unity, Teamwork",
         "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
         "highlights": {
             "Unity Coroutines": {
@@ -44,23 +70,6 @@
             }
         }
         
-    },
-    {
-        "name": "Cast into Flame",
-        "titleImage":"images/sampleGames/titles/castInFlame.png",
-        "linkTitles":[
-            "Playable Game",
-            "Codebase"
-        ],
-        "links":[
-            "https://jibl.itch.io/cast-in-flame",
-            "https://github.com/jible/capstone"
-        ],
-        "skills": "Godot, Working with multiple programmers, Github version control, resolving complex merge conflicts",
-        "description": "I made this game with Jack Sims, Rosalind Dixon, Phoebe Royer, Jackson McClame, and Carter Gruebel as our senior capstone project. We had 10 weeks to make it. I took the lead on programming and I was responsible for a lot of the tools and systems we used. ",
-        "highlights": {
-          
-        }
-        
     }
+    
 ]

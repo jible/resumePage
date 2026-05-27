@@ -66,6 +66,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
         Highlights += `<img src="${value.gif}" class = "gameplay-gif">`;
         Highlights += `<h4>${key}</h4>`;
         Highlights += `<p1>${value.text}</p1>`;
+        Highlights += `<br>`;
     });
     
 
@@ -97,7 +98,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
                 </div>
                 
             </div>
-            <div class="project__subsection">
+            <div class="project__subsection expandable-section hidden">
                     <h3>Highlights</h3>
                     ${Highlights}
                 
@@ -109,19 +110,24 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
 
     let buttons = ProjectsSection.querySelectorAll(".show-more");
     let button = buttons[buttons.length - 1];
+    
 
     let expandedSections = ProjectsSection.querySelectorAll(".show-more");
     let expandedSection = expandedSections[expandedSections.length -1]
 
-    button.addEventListener("click", (e) =>{
-        console.log("wow")
-        if (button.innerHTML == "Show More"){
-            button.innerHTML == "Show Less"
-            expandedSection.classList.add("hidden")
+    ProjectsSection.addEventListener("click", function(e) {
+    if (e.target.classList.contains("show-more")) {
+        const button = e.target;
+        const card = button.closest(".project-card");
+        const details = card.querySelector(".expandable-section");
+
+        if (button.innerHTML === "Show More") {
+            button.innerHTML = "Show Less";
+            details.classList.remove("hidden");
         } else {
-            button.innerHTML == "Show More"
-            expandedSection.classList.remove("hidden")
-            
+            button.innerHTML = "Show More";
+            details.classList.add("hidden");
         }
-    })
+    }
+});
 }
