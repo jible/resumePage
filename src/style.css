@@ -12,6 +12,7 @@ body, html {
     overflow-y: auto;
     font-family: Arial, sans-serif;
     background-color: rgb(66, 165, 245);
+    overscroll-behavior: none;
 }
 
 /* ----------------------------------------
