@@ -70,7 +70,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
     });
     
 
-    ProjectsSection.innerHTML += `
+    ProjectsSection.insertAdjacentHTML( 'beforeend',  `
     <div class ="project-row" style="background-image: url(images/projectSelect/${pathImage}.png); justify-content: ${projectRowPinStyle}">
         <div class = "project-node" style = "background-image: url(images/projectSelect/node${PathSide}.png);"></div>
         <div class = "project-card">
@@ -106,28 +106,22 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
             <button class="show-more">Show More</button>                        
 
         </div>
-    </div>`;
+    </div>`);
 
     let buttons = ProjectsSection.querySelectorAll(".show-more");
     let button = buttons[buttons.length - 1];
     
 
-    let expandedSections = ProjectsSection.querySelectorAll(".show-more");
+    let expandedSections = ProjectsSection.querySelectorAll(".expandable-section");
     let expandedSection = expandedSections[expandedSections.length -1]
 
-    ProjectsSection.addEventListener("click", function(e) {
-    if (e.target.classList.contains("show-more")) {
-        const button = e.target;
-        const card = button.closest(".project-card");
-        const details = card.querySelector(".expandable-section");
-
+    button.addEventListener("click", function() {
         if (button.innerHTML === "Show More") {
             button.innerHTML = "Show Less";
-            details.classList.remove("hidden");
+            expandedSection.classList.remove("hidden");
         } else {
             button.innerHTML = "Show More";
-            details.classList.add("hidden");
+            expandedSection.classList.add("hidden");
         }
-    }
-});
+    });
 }
