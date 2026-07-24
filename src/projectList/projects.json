@@ -39,7 +39,7 @@
           }
           ,
           "World Generation": {
-            "text" : "I iterated on the world generations several times before settling on the final design. I took the opportunity prototype the tile-based world generation in a different class. I spent one week looking into Perlin-noise and other popular world generation techniques. You can find the prototype for the world generation <a href= \"https://jible.github.io/world-gen-prototype/\" target =\"_blank\">here</a> and the source code <a href= \"https://github.com/jible/world-gen-prototype \" target =\"_blank\">here</a>. This was strictly made for prototyping so the user interface was not polished. Before we reeled in the scope of the project, we planned to do 9 levels: one for each circle of Hell. So, I made used different generation techniques that would suit each level and experimented with different color palettes. For the project, we ended up using the generation technique made for the lust circle, which is a simple random walk generation. It made the most interesting layout that suited our gameplay best.",
+            "text" : "I iterated on the world generations several times before settling on the final design. I took the opportunity to prototype the tile-based world generation in a different class. I spent one week looking into Perlin-noise and other popular world generation techniques. You can find the prototype for the world generation <a href= \"https://jible.github.io/world-gen-prototype/\" target =\"_blank\">here</a> and the source code <a href= \"https://github.com/jible/world-gen-prototype \" target =\"_blank\">here</a>. This was strictly made for prototyping so the user interface was not polished. Before we reeled in the scope of the project, we planned to do 9 levels: one for each circle of Hell. So, I used different generation techniques that would suit each level and experimented with different color palettes. For the project, we ended up using the generation technique made for the lust circle, which is a simple random walk generation. It made the most interesting layout that suited our gameplay best.",
             "gif" : "./images/sampleGames/castinFlameGeneration.gif"
           }
         }
@@ -68,3 +68,4 @@
     }
     
 ]
+
