@@ -65,7 +65,7 @@ function SpawnSkyElement(image, x, y){
     bgObject.style.left = `${x}%`;
     bgObject.style.bottom = `${y}%`;
     bgObject.style.animationDelay = '0s';
-    bgObject.style.brackgroundSize = 'contain'
+    bgObject.style.backgroundSize = 'contain'
     bgObject.style.position = 'absolute';
     // Remove element after it exits the screen
     bgObject.addEventListener('animationend', () => {

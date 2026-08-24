@@ -15,15 +15,6 @@
     width:100%;
 }
 
-.path-left-node{
-    background-image: url("../images/projectSelect/path7.png");
-}
-.path-right-node{
-    background-image: url("../images/projectSelect/path8.png");
-}
-
-
-
 .project-node{
     position:absolute;
     top:50%;
@@ -116,7 +107,7 @@
     text-align: center;
 }
 
-#projects p1{
+#projects p{
     font-family: Verdana;
 
 }

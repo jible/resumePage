@@ -11,7 +11,6 @@ const skyBackground = document.querySelector('.sky-background');
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
 const scrollHint = document.getElementsByClassName('scroll-hint')[0];
-const titleScreenCover = titleScreen.getElementsByClassName("title-cover")[0];
 
 window.addEventListener('load', () => {
     document.body.classList.remove('no-animations');

@@ -11,11 +11,11 @@
             "https://github.com/jible/capstone"
         ],
         "skills": "Godot, Advanced Hitbox Behavior",
-        "description": "I made a hitbox editor for a platform fighting game I was working on. This piece is most representative of my skills and interests as a programmer. I am extremely passionate for making tools and optimizing work flow for those who do not touch the code base as closely.",
+        "description": "I made a hitbox editor for a platform fighting game I was working on. This piece is most representative of my skills and interests as a programmer. I am extremely passionate about making tools and optimizing work flow for those who do not touch the code base as closely.",
         "highlights": {
-          "Video Demonstration ": {
-            "text" : "Please watch <a href= \"https://www.youtube.com/watch?v=umgpTLa830k\" target =\"_blank\">this video</a> and <a href= \"https://youtu.be/azvl7-OCtQY\" target =\"_blank\">this video</a> to understand how my hitbox editor.",
-            "gif" : "./images/sampleGames/hitboxEditor.gif"
+          "Video Demonstration": {
+            "text" : "Please watch <a href= \"https://www.youtube.com/watch?v=umgpTLa830k\" target =\"_blank\">this video</a> and <a href= \"https://youtu.be/azvl7-OCtQY\" target =\"_blank\">this video</a> to understand how my hitbox editor works.",
+            "video" : "./images/sampleGames/hitboxEditor.mp4"
           }
         }
     },
@@ -35,12 +35,12 @@
         "highlights": {
           "Player Controller": {
             "text" : "I made the player controller, using a state machine. My design for the player took inspiration from the game Core Keeper. The biggest feature we drew from Core Keeper was the player facing the direction of the mouse instead of which way they were going. This allowed for more advanced combat. The player was designed with animations for each action in each direction. One challenge I gave myself was allowing the player to change directions without resetting an animation. For example, if the player is in the middle of their stride, walking West and then turn North and continue walking, it will not reset the walking cycle. Unfortunately, we did not continue with the project, so we did not get finalized art to demonstrate the full functionality.",
-            "gif" : "./images/sampleGames/castInFlameGameplay1.gif"
+            "video" : "./images/sampleGames/castInFlameGameplay1.mp4"
           }
           ,
           "World Generation": {
-            "text" : "I iterated on the world generations several times before settling on the final design. I took the opportunity to prototype the tile-based world generation in a different class. I spent one week looking into Perlin-noise and other popular world generation techniques. You can find the prototype for the world generation <a href= \"https://jible.github.io/world-gen-prototype/\" target =\"_blank\">here</a> and the source code <a href= \"https://github.com/jible/world-gen-prototype \" target =\"_blank\">here</a>. This was strictly made for prototyping so the user interface was not polished. Before we reeled in the scope of the project, we planned to do 9 levels: one for each circle of Hell. So, I used different generation techniques that would suit each level and experimented with different color palettes. For the project, we ended up using the generation technique made for the lust circle, which is a simple random walk generation. It made the most interesting layout that suited our gameplay best.",
-            "gif" : "./images/sampleGames/castinFlameGeneration.gif"
+            "text" : "I iterated on the world generations several times before settling on the final design. I took the opportunity to prototype the tile-based world generation in a different class. I spent one week looking into Perlin-noise and other popular world generation techniques. You can find the prototype for the world generation <a href= \"https://jible.github.io/world-gen-prototype/\" target =\"_blank\">here</a> and the source code <a href= \"https://github.com/jible/world-gen-prototype\" target =\"_blank\">here</a>. This was strictly made for prototyping so the user interface was not polished. Before we reeled in the scope of the project, we planned to do 9 levels: one for each circle of Hell. So, I used different generation techniques that would suit each level and experimented with different color palettes. For the project, we ended up using the generation technique made for the lust circle, which is a simple random walk generation. It made the most interesting layout that suited our gameplay best.",
+            "video" : "./images/sampleGames/castinFlameGeneration.mp4"
           }
         }
     },
@@ -61,7 +61,7 @@
         "highlights": {
             "Unity Coroutines": {
                 "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
-                "gif": "./images/sampleGames/TailDog.gif"
+                "video": "./images/sampleGames/TailDog.mp4"
             }
         }
         
