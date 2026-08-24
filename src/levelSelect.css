@@ -55,6 +55,9 @@
     padding: 2%;
     flex:1;
     margin: 5px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
 
 }
 /* .relevant-links{
@@ -62,7 +65,7 @@
 
 .basic-info{
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: minmax(0, 65%) minmax(0, 35%);
 }
 
 .extra_info{
@@ -110,4 +113,28 @@
 #projects p{
     font-family: Verdana;
 
+}
+
+@media (max-width: 700px) {
+    .project-card{
+        width: 92%;
+        border-radius: 25px;
+        padding: 4%;
+    }
+
+    .basic-info{
+        grid-template-columns: 1fr;
+    }
+
+    #projects h1{
+        font-size: 1.8rem;
+    }
+
+    .project__title-image{
+        width: 85%;
+    }
+
+    .gameplay-gif{
+        width: 90%;
+    }
 }
