@@ -15,6 +15,7 @@ const titleScreenCover = titleScreen.getElementsByClassName("title-cover")[0];
 
 window.addEventListener('load', () => {
     document.body.classList.remove('no-animations');
+    window.dispatchEvent(new Event('animations-ready'));
 });
 
 

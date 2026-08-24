@@ -7,8 +7,27 @@ fetch(jsonPath)
     .then((response) => response.json())
     .then((data) => {
         RenderProjects(data); // Access the projects array
+        projectsRendered = true;
+        maybeLoadGifs();
     })
     .catch((error) => console.error('Error loading JSON:', error));
+
+// The gameplay gifs are huge, so they're kept out of `src` (and off the
+// window "load" event) until the intro animations have started. Only then
+// do we start fetching them in the background.
+let animationsStarted = false;
+let projectsRendered = false;
+function maybeLoadGifs() {
+    if (!animationsStarted || !projectsRendered) return;
+    document.querySelectorAll('.gameplay-gif[data-src]').forEach((img) => {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+    });
+}
+window.addEventListener('animations-ready', () => {
+    animationsStarted = true;
+    maybeLoadGifs();
+});
 
 // Make html elements for each project
 let ProjectRowIsLeft = false;
@@ -63,7 +82,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
 
     let Highlights = ``;
     Object.entries(project.highlights).forEach(([key,value]) => {
-        Highlights += `<img src="${value.gif}" class = "gameplay-gif">`;
+        Highlights += `<img data-src="${value.gif}" class = "gameplay-gif" alt="${key} gameplay">`;
         Highlights += `<h4>${key}</h4>`;
         Highlights += `<p1>${value.text}</p1>`;
         Highlights += `<br>`;
