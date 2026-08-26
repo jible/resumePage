@@ -93,51 +93,49 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
     <div class ="project-row" style="background-image: url(images/projectSelect/${pathImage}.png); justify-content: ${projectRowPinStyle}">
         <div class = "project-node" style = "background-image: url(images/projectSelect/node${PathSide}.png);"></div>
         <div class = "project-card">
-            
+            <img src="${project.titleImage}" class = "project__title-image">
             <div class = "basic-info project-info">
-                <img src="${project.titleImage}" class = "project__title-image">
-                <div class="project__subsection">
+                
+                
+                <div class="project__subsection expandable-section hidden">
+                    <h3>Skills</h3>
+                    <p>${project.skills}</p>
+                </div>
+                
+                <div class="project__subsection expandable-section hidden">
                     <h3>Description</h3>
                     <p>
                         ${project.description}
                     </p>
                 </div>
-                <div class="project__subsection">
-                        <h3>Skills</h3>
-                        <p>${project.skills}</p>
+                
+                <div class="project__subsection expandable-section hidden">
+                    <h3>Relevant Links</h3>
+                    <div class ="links">
+                        ${RelevantLinks}
                     </div>
-                    <div class="project__subsection">
-                        <h3>Relevant Links</h3>
-                        <div class ="links">
-                            ${RelevantLinks}
-                        </div>
                 </div>
                 
             </div>
             <div class="project__subsection expandable-section hidden">
-                    <h3>Highlights</h3>
-                    ${Highlights}
+                <h3>Highlights</h3>
+                ${Highlights}
                 
-                </div>
+            </div>
             <button class="show-more">Show More</button>                        
 
         </div>
     </div>`);
 
-    let buttons = ProjectsSection.querySelectorAll(".show-more");
-    let button = buttons[buttons.length - 1];
-    
-
-    let expandedSections = ProjectsSection.querySelectorAll(".expandable-section");
-    let expandedSection = expandedSections[expandedSections.length -1]
+    let projectRow = ProjectsSection.lastElementChild;
+    let button = projectRow.querySelector(".show-more");
+    let expandableSections = projectRow.querySelectorAll(".expandable-section");
 
     button.addEventListener("click", function() {
-        if (button.innerHTML === "Show More") {
-            button.innerHTML = "Show Less";
-            expandedSection.classList.remove("hidden");
-        } else {
-            button.innerHTML = "Show More";
-            expandedSection.classList.add("hidden");
-        }
+        let isShowingMore = button.innerHTML === "Show More";
+        button.innerHTML = isShowingMore ? "Show Less" : "Show More";
+        expandableSections.forEach((section) => {
+            section.classList.toggle("hidden", !isShowingMore);
+        });
     });
 }
