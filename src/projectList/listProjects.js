@@ -93,17 +93,16 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
     <div class ="project-row" style="background-image: url(images/projectSelect/${pathImage}.png); justify-content: ${projectRowPinStyle}">
         <div class = "project-node" style = "background-image: url(images/projectSelect/node${PathSide}.png);"></div>
         <div class = "project-card">
-            <img src="${project.titleImage}" class = "project__title-image">
+            
             <div class = "basic-info project-info">
-                
+                <img src="${project.titleImage}" class = "project__title-image">
                 <div class="project__subsection">
                     <h3>Description</h3>
                     <p>
                         ${project.description}
                     </p>
                 </div>
-                <div class = "small-sections">
-                    <div class="project__subsection">
+                <div class="project__subsection">
                         <h3>Skills</h3>
                         <p>${project.skills}</p>
                     </div>
@@ -112,8 +111,6 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
                         <div class ="links">
                             ${RelevantLinks}
                         </div>
-                    </div>
-                    
                 </div>
                 
             </div>
