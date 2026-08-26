@@ -46,6 +46,12 @@ export class IslandElement {
     createSpriteAnims(){
         if (!this.type.animation)return
         if (this.type.animation == "rotate"){
+            // Preload every frame so the CSS keyframe animation never steps to a
+            // background-image the browser hasn't fetched yet (causes a blank flash).
+            this.type.imgSrc.forEach((src) => {
+                new Image().src = src;
+            });
+
             // Stores what part (in percents) of the animation each sprite is set at
             let framePercents = [];
             let frames = []

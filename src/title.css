@@ -246,19 +246,22 @@ It should bounce a compress
 
 @keyframes background-day-night{
     0%{
-        background-color: lightblue
+        background-color: #4FA8DE;
     }
     25%{
-        background-color: rgb(136, 52, 91)
+        background-color: #6C4F82;
     }
     50%{
-        background-color: rgb(21, 19, 29)
+        background-color: #131A3A;
     }
-    85%{
-        background-color: orange
+    72%{
+        background-color: #4A5B8C;
+    }
+    90%{
+        background-color: #E8A672;
     }
     100%{
-        background-color: lightblue
+        background-color: #4FA8DE;
     }
 }
 

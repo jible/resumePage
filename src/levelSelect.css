@@ -30,6 +30,7 @@
     background-color: #d4b76a;
     border-radius: 50px;
     width: 80%;
+    max-width: 800px;
     padding: 2%;
     text-align: center;
 }
@@ -81,13 +82,43 @@
 
 .project__title-image{
     width: 60%;
+    max-width: 350px;
     height:auto;
-    
+
 }
 
 .gameplay-gif{
     width: 60%;
+    max-width: 500px;
     border-radius: 30px;
+}
+
+.show-more{
+    margin-top: 15px;
+    padding: 10px 22px;
+    background-color: #ffcd3c;
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 #333;
+    color: #333;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.show-more:hover{
+    background-color: #ffdb70;
+}
+
+.show-more:active{
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 #333;
+}
+
+.show-more:focus-visible{
+    outline: 3px solid #9933ff;
+    outline-offset: 3px;
 }
 
 #projects h1{
