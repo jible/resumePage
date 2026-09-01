@@ -14,14 +14,12 @@
     width:100%;
 }
 
-.project-node{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:100%;
-    aspect-ratio: 5/1;
-    background-size:cover;
-    image-rendering: optimizeQuality;
+
+
+.top-section{
+    display: flex;
+    flex-direction:row;
+
 }
 
 .project-card{
@@ -32,6 +30,9 @@
     max-width: 800px;
     padding: 2%;
     text-align: center;
+    margin: 20px;
+    border: 2px solid #333;
+
 }
 
 .projects-background{
@@ -43,15 +44,6 @@
     height: 100%;
     z-index: 0;
 
-}
-
-.project-divider{
-    width:100%;
-    aspect-ratio: 5/1;
-    background-image: url("../images/projectSelect/connectingPath.png");
-    background-size:100% 100%;
-    image-rendering: pixelated;
-    
 }
 
 
@@ -77,24 +69,19 @@
     grid-template-columns: minmax(0, 65%) minmax(0, 35%);
 }
 
-.extra_info{
 
-}
-
-.small-sections{
+.small-info{
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 
 .project__title-image{
-    width: 100%;
-    /* max-width: 350px; */
+    width: 50%;
+    /* max-height: 350px; */
     height:auto;
-    justify-self: center;
-    align-self: center;
-
 }
 
 .gameplay-gif{
@@ -103,33 +90,6 @@
     border-radius: 30px;
 }
 
-.show-more{
-    margin-top: 15px;
-    padding: 10px 22px;
-    background-color: #ffcd3c;
-    border: 3px solid #333;
-    border-radius: 10px;
-    box-shadow: 4px 4px 0 #333;
-    color: #333;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-}
-
-.show-more:hover{
-    background-color: #ffdb70;
-}
-
-.show-more:active{
-    transform: translate(4px, 4px);
-    box-shadow: 0 0 0 #333;
-}
-
-.show-more:focus-visible{
-    outline: 3px solid #9933ff;
-    outline-offset: 3px;
-}
 
 #projects h1{
     padding:2%;
@@ -163,8 +123,8 @@
         padding: 4%;
     }
 
-    .basic-info{
-        grid-template-columns: 1fr;
+    .top-section{
+        flex-direction: column;
     }
 
     #projects h1{

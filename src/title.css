@@ -369,7 +369,6 @@ It should bounce a compress
     z-index: 1000; /* Keep it above background elements */
     animation: scroll-bounce 2s ease-in-out infinite; /* Add animation */
     text-align: center; /* Center the text */
-    transition: opacity 1s ease, visibility 0.3s ease;
     
 }
 

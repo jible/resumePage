@@ -66,49 +66,38 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
 
     ProjectsSection.insertAdjacentHTML( 'beforeend',  `
     <div class ="project-row" style=" justify-content: center; ">
-        <div class = "project-node" ></div>
         <div class = "project-card">
-            <img src="${project.titleImage}" class = "project__title-image">
-            <div class = "basic-info project-info">
-                <div class="project__subsection expandable-section hidden">
-                    <h3>Skills</h3>
+            <div class ="top-section"> 
+                <img src="${project.titleImage}" class = "project__title-image">
+                <div class ="small-info">
+                    <div class="project__subsection">
+                        <h3>Relevant Links</h3>
+                        <div class ="links">
+                            ${RelevantLinks}
+                        </div>
+                    </div>
+                    <div class="project__subsection">
+                        <h3>Skills</h3>
                     <p>${project.skills}</p>
                 </div>
-                
-                <div class="project__subsection expandable-section hidden">
-                    <h3>Description</h3>
-                    <p>
-                        ${project.description}
-                    </p>
+
                 </div>
-                
-                <div class="project__subsection expandable-section hidden">
-                    <h3>Relevant Links</h3>
-                    <div class ="links">
-                        ${RelevantLinks}
-                    </div>
-                </div>
-                
             </div>
-            <div class="project__subsection expandable-section hidden">
+            
+            <div class="project__subsection">
+                <h3>Description</h3>
+                <p>
+                    ${project.description}
+                </p>
+            </div>
+            
+            <div class="project__subsection">
                 <h3>Highlights</h3>
                 ${Highlights}
                 
             </div>
-            <button class="show-more">Show More</button>                        
 
         </div>
     </div>`);
 
-    let projectRow = ProjectsSection.lastElementChild;
-    let button = projectRow.querySelector(".show-more");
-    let expandableSections = projectRow.querySelectorAll(".expandable-section");
-
-    button.addEventListener("click", function() {
-        let isShowingMore = button.innerHTML === "Show More";
-        button.innerHTML = isShowingMore ? "Show Less" : "Show More";
-        expandableSections.forEach((section) => {
-            section.classList.toggle("hidden", !isShowingMore);
-        });
-    });
 }
