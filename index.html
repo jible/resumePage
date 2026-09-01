@@ -16,38 +16,38 @@
     <link rel="stylesheet" href="src/title.css">
     <link rel="stylesheet" href="src/levelSelect.css">
 </head>
-<body class="no-animations">
+<body class="no-animations no-scrollbar">
     <!-- Navigation Bar overlaying the canvas -->
     <!-- Navigation Bar overlaying the canvas -->
+     <!-- Other elements -->
+    <div class="sky-background"></div>
+    
     <nav class="overlay-nav">
         <a href="https://www.linkedin.com/in/james-milestone-b7221a248/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://drive.google.com/file/d/1bOApmenroslPRh_hdLi-o6_cp0k0Bt9z/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
         <a href="https://github.com/jible" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
 
-    <div id="title-screen" class="title-screen ">
-        <div class="title-container">
+    <div id="title-screen" class="title-screen">
+        <div class="title-container fade-on-scroll">
             <div class = "title-squish-container">
                 <img class = "title-text" src = "images/titleScreen/titleText/titleText2.png">
             </div>
         </div>
-    
-        <!-- New "Scroll to Start" text -->
-        <div class="scroll-hint">Scroll to Start</div>
-    
-        <!-- Other elements -->
-        <div class="sky-background">
-            <div class="waves"></div>
 
-        </div>
-        
-        <div class="water">
+        <!-- New "Scroll to Start" text -->
+        <div class="scroll-hint fade-on-scroll">Scroll to Start</div>
+
+
+        <div class="water fade-on-scroll">
+            <div class="waves fade-on-scroll"></div>
             <div class="island" id="island"></div>
 
         </div>
     </div>
-    
+
     <div id="projects">
+        <div class="projects-background fade-on-scroll"></div>
         <h1>Project Select</h1>
         </div>
 

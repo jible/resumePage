@@ -40,38 +40,13 @@ function RenderProjects(data){
         let project = data[ProjectNumber];
         ConstructHtmlSection(project, ProjectNumber, data.length);
 
-        if ( ProjectNumber == data.length -1) break;
-        let ProjectDivider = document.createElement("div");
-        ProjectDivider.classList.add("project-divider");
-        if (ProjectRowIsLeft){
-            ProjectDivider.style.transform="scaleY(-1)";
-
-        }
-        ProjectsSection.appendChild(ProjectDivider)
-        ProjectRowIsLeft = !ProjectRowIsLeft;
     };
 }
 
 
 function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
     
-    let PathSide = !ProjectRowIsLeft ? "Left": "Right";
-
     let RelevantLinks = ``;
-    let projectRowPinStyle = `${ProjectRowIsLeft? `flex-start`: `flex-end`}`
-
-    let pathImage;
-    if (PathSide=="Left" && ProjectNumber == 0){
-        pathImage = "bottomLeftPath";
-    } else if (PathSide=="Right" && ProjectNumber != ProjectCount -1){
-        pathImage = "longRightPath";
-    } else if (PathSide=="Left" && ProjectNumber != ProjectCount -1){
-        pathImage = "longLeftPath";
-    } else if (PathSide=="Left" && ProjectNumber == ProjectCount -1){
-        pathImage = "topLeftPath";
-    } else if (PathSide=="Right" && ProjectNumber == ProjectCount -1){
-        pathImage = "topRightPath";
-    }    
 
     if (project.linkTitles != null){
         for(let i = 0; i < project.linkTitles.length; i++){
@@ -90,13 +65,11 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
     
 
     ProjectsSection.insertAdjacentHTML( 'beforeend',  `
-    <div class ="project-row" style="background-image: url(images/projectSelect/${pathImage}.png); justify-content: ${projectRowPinStyle}">
-        <div class = "project-node" style = "background-image: url(images/projectSelect/node${PathSide}.png);"></div>
+    <div class ="project-row" style=" justify-content: center; ">
+        <div class = "project-node" ></div>
         <div class = "project-card">
             <img src="${project.titleImage}" class = "project__title-image">
             <div class = "basic-info project-info">
-                
-                
                 <div class="project__subsection expandable-section hidden">
                     <h3>Skills</h3>
                     <p>${project.skills}</p>

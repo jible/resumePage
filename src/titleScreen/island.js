@@ -10,7 +10,6 @@ const skyBackground = document.querySelector('.sky-background');
 
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
-const scrollHint = document.getElementsByClassName('scroll-hint')[0];
 
 window.addEventListener('load', () => {
     document.body.classList.remove('no-animations');
@@ -18,13 +17,11 @@ window.addEventListener('load', () => {
 });
 
 
-
 document.body.addEventListener('scroll', () => {
-    if (document.body.scrollTop > 0) {
-        scrollHint.classList.add('hidden'); // Hide the element
-    } else {
-        scrollHint.classList.remove('hidden'); // Show the element
-    }
+
+    const fadeProgress = Math.min(1, document.body.scrollTop / (window.innerHeight * .5));
+    document.body.style.setProperty('--scroll-fade-position', 1 - fadeProgress);
+
 
 });
 spawnInitialBackgroundElements();
