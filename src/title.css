@@ -89,15 +89,28 @@ body {
     }
 }
 
-.cloud{
+.sky-object{
     position:relative;
     size: relative;
     z-index: 0;
     animation: cloud-scroll 30s linear var(--spin-direction);
     aspect-ratio: 1/1;
-    height: 10vh;
     image-rendering: pixelated;
-    opacity: 0.8;
+}
+
+.cloud{
+    /* opacity: 0.8; */
+    height: 16vh;
+}
+
+.small-star{
+    height: 3.2vh;
+}
+.normal-star{
+    height: 6.4vh;
+}
+.large-star{
+    height: 12.8vh;
 }
 
 .waves {
@@ -106,7 +119,7 @@ body {
     left: 0%;
     height: min(5vh, 30px);
     width: 200%;
-    background: url('../images/titleScreen/background/wavesv5.png');
+    background: url('../images/titleScreen/background/waves/wavesv5.png');
     background-size: auto 100%;
     animation: wave-scroll var(--spin-time) linear infinite var(--spin-direction);
     z-index: 1;

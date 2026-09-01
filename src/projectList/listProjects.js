@@ -48,9 +48,9 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
     
     let RelevantLinks = ``;
 
-    if (project.linkTitles != null){
-        for(let i = 0; i < project.linkTitles.length; i++){
-                RelevantLinks += `<a href="${project.links[i]}" target = "_blank">${project.linkTitles[i]} </a> ${i < project.linkTitles.length -1 ?`<br/>` : ``}`
+    if (project.links != null){
+        for(let i = 0; i < project.links.length; i++){
+                RelevantLinks += `<a href="${project.links[i].url}" target = "_blank">${project.links[i].title} </a> ${i < project.links.length -1 ?`<br/>` : ``}`
             }
     }
     

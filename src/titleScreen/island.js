@@ -1,4 +1,4 @@
-import { CloudFrequency, islandElementsInfo,  } from "./islandConfig.js";
+import { CloudFrequency as SkyElementFrequency, islandElementsInfo,  } from "./islandConfig.js";
 
 import {RandomlySpawnBackgroundElement, spawnInitialBackgroundElements} from "./sky.js"
 import { IslandElement } from "./IslandElementClass.js";
@@ -25,7 +25,7 @@ document.body.addEventListener('scroll', () => {
 
 });
 spawnInitialBackgroundElements();
-var spawnInterval = setInterval(RandomlySpawnBackgroundElement, CloudFrequency);
+var spawnInterval = setInterval(RandomlySpawnBackgroundElement, SkyElementFrequency);
 
 document.addEventListener('visibilitychange', () =>{
     if (document.hidden){
@@ -35,12 +35,12 @@ document.addEventListener('visibilitychange', () =>{
     if (!document.hidden){
         var children = skyBackground.children;
         Array.from(children).forEach(child => {
-            if (child.classList.contains("cloud")){
+            if (child.classList.contains("sky-object")){
                 child.remove()
             }
             });
         spawnInitialBackgroundElements()
-        spawnInterval = setInterval(RandomlySpawnBackgroundElement, CloudFrequency);
+        spawnInterval = setInterval(RandomlySpawnBackgroundElement, SkyElementFrequency);
     }
     
     

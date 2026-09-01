@@ -2,13 +2,8 @@
     {
         "name": "Juxtopposed",
         "titleImage":"images/sampleGames/titles/hitboxEditor.png",
-        "linkTitles":[
-            "Playable Game",
-            "Codebase"
-        ],
         "links":[
-            "https://jibl.itch.io/cast-in-flame",
-            "https://github.com/jible/capstone"
+            { "title": "Codebase", "url": "https://github.com/jible/capstone" }
         ],
         "skills": "Godot, Advanced Hitbox Behavior",
         "description": "I made a hitbox editor for a platform fighting game I was working on. This piece is most representative of my skills and interests as a programmer. I am extremely passionate about making tools and optimizing work flow for those who do not touch the code base as closely.",
@@ -22,13 +17,9 @@
     {
         "name": "Cast into Flame",
         "titleImage":"images/sampleGames/titles/castInFlame.png",
-        "linkTitles":[
-            "Playable Game",
-            "Codebase"
-        ],
         "links":[
-            "https://jibl.itch.io/cast-in-flame",
-            "https://github.com/jible/capstone"
+            { "title": "Playable Game", "url": "https://jibl.itch.io/cast-in-flame" },
+            { "title": "Codebase", "url": "https://github.com/jible/capstone" }
         ],
         "skills": "Godot, Teamwork, Github version control, resolving complex merge conflicts",
         "description": "I made this game with Jack Sims, Rosalind Dixon, Phoebe Royer, Jackson McClame, and Carter Gruebel as our senior capstone project. We had 10 weeks to make it. I took the lead on programming and I was responsible for many of the tools and systems we used including the character controller, enemy AI, mini-map, and world generation. ",
@@ -48,13 +39,8 @@
     {
         "name": "Tail of Two Tides",
         "titleImage":"images/sampleGames/titles/tailOfTides.png",
-        "linkTitles":[
-            "Playable Game",
-            "Codebase"
-        ],
         "links":[
-            "https://emiree-draws.itch.io/tail-of-two-tides",
-            "https://github.com/IcySmoooth/GMTK_2024"
+            { "title": "Playable Game", "url": "https://emiree-draws.itch.io/tail-of-two-tides" }
         ],
         "skills": "C#, Unity, Teamwork",
         "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
