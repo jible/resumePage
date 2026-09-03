@@ -45,7 +45,7 @@ const skyBackground = document.querySelector('.sky-background');
 
 export function spawnInitialBackgroundElements(){
     let isDay = IsDayTime();
-    for ( let i = 0; i < 30; i ++){
+    for ( let i = 0; i < 10; i ++){
         SpawnSkyElements(isDay, Math.random() * 100);
     }
 }
@@ -60,24 +60,21 @@ export function RandomlySpawnBackgroundElement() {
 
 // spawns a sky element anchored at x,y
 // Automatically spawns clouds in bunches
-function SpawnSkyElements(isDay, x = -30,y = null ){
+function SpawnSkyElements(isDay, x = -50,y = null ){
     if (y==null){
-        y = Math.random() * 80 + 15
+        y = (Math.random() * (100-10)) + 5
     }
 
     let ElementType = DecideElementType(isDay);
     
 
     if (ElementType == skyElementTypeToStyle.CLOUD){
-        let CloudCount = Math.floor(Math.random() *4 +1);
-        for ( let i = 0; i < 1; i++){
-            let offsetX = Math.random() * CloudRadius;
-            let offsetY = Math.random() * CloudRadius;
-            let elementImage
-            let newElementType
-            [elementImage, newElementType] = GetRandomElementImageAndType(ElementType);
-            SpawnSkyElement(elementImage, x + offsetX, y +  offsetY, newElementType);
-        }
+        let offsetX = Math.random() * CloudRadius;
+        let offsetY = Math.random() * CloudRadius;
+        let elementImage
+        let newElementType
+        [elementImage, newElementType] = GetRandomElementImageAndType(ElementType);
+        SpawnSkyElement(elementImage, x + offsetX, y +  offsetY, newElementType);
     } else if (ElementType == skyElementTypeToStyle.STAR){
         let elementImage 
         let newElementType

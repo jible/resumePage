@@ -78,10 +78,35 @@
 }
 
 
+.highlight{
+    margin: 10px 0;
+    text-align: left;
+}
+
+.highlight__title{
+    cursor: pointer;
+}
+
+.highlight__title h4{
+    display: inline;
+}
+
+.highlight__content{
+    margin-top: 10px;
+}
+
 .project__title-image{
     width: 50%;
     /* max-height: 350px; */
     height:auto;
+}
+
+.youtube-embed{
+    width: 40%;
+    max-width: 350px;
+    aspect-ratio: 16/9;
+    border-radius: 30px;
+    border: 0;
 }
 
 .gameplay-gif{

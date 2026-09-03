@@ -63,7 +63,7 @@ export const islandElementsInfo = [
     ['buoy', 55, 75]
 ];
 
-export const CloudFrequency = 50;
+export const CloudFrequency = 100;
 
 
 

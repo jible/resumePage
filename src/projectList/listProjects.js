@@ -57,10 +57,26 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
 
     let Highlights = ``;
     Object.entries(project.highlights).forEach(([key,value]) => {
-        Highlights += `<video data-src="${value.video}" class = "gameplay-gif" muted loop playsinline preload="none"></video>`;
-        Highlights += `<h4>${key}</h4>`;
-        Highlights += `<p>${value.text}</p>`;
-        Highlights += `<br>`;
+        let youtubeEmbedUrl = GetYoutubeEmbedUrl(value.video);
+        let media = ``;
+        if (value.picture){
+            media = `<img src="${value.picture}" class = "gameplay-gif" loading="lazy">`;
+        } else if (youtubeEmbedUrl){
+            media = `<iframe class = "youtube-embed" src="${youtubeEmbedUrl}" title="${key}" loading="lazy" allowfullscreen></iframe>`;
+        } else if (value.video){
+            media = `<video data-src="${value.video}" class = "gameplay-gif" muted loop playsinline preload="none"></video>`;
+        }
+
+        let textHtml = BuildParagraphsHtml(value.text);
+
+        Highlights += `
+        <details class="highlight">
+            <summary class="highlight__title"><h4>${key}</h4></summary>
+            <div class="highlight__content">
+                ${media}
+                ${textHtml}
+            </div>
+        </details>`;
     });
     
 
@@ -86,9 +102,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
             
             <div class="project__subsection">
                 <h3>Description</h3>
-                <p>
-                    ${project.description}
-                </p>
+                ${BuildParagraphsHtml(project.description)}
             </div>
             
             <div class="project__subsection">
@@ -100,4 +114,17 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
         </div>
     </div>`);
 
+}
+
+// Renders text as one or more <p> tags. Accepts either a single string or an array of paragraph strings
+function BuildParagraphsHtml(text){
+    let paragraphs = Array.isArray(text) ? text : [text];
+    return paragraphs.map(paragraph => `<p>${paragraph}</p>`).join('');
+}
+
+// Returns a YouTube embed URL if `url` points to a YouTube video, otherwise null
+function GetYoutubeEmbedUrl(url){
+    if (!url) return null;
+    let match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    return match ? `https://www.youtube.com/embed/${match[1]}` : null;
 }

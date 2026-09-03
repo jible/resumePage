@@ -1,17 +1,86 @@
 [
     {
-        "name": "Juxtopposed",
-        "titleImage":"images/sampleGames/titles/hitboxEditor.png",
+        "name": "Hard To Convey",
+        "titleImage":"images/sampleGames/titles/hardToConvey.png",
         "links":[
-            { "title": "Codebase", "url": "https://github.com/jible/capstone" }
+            { "title": "Repo Private", "url": "https://emiree-draws.itch.io/tail-of-two-tides" }
         ],
-        "skills": "Godot, Advanced Hitbox Behavior",
-        "description": "I made a hitbox editor for a platform fighting game I was working on. This piece is most representative of my skills and interests as a programmer. I am extremely passionate about making tools and optimizing work flow for those who do not touch the code base as closely.",
+        "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, Merge Conflict Resolution",
+        "description": [
+            "Hard To Convey is a 3D tile based puzzle game, where the player places conveyor belts to direct sushi to customers. I am one of 2 programmers on a team of 4. I collaborate with the other programmers and team lead to make contributions. On this team, I am the Systems and Tools Engineer. I program the architecture for gameplay systems, such as the player controls in the play scene. Additionally, I program game objects that the art team interacts with, such that they can enter their art to the editor, without needing to engage the code base."
+        ],
         "highlights": {
-          "Video Demonstration": {
-            "text" : "Please watch <a href= \"https://www.youtube.com/watch?v=umgpTLa830k\" target =\"_blank\">this video</a> and <a href= \"https://youtu.be/azvl7-OCtQY\" target =\"_blank\">this video</a> to understand how my hitbox editor works.",
-            "video" : "./images/sampleGames/hitboxEditor.mp4"
-          }
+            "Play Scene State Based Architecture": {
+                "text":[
+                    "Going into this project, my first task was to refactor the play scene. In the play scene the player is presented with a level, where they can drag left click to place conveyor belts, drag right click to erase conveyor belts, drag outside of the play area to change the camera position, and click the play button to begin playing the conveyor belts to test their layout. When player combined these actions, there were unexpected results. For example, it was unclear what would happen when the player holds the erase button down, then clicks the draw button. It was unclear because all of the input responses were just in the update function, meaning multiple actions could potentially happen at once.",
+                    "Swapping to a state-based architecture means you can set the conditions to enter and exit each state. Going forward, it was easier to implement new player actions. Later into the project, I prototyped a smart conveyor belt placing mode that used A* path finding to draw the shortest uninterrupted line between where the player started drawing and their current mouse position. Rather than wrangling with update call and finding the correct place to put the check and response, we could just make a new state and add the state conditions to the do nothing state. It also proved to be helpful for the next highlight: the Undo/Redo system."
+                ]
+            },
+            "Undo/Redo System": {
+                "text":[
+                    "After completing the play scene refactor, I was in charge of implementing the undo and redo feature for the play scene. This proved to an easy task after my refactor. I added a property to each play scene state to flag if it was an undo/redo action. For example, pressing the play button does not modify the world state, so it is not flagged as an undo/redo action, but drawing conveyor belts does. If a state is flagged as an action, the state machine notifies the Even Stack (undo/redo system) to serialize the board state at the start of the event and at the end of the event. Then the tiles that changed are pushed to the the event stack. When the action is undone, its event is popped off the Event Stack (and pushed to the redo stack) and it sets the tiles that were changed to their original state. If the action is redone, its popped off the redo stack and back onto the undo stack. And its modified state is applied."
+                ]
+            }
+        }
+        
+    },
+    {
+        "name": "Juxtopposed",
+        "titleImage":"images/sampleGames/titles/juxtopposed.png",
+        "links":[
+            { "title": "Godot Codebase", "url": "https://github.com/jible/Platform-fighter" },
+            { "title": "Unity Codebase", "url": "https://github.com/jible/Juxtopposed" }
+        ],
+        "skills": "Unity, Godot, Advanced Hitbox Behavior, Making Tools, Porting, Netcode, C#",
+        "description": [
+            "Juxtopposed is a 2D fighting game that I am independently developing in Unity. Initially, I was working on the project in Godot, but it proved to have too many limitations for the technical scope of this project. Just after graduating from UC Santa Cruz, I spent a long time brainstorming different projects I could take on for my portfolio. A fighting game was the best choice because I am well practiced with state machine-based character controllers and fighting games are the ultimate test for state-machine development. Additionally, I am extremely familiar with the genre, having attended Smash Bros Tournaments in high school.",
+            "Going into this project, I made a point to make it more of a learning opportunity than a piece to publish. At every step of the way, I took on new challenging features that I had not worked with before. The greatest example of that is the rollback netcode feature. After spending about 4 months on this project, I started researching rollback netcode. Since having played fighting games online, I know a fast online netcode is important. Taking on rollback netcode entirely changed the scope of the project and taught me a great deal about networking, custom physics, and game state rollback.",
+            "Please take a look at the highlights, where I go into more detail about the features I implemented and the challenges I faced."
+        ],
+        "highlights": {
+            
+            "Custom Math":{
+                "text" : [
+                    "In order to support rollback netcode, the game has to be deterministic. To put it shortly, rollback netcode sends input between machines. When machine A receives an input from machine B, machine A rewinds to the frame machine B received that input and resimulates the game with that input. That means no game state is sent between the 2, meaning, given the same inputs they must have the same output or they will desync. This is determinism.",
+                    "On all computers, physics and other math is calculated using floating point numbers, which round differently on different machines, which means the same input could result in different outputs. Thus, I made an int based fixed point math library that would always round the same way on different machines. It was fun knowing what equations/functions I needed, for my physics, so I only implemented those features and not a full library. You can view my custom math objects <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/addons/deterministic_physics/math_objects/dm64.cs\" target=\"_blank\">here</a> and <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/addons/deterministic_physics/math_objects/dm_server.cs\" target=\"_blank\">here</a>."
+                ],
+                "video": ""
+            },
+            "Custom Physics":{
+                "text" : [
+                    "Using my custom math library, I implemented a custom physics engine. It was pretty fun learning the vector math behind collision resolution and implementing it myself. I made this engine as scrappy as possible, since I knew what I would use. For example, I knew that I could make a fighting game with just circle and square collisions, so I only programmed circle and square shapes. Maybe I'll add triangles or other polygons in the future if my requirements change. I also knew that I would only need 2D physics. Even though it's a 3D game, it's a 2D platform fighter, so I didn't have to worry about collisions in the third dimension.",
+                    "Additionally, I knew that my entity-to-entity collisions would use repellent boxes—a common practice for fighting games—instead of collision boxes. So I didn't have to implement sweeping edge collision for moving entity-entity collision, just static-entity collision. One of the most difficult parts of implementing the physics was spatial hashing. Simulated physics works by checking every single object against each other every frame, which is O(n^2) operations, which is a lot of calculations. Spatial hashing puts objects into buckets based on their position. Then it only compares objects in the same or neighboring buckets, which vastly reduces the number of comparisons. It was especially important that I program the physics engine to run fast for rollback netcode, since it can simulate multiple physics ticks in a single frame, as it has to support rolling back and resimulation.",
+                    "Since I made my own physics shapes, I also had to make a physics shape renderer, which would grab the physics shapes and their position and draw them using Godot meshes. Here are the relevant code files: <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/addons/deterministic_physics/physics_objects/dp_physics_server.cs\" target=\"_blank\">physics engine</a>, <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/addons/deterministic_physics/physics_objects/dp_object.cs\" target=\"_blank\">physics object</a>, and <a href=\"https://github.com/jible/Platform-fighter/tree/main/platform-fighter/addons/deterministic_physics/physics_objects/shapes\" target=\"_blank\">shapes</a>."
+                ]
+            },
+            "Putting the Netcode in \"Rollback Netcode\"":{
+                "text" : [
+                    "Going into this, I had taken Introduction to Networking and the Internet at UCSC, so I had an overhead understanding of networking. I spent a long time digging through the Godot ENet API documentation and YouTube videos, learning how to configure lobbies and send/receive packets between 2 game instances. I made a Network Manager that would handle making a Godot ENet peer and sending messages to the other system. The Godot ENet API is particularly neat because it supports both UDP and TCP packet sending protocols. UDP is faster, just sending the packets to the other system. TCP, is slower, but more reliable, sending a confirmation message when it receives a packet and requesting a dropped packet when it notices that an incoming packet is missing. I used the slower reliable TCP to configure the lobby, which doesn't require haste and I used the faster, less reliable UDP to send input packets during the match. This is common practice as most fighting games will send packets of the last 5 to 8 frames of inputs every frame, so if a packet gets dropped, it will just arrive with the next packet.",
+                    "I could not afford a match making server, so I started with port forwarding—an old internet technique where the host player makes a lobby and the game prints the port and IP it is hosting the game on. Then you give that information to the joining player, for them to input on their machine, so they can find and join the lobby. It would send all messages in the form of a byte array, where the first byte represents what type of message it is and the rest of the bytes are the data. For instance, to send an input, the first byte would be 0 (0000) and the next 3 bytes would be the input data.",
+                    "You can find the network manager <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/components/Globals/NetworkManager.cs\" target=\"_blank\">here</a>."
+                ]
+            },
+            "Bitwise Input Packets": {
+                "text" : [
+                    "Rollback netcode can run more efficiently if the input packets are smaller, so I strived to make inputs as small as possible. I managed to compact the controller state into 3 bytes. One byte is dedicated to the A, B, X, and Y buttons. I dedicated a whole byte to the buttons in case I add more, since the gameplay hasn't fully been designed yet. Then, each stick also took up a byte. Godot takes stick inputs as full vector 2s, which usually take up about 8 bytes each (1 floating point number per axis at 4 bytes per float).",
+                    "I recognized that the stick inputs would require precision, but not that level of precision. So, I dedicated 4 bits to each axis. The first bit represents the sign and the next 3 bits represent the magnitude. For each decrease in size to the input packet, the easier it is to send over the network. You can check out the controller state <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/components/scene/player_and_controls/ControllerState.cs\" target=\"_blank\">here</a>."
+                ],
+                "picture" : "images/sampleGames/juxtopposedControllerMap.jpg"
+            },
+            "Porting":{
+                "text" : [
+                    "Unfortunately, Godot has a bug that largely impacted my project. My project randomly crashed in the editor, and it took lots of troubleshooting to find that Godot sometimes crashes when serializing custom objects in the editor. This means that my custom physics objects that serialized my custom math would fail to serialize and crash Godot. I spent roughly a month researching workarounds to no avail. It was frustrating that the crashes were inconsistent. Sometimes I thought I had fixed the bug only for it to cause problems 5 minutes later.",
+                    "So, I ported to Unity. Luckily both Unity and Godot use C#, so there were no major language overhauls to make. Additionally, I wrote modular, extensible code. This made it easy to port the custom math and physics libraries I made. Unfortunately, all of the networking code was non-transferrable since Godot and Unity have different implementations of ENet."
+                ],
+                "video": ""
+            },
+            "Hitbox Editor": {
+                "text" : [
+                    "I am completely fascinated by tools that improve workflow and spare team members from tedious tasks. The hitbox editor is my magnum opus for simplifying and streamlining a common task. Normally, to make a character, you have to add each action state, and then add hitboxes and make animations for those hitboxes to match the character animation. I found it annoying making sure the references were all connected, the hitboxes followed scene/character conventions, and dealing with the Godot Animation tool. So, I made my own UI that is specialized for animating hitboxes on a character. It allows you to change the size, offset, and damage property, as well as setting positions of the hitbox at any given frame of the animation. You could choose to manually set the position or have the animator automatically interpolate the position for each frame between the frames you set.",
+                    "You can watch <a href= \"https://www.youtube.com/watch?v=umgpTLa830k\" target =\"_blank\">this video</a> and <a href= \"https://youtu.be/azvl7-OCtQY\" target =\"_blank\">this video</a> to see how my hitbox editor works."
+                ],
+                "video" : "./images/sampleGames/hitboxEditor.mp4" 
+            }
         }
     },
     {
@@ -21,16 +90,23 @@
             { "title": "Playable Game", "url": "https://jibl.itch.io/cast-in-flame" },
             { "title": "Codebase", "url": "https://github.com/jible/capstone" }
         ],
-        "skills": "Godot, Teamwork, Github version control, resolving complex merge conflicts",
-        "description": "I made this game with Jack Sims, Rosalind Dixon, Phoebe Royer, Jackson McClame, and Carter Gruebel as our senior capstone project. We had 10 weeks to make it. I took the lead on programming and I was responsible for many of the tools and systems we used including the character controller, enemy AI, mini-map, and world generation. ",
+        "skills": "Godot, Github version control, resolving complex merge conflicts",
+        "description": [
+            "I made this game with Jack Sims, Rosalind Dixon, Phoebe Royer, Jackson McClame, and Carter Gruebel as our senior capstone project. We had 10 weeks to make it. I took the lead on programming and I was responsible for many of the tools and systems we used including the character controller, enemy AI, mini-map, and world generation."
+        ],
         "highlights": {
           "Player Controller": {
-            "text" : "I made the player controller, using a state machine. My design for the player took inspiration from the game Core Keeper. The biggest feature we drew from Core Keeper was the player facing the direction of the mouse instead of which way they were going. This allowed for more advanced combat. The player was designed with animations for each action in each direction. One challenge I gave myself was allowing the player to change directions without resetting an animation. For example, if the player is in the middle of their stride, walking West and then turn North and continue walking, it will not reset the walking cycle. Unfortunately, we did not continue with the project, so we did not get finalized art to demonstrate the full functionality.",
+            "text" : [
+                "I made the player controller, using a state machine. My design for the player took inspiration from the game Core Keeper. The biggest feature we drew from Core Keeper was the player facing the direction of the mouse instead of which way they were going. This allowed for more advanced combat. The player was designed with animations for each action in each direction. One challenge I gave myself was allowing the player to change directions without resetting an animation. For example, if the player is in the middle of their stride, walking West and then turn North and continue walking, it will not reset the walking cycle. Unfortunately, we did not continue with the project, so we did not get finalized art to demonstrate the full functionality."
+            ],
             "video" : "./images/sampleGames/castInFlameGameplay1.mp4"
           }
           ,
           "World Generation": {
-            "text" : "I iterated on the world generations several times before settling on the final design. I took the opportunity to prototype the tile-based world generation in a different class. I spent one week looking into Perlin-noise and other popular world generation techniques. You can find the prototype for the world generation <a href= \"https://jible.github.io/world-gen-prototype/\" target =\"_blank\">here</a> and the source code <a href= \"https://github.com/jible/world-gen-prototype\" target =\"_blank\">here</a>. This was strictly made for prototyping so the user interface was not polished. Before we reeled in the scope of the project, we planned to do 9 levels: one for each circle of Hell. So, I used different generation techniques that would suit each level and experimented with different color palettes. For the project, we ended up using the generation technique made for the lust circle, which is a simple random walk generation. It made the most interesting layout that suited our gameplay best.",
+            "text" : [
+                "I iterated on the world generations several times before settling on the final design. I took the opportunity to prototype the tile-based world generation in a different class. I spent one week looking into Perlin-noise and other popular world generation techniques. You can find the prototype for the world generation <a href= \"https://jible.github.io/world-gen-prototype/\" target =\"_blank\">here</a> and the source code <a href= \"https://github.com/jible/world-gen-prototype\" target =\"_blank\">here</a>.",
+                "This was strictly made for prototyping so the user interface was not polished. Before we reeled in the scope of the project, we planned to do 9 levels: one for each circle of Hell. So, I used different generation techniques that would suit each level and experimented with different color palettes. For the project, we ended up using the generation technique made for the lust circle, which is a simple random walk generation. It made the most interesting layout that suited our gameplay best."
+            ],
             "video" : "./images/sampleGames/castinFlameGeneration.mp4"
           }
         }
@@ -43,10 +119,15 @@
             { "title": "Playable Game", "url": "https://emiree-draws.itch.io/tail-of-two-tides" }
         ],
         "skills": "C#, Unity, Teamwork",
-        "description": "I made this game with Emily Tran, Michael Nieto and Garrett Blake for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another.",
+        "description": [
+            "I made this game on a team of 4 for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another."
+        ],
         "highlights": {
             "Unity Coroutines": {
-                "text":"While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until it reached it, where it would terminate itself. I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction.",
+                "text":[
+                    "While working on this project, I learned how to use Unity coroutines. Coroutines are functions that take place over multiple game frames. In this case, when the player made an input, I would start a coroutine for moving the boat in the input direction (after checking that it would not move the boat out of bounds). Every frame, the coroutine would move the boat closer to its destination until the boat reached the destination, where it would terminate itself.",
+                    "I was particularly proud that the player could input in a different direction while the boat moved between lanes, and it would cancel the current coroutine and start a new one, moving in the newly inputted direction. Notice how the boat changes directions mid lane change in the video."
+                ],
                 "video": "./images/sampleGames/TailDog.mp4"
             }
         }
