@@ -3,7 +3,6 @@
         "name": "Hard To Convey",
         "titleImage":"images/sampleGames/titles/hardToConvey.png",
         "links":[
-            { "title": "Steam Coming Soon", "url": "" }
         ],
         "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, Merge Conflict Resolution",
         "description": [
