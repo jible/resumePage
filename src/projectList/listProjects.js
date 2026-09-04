@@ -57,16 +57,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
 
     let Highlights = ``;
     Object.entries(project.highlights).forEach(([key,value]) => {
-        let youtubeEmbedUrl = GetYoutubeEmbedUrl(value.video);
-        let media = ``;
-        if (value.picture){
-            media = `<img src="${value.picture}" class = "gameplay-gif" loading="lazy">`;
-        } else if (youtubeEmbedUrl){
-            media = `<iframe class = "youtube-embed" src="${youtubeEmbedUrl}" title="${key}" loading="lazy" allowfullscreen></iframe>`;
-        } else if (value.video){
-            media = `<video data-src="${value.video}" class = "gameplay-gif" muted loop playsinline preload="none"></video>`;
-        }
-
+        let media = BuildMediaHtml(value, key);
         let textHtml = BuildParagraphsHtml(value.text);
 
         Highlights += `
@@ -102,6 +93,7 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
             
             <div class="project__subsection">
                 <h3>Description</h3>
+                ${BuildMediaHtml(project, project.name)}
                 ${BuildParagraphsHtml(project.description)}
             </div>
             
@@ -114,6 +106,20 @@ function ConstructHtmlSection(project, ProjectNumber, ProjectCount){
         </div>
     </div>`);
 
+}
+
+// Renders a picture, YouTube embed, or local video for `source` (an object with optional
+// `picture`/`video` fields), in that priority order. `label` is used as the iframe title
+function BuildMediaHtml(source, label){
+    let youtubeEmbedUrl = GetYoutubeEmbedUrl(source.video);
+    if (source.picture){
+        return `<img src="${source.picture}" class = "gameplay-gif" loading="lazy">`;
+    } else if (youtubeEmbedUrl){
+        return `<iframe class = "youtube-embed" src="${youtubeEmbedUrl}" title="${label}" loading="lazy" allowfullscreen></iframe>`;
+    } else if (source.video){
+        return `<video data-src="${source.video}" class = "gameplay-gif" muted loop playsinline preload="none"></video>`;
+    }
+    return ``;
 }
 
 // Renders text as one or more <p> tags. Accepts either a single string or an array of paragraph strings

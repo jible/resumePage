@@ -3,7 +3,7 @@
         "name": "Hard To Convey",
         "titleImage":"images/sampleGames/titles/hardToConvey.png",
         "links":[
-            { "title": "Repo Private", "url": "https://emiree-draws.itch.io/tail-of-two-tides" }
+            { "title": "Steam Coming Soon", "url": "" }
         ],
         "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, Merge Conflict Resolution",
         "description": [
@@ -13,13 +13,18 @@
             "Play Scene State Based Architecture": {
                 "text":[
                     "Going into this project, my first task was to refactor the play scene. In the play scene the player is presented with a level, where they can drag left click to place conveyor belts, drag right click to erase conveyor belts, drag outside of the play area to change the camera position, and click the play button to begin playing the conveyor belts to test their layout. When player combined these actions, there were unexpected results. For example, it was unclear what would happen when the player holds the erase button down, then clicks the draw button. It was unclear because all of the input responses were just in the update function, meaning multiple actions could potentially happen at once.",
-                    "Swapping to a state-based architecture means you can set the conditions to enter and exit each state. Going forward, it was easier to implement new player actions. Later into the project, I prototyped a smart conveyor belt placing mode that used A* path finding to draw the shortest uninterrupted line between where the player started drawing and their current mouse position. Rather than wrangling with update call and finding the correct place to put the check and response, we could just make a new state and add the state conditions to the do nothing state. It also proved to be helpful for the next highlight: the Undo/Redo system."
+                    "Rather than wrangling with update call and finding the correct place to put the check and response, we can just make a new state and set the conditions to enter and exit it. Going forward, it was easier to implement new player actions or features like the undo/redo system"
                 ]
             },
             "Undo/Redo System": {
                 "text":[
                     "After completing the play scene refactor, I was in charge of implementing the undo and redo feature for the play scene. This proved to an easy task after my refactor. I added a property to each play scene state to flag if it was an undo/redo action. For example, pressing the play button does not modify the world state, so it is not flagged as an undo/redo action, but drawing conveyor belts does. If a state is flagged as an action, the state machine notifies the Even Stack (undo/redo system) to serialize the board state at the start of the event and at the end of the event. Then the tiles that changed are pushed to the the event stack. When the action is undone, its event is popped off the Event Stack (and pushed to the redo stack) and it sets the tiles that were changed to their original state. If the action is redone, its popped off the redo stack and back onto the undo stack. And its modified state is applied."
-                ]
+                ],
+                "video" :"./images/sampleGames/hardToConveyUndoRedo.mp4"
+            },
+            "A* Path Maker" : {
+                "video":"images/sampleGames/hardToConveyAStar.mp4",
+                "text" :["I proposed a smart conveyor belt placing mode that uses A* path finding to draw the shortest uninterrupted line between where the player started drawing and their current mouse position. After getting approval from my team lead, I prototyped and implemented it. I added several of quality of life features, like drawing to the closest accessible tile if the mouse wasn't on a valid tile."]
             }
         }
         
