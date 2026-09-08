@@ -3,6 +3,7 @@
         "name": "Hard To Convey",
         "titleImage":"images/sampleGames/titles/hardToConvey.png",
         "links":[
+            { "title": "Demo Page", "url" : "https://www.hardtoconvey.com/ "}
         ],
         "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, Merge Conflict Resolution",
         "description": [
