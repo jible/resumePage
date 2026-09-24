@@ -131,12 +131,24 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+#projects .projects-subtitle{
+    position: relative;
+    z-index: 1;
+    margin: -1% 0 1%;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: #00ffcc;
+    text-shadow: 2px 2px #333;
+}
+
 #projects h2{
     font-size: 50px;
     text-align: center;
 }
 
-#projects p{
+#projects p,
+#project-detail p{
     font-family: Verdana;
 
 }
@@ -163,4 +175,162 @@
     .gameplay-gif{
         width: 90%;
     }
+}
+
+/* ----------------------------------------
+PROJECT SELECT TILES (index) + DETAIL PAGE
+------------------------------------------- */
+.save-list{
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 256px);
+    justify-content: center;
+    gap: 24px;
+    padding: 2% 4% 8%;
+}
+
+/* Cartridge frame: the 64x64 pixel art is drawn over the tile at exactly 4x (256px).
+   Its transparent window is inset 6/64 left+right, 16/64 top, 5/64 bottom. */
+.save-slot{
+    --window-x: 9.375%;
+    --window-top: 25%;
+    --window-bottom: 7.8%;
+    position: relative;
+    display: block;
+    width: 256px;
+    aspect-ratio: 1 / 1;
+    color: #f5f0dc;
+    text-decoration: none;
+    cursor: pointer;
+    transition: translate 0.3s ease, filter 0.15s ease;
+    --bob-duration: 4s;
+    --bob-delay: 0s;
+    animation: cartridge-bob var(--bob-duration) ease-in-out var(--bob-delay) infinite;
+}
+
+/* The faces and side are siblings positioned by script from the turn angle (see listProjects.js),
+   so the side isn't squeezed along with the faces. */
+.cart-face{
+    position: absolute;
+    inset: 0;
+    transform-origin: 0 0;
+}
+.cart-back{ visibility: hidden; }
+.cart-back__image{ display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.cart-side{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9.375%;  /* 6px side sprite of the 64px cartridge */
+    height: 100%;
+    transform-origin: 0 0;
+    image-rendering: pixelated;
+}
+
+/* Hovered/focused: script floats the cartridge up and turns it to face the player */
+.save-slot.is-facing{ animation: none; }
+
+/* Slow bob; the float on hover is set by script through the same `translate` property */
+@keyframes cartridge-bob{
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 0 -10px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .save-slot{ animation: none; }
+}
+
+.cart-front::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../images/PortfolioGameCartridge1.png') center / 100% 100% no-repeat;
+    image-rendering: pixelated;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.save-slot > *,
+.save-slot__info > *{ font-family: Verdana; }
+.save-slot__image{ position: absolute; left: var(--window-x); right: var(--window-x); top: var(--window-top); bottom: var(--window-bottom); width: calc(100% - 2 * var(--window-x)); height: calc(100% - var(--window-top) - var(--window-bottom)); object-fit: cover; }
+
+/* Details slide up over the gif on hover / focus */
+.save-slot__info{
+    position: absolute;
+    inset: var(--window-top) var(--window-x) var(--window-bottom);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 8px 8px 34px;
+    overflow: hidden;
+    text-align: left;
+    background: linear-gradient(to top, rgba(6, 41, 60, 0.95) 55%, rgba(6, 41, 60, 0.7));
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+/* Always-visible name bar along the bottom, above the hover overlay */
+.save-slot__name{
+    position: absolute;
+    left: var(--window-x);
+    right: var(--window-x);
+    bottom: var(--window-bottom);
+    z-index: 1;
+    padding: 8px 6px;
+    background-color: rgba(6, 41, 60, 0.9);
+    border-top: 3px solid #333;
+    color: #ffcd3c;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    line-height: 1.4;
+    text-align: center;
+}
+.save-slot__tagline{ font-weight: bold; font-size: 0.75rem; }
+.save-slot__role{ font-size: 0.68rem; opacity: 0.85; }
+.save-slot__info .skill-chip{ font-size: 0.62rem; padding: 2px 6px; }
+.save-slot__skills{ display: flex; flex-wrap: wrap; gap: 5px; }
+.save-slot__cta{ margin-top: 4px; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: #00ffcc; }
+
+.save-slot:hover,
+.save-slot:focus-visible{
+    filter: drop-shadow(0 8px 0 rgba(0, 0, 0, 0.5)) brightness(1.08);
+}
+.save-slot:hover .save-slot__info,
+.save-slot:focus-visible .save-slot__info{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* No hover on touch screens: keep the details visible */
+@media (hover: none) {
+    .save-slot__info{ opacity: 1; transform: none; background: linear-gradient(to top, rgba(6, 41, 60, 0.95) 30%, transparent 75%); }
+    .save-slot__role, .save-slot__skills{ display: none; }
+}
+
+.skill-chip{
+    background-color: #333;
+    color: #ffcd3c;
+    font-family: Verdana;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+body.project-page{
+    background-image: linear-gradient(to bottom, rgb(6, 41, 60), rgb(34, 100, 75));
+    background-attachment: fixed;
+}
+
+#project-detail{
+    padding-top: 70px;
+    padding-bottom: 40px;
+}
+
+.project-missing{
+    color: #ffcd3c;
+    text-align: center;
+    margin-top: 20vh;
 }

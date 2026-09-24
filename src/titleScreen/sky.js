@@ -2,6 +2,9 @@
 const NightStart = .25;
 const NightEnd = .72;
 const CloudRadius = 15;
+// Clouds drift at the base css speed (30s per crossing) varied by up to +/- this fraction
+const CloudSpeedMargin = 0.2;
+const CloudBaseDuration = 30;
 
 const skyElementTypeToStyle = Object.freeze({
     CLOUD: 'cloud',
@@ -95,6 +98,10 @@ function SpawnSkyElement(image, x, y, elementType){
     bgObject.style.left = `${x}%`;
     bgObject.style.bottom = `${y}%`;
     bgObject.style.animationDelay = '0s';
+    if (elementType == skyElementTypeToStyle.CLOUD){
+        let variation = 1 + (Math.random() * 2 - 1) * CloudSpeedMargin;
+        bgObject.style.animationDuration = `${CloudBaseDuration * variation}s`;
+    }
     bgObject.style.backgroundSize = 'contain'
     bgObject.style.position = 'absolute';
     // Remove element after it exits the screen

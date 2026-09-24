@@ -1,5 +1,10 @@
 [
     {
+        "id": "hard-to-convey",
+        "splashGif": "images/placeHolder.gif",
+        "tagline": "3D conveyor-belt puzzle game",
+        "role": "Systems & Tools Engineer",
+        "stat": "Team of 4 · 2 programmers",
         "name": "Hard To Convey",
         "titleImage":"images/sampleGames/titles/hardToConvey.png",
         "links":[
@@ -30,6 +35,11 @@
         
     },
     {
+        "id": "juxtopposed",
+        "splashGif": "images/placeHolder.gif",
+        "tagline": "2D fighting game with rollback netcode",
+        "role": "Solo developer",
+        "stat": "Solo project",
         "name": "Juxtopposed",
         "titleImage":"images/sampleGames/titles/juxtopposed.png",
         "links":[
@@ -89,6 +99,11 @@
         }
     },
     {
+        "id": "cast-into-flame",
+        "splashGif": "images/placeHolder.gif",
+        "tagline": "Roguelike with generated worlds",
+        "role": "Lead Programmer",
+        "stat": "Team of 6 · 10 weeks",
         "name": "Cast into Flame",
         "titleImage":"images/sampleGames/titles/castInFlame.png",
         "links":[
@@ -118,6 +133,11 @@
     },
     
     {
+        "id": "tail-of-two-tides",
+        "splashGif": "images/placeHolder.gif",
+        "tagline": "Rhythm game made for GMTK 2024",
+        "role": "Gameplay Programmer",
+        "stat": "Team of 4 · Game jam",
         "name": "Tail of Two Tides",
         "titleImage":"images/sampleGames/titles/tailOfTides.png",
         "links":[
