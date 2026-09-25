@@ -118,6 +118,8 @@
 .dialogue-box b,
 .dialogue-box strong{ color: #ffd166; font-weight: 600; }
 .dialogue-box em{ color: #ff9ecb; font-style: normal; }
+/* Book titles and the like: <i> in bio.json */
+.dialogue-box i{ font-style: italic; }
 .dialogue-box a{ color: #ffd166; }
 
 /* Footer: LinkedIn / Resume / GitHub at the very bottom of the page. It has no background of its own
