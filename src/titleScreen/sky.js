@@ -2,6 +2,9 @@
 const NightStart = .25;
 const NightEnd = .72;
 const CloudRadius = 15;
+// Clouds drift at the base css speed (30s per crossing) varied by up to +/- this fraction
+const CloudSpeedMargin = 0.2;
+const CloudBaseDuration = 30;
 
 const skyElementTypeToStyle = Object.freeze({
     CLOUD: 'cloud',
@@ -43,16 +46,30 @@ let rareStarPaths = [
 ]
 const skyBackground = document.querySelector('.sky-background');
 
+// Clouds and stars live in their own layer inside the fixed sky so the layer can be scrolled
+// (see SkyParallax) without moving the sky color behind it
+export const skyObjectsLayer = document.createElement('div');
+skyObjectsLayer.classList.add('sky-objects');
+skyBackground.appendChild(skyObjectsLayer);
+// How far the clouds and stars travel per pixel the page scrolls: 1 scrolls exactly with the
+// page, lower values give a farther-away parallax
+export const SkyParallax = 0.5;
+// The layer is this many screens tall, so there are clouds below the screen to scroll up into view
+const SkyLayerScreens = 2;
+skyObjectsLayer.style.height = `${SkyLayerScreens * 100}%`;
+// Extra height below the screen, as a percent of the screen height
+const SkyExtraBelow = (SkyLayerScreens - 1) * 100;
+
 export function spawnInitialBackgroundElements(){
     let isDay = IsDayTime();
-    for ( let i = 0; i < 10; i ++){
+    for ( let i = 0; i < 10 * SkyLayerScreens; i ++){
         SpawnSkyElements(isDay, Math.random() * 100);
     }
 }
 
 
 export function RandomlySpawnBackgroundElement() {
-    let chance = .09;
+    let chance = .09 * SkyLayerScreens;
     if (Math.random() > chance) return;   
 
     SpawnSkyElements(IsDayTime());
@@ -62,7 +79,7 @@ export function RandomlySpawnBackgroundElement() {
 // Automatically spawns clouds in bunches
 function SpawnSkyElements(isDay, x = -50,y = null ){
     if (y==null){
-        y = (Math.random() * (100-10)) + 5
+        y = (Math.random() * (100 - 10 + SkyExtraBelow)) + 5 - SkyExtraBelow
     }
 
     let ElementType = DecideElementType(isDay);
@@ -93,8 +110,14 @@ function SpawnSkyElement(image, x, y, elementType){
     bgObject.classList.add(elementType);
     // Randomize position and delay
     bgObject.style.left = `${x}%`;
-    bgObject.style.bottom = `${y}%`;
+    // y is a percent of the screen height (negative = below the screen); the layer is taller than the
+    // screen and its bottom edge is SkyExtraBelow under the screen's
+    bgObject.style.bottom = `${(y + SkyExtraBelow) / SkyLayerScreens}%`;
     bgObject.style.animationDelay = '0s';
+    if (elementType == skyElementTypeToStyle.CLOUD){
+        let variation = 1 + (Math.random() * 2 - 1) * CloudSpeedMargin;
+        bgObject.style.animationDuration = `${CloudBaseDuration * variation}s`;
+    }
     bgObject.style.backgroundSize = 'contain'
     bgObject.style.position = 'absolute';
     // Remove element after it exits the screen
@@ -103,7 +126,7 @@ function SpawnSkyElement(image, x, y, elementType){
     });
 
     
-    skyBackground.appendChild(bgObject);
+    skyObjectsLayer.appendChild(bgObject);
 }
 
 function DecideElementType(isDay){

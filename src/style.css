@@ -28,27 +28,6 @@ body, html {
 PROJECT STYLES
 ------------------------------------------- */
 
-/* Overlay Navigation Bar on Canvas */
-.overlay-nav {
-    position: fixed;
-    top: 10px; /* Positioning at the top of the canvas */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(35, 35, 52, 0.8);
-    padding: 10px 20px;
-    border-radius: 8px;
-    z-index: 10;
-    display: flex;
-    gap: 15px;
-}
-.overlay-nav a {
-    color: #00ffcc;
-    text-decoration: none;
-    font-weight: bold;
-}
-.overlay-nav a:hover {
-    color: #ffffff;
-}
 
 
 .no-animations * {

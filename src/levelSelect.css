@@ -2,37 +2,9 @@
 #projects {
     position :relative;
     height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
     width: 100%;
-}
-
-
-.project-row{
-    position:relative;
-    display: flex;
-    background-size: 100% 100%;
-    image-rendering: pixelated;
-    width:100%;
-}
-
-
-
-.top-section{
-    display: flex;
-    flex-direction:row;
-
-}
-
-.project-card{
-    font-family: Verdana;
-    background-color: #d4b76a;
-    border-radius: 50px;
-    width: 80%;
-    max-width: 800px;
-    padding: 2%;
-    text-align: center;
-    margin: 20px;
-    border: 2px solid #333;
-
 }
 
 .projects-background{
@@ -45,76 +17,6 @@
     z-index: 0;
 
 }
-
-
-
-.project__subsection{
-    background-color: #d7caa7;
-    border-color: #333;
-    border-style: solid;
-    border-radius: 30px;
-    padding: 2%;
-    flex:1;
-    margin: 5px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    min-width: 0;
-
-}
-/* .relevant-links{
-} */
-
-.basic-info{
-    display: grid;
-    grid-template-columns: minmax(0, 65%) minmax(0, 35%);
-}
-
-
-.small-info{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-
-.highlight{
-    margin: 10px 0;
-    text-align: left;
-}
-
-.highlight__title{
-    cursor: pointer;
-}
-
-.highlight__title h4{
-    display: inline;
-}
-
-.highlight__content{
-    margin-top: 10px;
-}
-
-.project__title-image{
-    width: 50%;
-    /* max-height: 350px; */
-    height:auto;
-}
-
-.youtube-embed{
-    width: 40%;
-    max-width: 350px;
-    aspect-ratio: 16/9;
-    border-radius: 30px;
-    border: 0;
-}
-
-.gameplay-gif{
-    width: 60%;
-    max-width: 500px;
-    border-radius: 30px;
-}
-
 
 #projects h1{
     padding:2%;
@@ -131,6 +33,17 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+#projects .projects-subtitle{
+    position: relative;
+    z-index: 1;
+    margin: 0 16px 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: #00ffcc;
+    text-shadow: 2px 2px #333;
+}
+
 #projects h2{
     font-size: 50px;
     text-align: center;
@@ -138,29 +51,210 @@
 
 #projects p{
     font-family: Verdana;
-
 }
 
 @media (max-width: 700px) {
-    .project-card{
-        width: 92%;
-        border-radius: 25px;
-        padding: 4%;
-    }
-
-    .top-section{
-        flex-direction: column;
-    }
-
     #projects h1{
         font-size: 1.8rem;
     }
-
-    .project__title-image{
-        width: 85%;
+    #projects .projects-subtitle{
+        font-size: 0.65rem;
     }
+}
 
-    .gameplay-gif{
-        width: 90%;
-    }
+/* ----------------------------------------
+PROJECT SELECT TILES (index)
+------------------------------------------- */
+/* The row of cartridges under the preview. Sizes are whole multiples of the 64px art (2x, 3x) so the
+   pixels stay crisp; everything inside a cartridge is sized in percentages of it. */
+.save-list{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 16px;
+    padding: 24px 4% 8%;
+}
+
+/* Cartridge frame: the 64x64 pixel art is drawn over the tile at exactly 4x (256px).
+   Its transparent window is inset 6/64 left+right, 16/64 top, 5/64 bottom. */
+.save-slot{
+    --window-x: 9.375%;
+    --window-top: 25%;
+    --window-bottom: 7.8%;
+    position: relative;
+    --cart-size: 128px;
+    display: block;
+    width: var(--cart-size);
+    aspect-ratio: 1 / 1;
+    container-type: inline-size;
+    color: #f5f0dc;
+    text-decoration: none;
+    cursor: pointer;
+    transition: translate 0.3s ease, filter 0.15s ease;
+    --bob-duration: 4s;
+    --bob-delay: 0s;
+    animation: cartridge-bob var(--bob-duration) ease-in-out var(--bob-delay) infinite;
+}
+
+/* The faces and side are siblings positioned by script from the turn angle (see listProjects.js),
+   so the side isn't squeezed along with the faces. */
+.cart-face{
+    position: absolute;
+    inset: 0;
+    transform-origin: 0 0;
+}
+.cart-back{ visibility: hidden; }
+.cart-back__image{ display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.cart-side{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9.375%;  /* 6px side sprite of the 64px cartridge */
+    height: 100%;
+    transform-origin: 0 0;
+    image-rendering: pixelated;
+}
+
+/* Hovered/focused: script floats the cartridge up and turns it to face the player */
+.save-slot.is-facing{ animation: none; }
+
+/* Slow bob; the float on hover is set by script through the same `translate` property */
+@keyframes cartridge-bob{
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 0 -10px; }
+}
+
+@media (min-width: 1500px){
+    .save-slot{ --cart-size: 192px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .save-slot{ animation: none; }
+}
+
+.cart-front::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../images/cartridge/front.png') center / 100% 100% no-repeat;
+    image-rendering: pixelated;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.save-slot > *{ font-family: Verdana; }
+.save-slot__image{ position: absolute; left: var(--window-x); right: var(--window-x); top: var(--window-top); bottom: var(--window-bottom); width: calc(100% - 2 * var(--window-x)); height: calc(100% - var(--window-top) - var(--window-bottom)); object-fit: contain; }
+
+/* When a project has no title image, its name is written in the window instead */
+.save-slot__fallback{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    /* The pixel font is 1em per letter and the window is about 81% of the cartridge wide, so the
+       longest word ("Pixelation", 10 letters) needs well under 8cqw to sit inside the frame */
+    font-size: 6.5cqw;
+    line-height: 1.5;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* The focused cartridge (hovered, or the last one hovered) lifts and brightens */
+.save-slot:hover,
+.save-slot:focus-visible,
+.save-slot.is-facing{
+    filter: drop-shadow(0 6px 0 rgba(0, 0, 0, 0.5)) brightness(1.08);
+}
+
+/* ----------------------------------------
+PREVIEW OF THE FOCUSED PROJECT
+------------------------------------------- */
+.project-preview{
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: min(900px, 92%);
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--preview-bg, #123);
+    border: 4px solid #333;
+    border-radius: 12px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+    color: #fff;
+    text-decoration: none;
+}
+
+.project-preview__media{
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+.project-preview__media.is-switching{ opacity: 0; }
+.project-preview__video,
+.project-preview__image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Logos and other non-footage pictures should not be cropped */
+.project-preview__image{ object-fit: contain; image-rendering: auto; }
+
+.project-preview__caption{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 40px 20px 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, transparent);
+}
+.project-preview__name{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    color: var(--preview-accent, #ffcd3c);
+    text-shadow: 3px 3px 0 #000;
+}
+.project-preview__tagline{
+    font-family: system-ui, -apple-system, 'Segoe UI', Verdana, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.project-preview__skills{ display: flex; flex-wrap: wrap; gap: 6px; }
+.project-preview__skills .skill-chip{ font-family: system-ui, -apple-system, 'Segoe UI', Verdana, sans-serif; font-size: 0.85rem; }
+.project-preview__cta{
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: #00ffcc;
+}
+.project-preview:hover .project-preview__cta,
+.project-preview:focus-visible .project-preview__cta{ color: #fff; }
+
+@media (max-width: 700px){
+    .project-preview__name{ font-size: 0.95rem; }
+    .project-preview__tagline{ font-size: 0.95rem; }
+    .project-preview__skills{ display: none; }
+    .project-preview__caption{ padding: 28px 12px 10px; }
+    .project-preview__cta{ display: none; }
+}
+
+.skill-chip{
+    background-color: #333;
+    color: #ffcd3c;
+    font-family: Verdana;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
 }

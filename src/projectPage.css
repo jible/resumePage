@@ -1,0 +1,274 @@
+/* Project detail page. Text sits on light panels in a plain sans-serif for legibility; the pixel
+   font is kept for headings and labels. */
+/* Colors come from each project's `theme` in projects.json (set by projectPage.js);
+   these are the defaults for a project without one. */
+body.project-page{
+    --pd-bg-top: rgb(6, 41, 60);
+    --pd-bg-bottom: rgb(34, 100, 75);
+    --pd-accent: #ffcd3c;
+    --pd-heading-shadow: #9933ff;
+    --pd-panel: #f6efdc;
+    --pd-panel-text: #262626;
+    background-color: var(--pd-bg-top);
+    background-image: linear-gradient(to bottom, var(--pd-bg-top), var(--pd-bg-bottom));
+    background-attachment: fixed;
+}
+
+#project-detail{
+    padding-bottom: 48px;
+}
+
+.pd{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: system-ui, -apple-system, 'Segoe UI', Verdana, sans-serif;
+}
+.pd *{ font-family: inherit; }
+
+/* Back button, floating over the top-left of the banner (swap the text for an image later) */
+.back-button{
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    padding: 10px 16px;
+    background-color: rgba(30, 30, 30, 0.75);
+    border-radius: 8px;
+    color: var(--pd-accent);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+.back-button:hover,
+.back-button:focus-visible{
+    color: #fff;
+}
+
+/* Main video: a banner across the full width of the page, left edge to right edge. It fills the
+   banner and crops the top and bottom of the footage, and the back button floats over its top-left corner. */
+.pd-hero{
+    width: 100%;
+    height: clamp(240px, 58vh, 640px);
+    background-color: #000;
+    border-bottom: 4px solid #333;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+.pd-hero .pd-video,
+.pd-hero .pd-image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pd-hero .pd-embed{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Video, embed and image sizing elsewhere on the page */
+.pd-video,
+.pd-embed{
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    background-color: #000;
+}
+.pd-video{ object-fit: contain; }
+.pd-image{ display: block; width: 100%; height: auto; }
+
+/* Title, tagline, links */
+.pd-title{ text-align: left; }
+.pd-title h1{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.1rem;
+    line-height: 1.3;
+    color: var(--pd-accent);
+    /* one solid dark shadow: a colored second shadow made the letter edges muddy */
+    text-shadow: 3px 3px 0 #000;
+}
+.pd-tagline{
+    margin-top: 14px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #fff;
+}
+.pd-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.pd-button{
+    padding: 10px 18px;
+    border: 3px solid #333;
+    border-radius: 8px;
+    background-color: var(--pd-panel);
+    color: #1d1d1d;
+    font-weight: bold;
+    text-decoration: none;
+}
+.pd-button--primary{ background-color: var(--pd-accent); }
+.pd-button:hover,
+.pd-button:focus-visible{ background-color: #fff; }
+
+/* Light content panels */
+.pd-panel{
+    background-color: var(--pd-panel);
+    color: var(--pd-panel-text);
+    border: 4px solid #333;
+    border-radius: 16px;
+    padding: 24px 28px;
+}
+.pd-panel h2{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 3px solid color-mix(in srgb, var(--pd-panel) 70%, #000);
+}
+
+.pd-text p{
+    max-width: 68ch;
+    margin-bottom: 1em;
+    font-size: 1.08rem;
+    line-height: 1.65;
+}
+.pd-text p:last-child{ margin-bottom: 0; }
+.pd-text a{ color: #5b21b6; font-weight: bold; }
+
+/* The project / What I did: two short bullet lists side by side */
+.pd-pair{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: 24px;
+}
+.pd-bullets{
+    margin: 0;
+    padding-left: 1.3em;
+}
+.pd-bullets li{
+    margin-bottom: 0.7em;
+    font-size: 1.12rem;
+    line-height: 1.55;
+}
+.pd-bullets li:last-child{ margin-bottom: 0; }
+.pd-bullets li::marker{ color: color-mix(in srgb, var(--pd-heading-shadow) 55%, #000); }
+
+/* At a glance */
+.pd-glance{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px 28px;
+}
+.pd-fact--wide{
+    grid-column: 1 / -1;
+    padding-top: 18px;
+    border-top: 2px solid color-mix(in srgb, var(--pd-panel) 78%, #000);
+}
+.pd-label{
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--pd-panel-text) 75%, var(--pd-panel));
+}
+.pd-value{ font-size: 1.3rem; font-weight: 700; line-height: 1.3; }
+.pd-status{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pd-status::before{
+    content: "";
+    flex: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: #e0a020;
+}
+.pd-status--done::before{ background-color: #2e9e4f; }
+.pd-status--cancelled::before{ background-color: #b03a3a; }
+.pd-chips{ display: flex; flex-wrap: wrap; gap: 8px; }
+.pd-chips .skill-chip{
+    padding: 5px 12px;
+    background-color: #333;
+    border-radius: 999px;
+    color: var(--pd-accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: normal;
+}
+
+/* What I built: every item open, media beside the text on wide screens */
+.pd-highlight{
+    display: grid;
+    gap: 20px;
+    padding: 24px 0;
+    border-top: 2px dashed color-mix(in srgb, var(--pd-panel) 70%, #000);
+}
+.pd-highlight:first-of-type{ border-top: 0; padding-top: 0; }
+.pd-highlight:last-child{ padding-bottom: 0; }
+.pd-highlight h3{
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+.pd-number{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--pd-heading-shadow) 55%, #000);
+}
+.pd-highlight__media .pd-video,
+.pd-highlight__media .pd-embed,
+.pd-highlight__media .pd-image{
+    border: 3px solid #333;
+    border-radius: 10px;
+}
+@media (min-width: 860px){
+    .pd-highlight--media{ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+}
+
+/* Previous / next project */
+.pd-pager{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.pd-pager a{
+    color: var(--pd-accent);
+    font-weight: bold;
+    text-decoration: none;
+}
+.pd-pager a:hover,
+.pd-pager a:focus-visible{ color: #fff; }
+
+.pd-missing{
+    margin-top: 20vh;
+    text-align: center;
+    color: var(--pd-accent);
+}
+
+@media (max-width: 700px){
+    /* A tall banner on a narrow screen would crop most of the footage, so keep the video's own shape */
+    .pd-hero{ height: auto; aspect-ratio: 16 / 9; }
+
+    .pd-title h1{ font-size: 1.4rem; }
+    .pd-tagline{ font-size: 1.15rem; }
+    .pd-panel{ padding: 18px 16px; }
+}
