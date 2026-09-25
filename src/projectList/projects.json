@@ -21,11 +21,12 @@
         "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, State Based System Design",
         "about": [
             "A 3D tile-based puzzle game where the player places conveyor belts to direct sushi to customers.",
-            "Built in Unity by a team of 4, with 2 programmers."
+            "Built in Unity with the intent to publish before the end of 2026"
         ],
         "contribution": [
-            "I program the architecture for gameplay systems, such as the player controls in the play scene.",
-            "I program the game objects the art team uses, so they can add their art in the editor without touching the code base."
+            "I created a state-based structure for the play scene so we could easily add new features with predictable interactions with other features",
+            "I built an extensible  undo-redo system that leverages my state-structure by serializing the play state before and after a state action takes place.",
+            "I implemented the Steam API and used it to add achivements and custom level sharing via the Steam Workshop."
         ],
         "highlights": {
             "Play Scene State Based Architecture": {
@@ -70,8 +71,8 @@
         ],
         "skills": "Advanced Hitbox Behavior,  Netcode, C#, Deterministic Math Objects, Physics Programming, Unity, Godot, Porting",
         "about": [
-            "A 2D fighting game I am developing independently in Unity, after starting in Godot.",
-            "I chose a fighting game as the ultimate test of state-machine development, and as a chance to learn features I had not worked with before."
+            "I created the base architecture to support, collision, hitboxes, player states, and LAN connection in Godot.",
+            "Due to a bug in Godot, causing random editor crashes, I am porting to Unity. The port is sailing smoothly "
         ],
         "contribution": [
             "I am building the whole game myself, including custom math, custom physics and a hitbox editor tool.",
@@ -109,7 +110,7 @@
             },
             "Porting":{
                 "text" : [
-                    "Unfortunately, Godot has a bug that largely impacted my project. My project randomly crashed in the editor, and it took lots of troubleshooting to find that Godot sometimes crashes when serializing custom objects in the editor. This means that my custom physics objects that serialized my custom math would fail to serialize and crash Godot. I spent roughly a month researching workarounds to no avail. It was frustrating that the crashes were inconsistent. Sometimes I thought I had fixed the bug only for it to cause problems 5 minutes later.",
+                    "Unfortunately, Godot has a bug that largely impacted my project. My project randomly crashed in the editor. It took lots of troubleshooting to find that Godot sometimes crashes when serializing c# structs in the editor. This means that my custom physics objects that serialized my custom math would fail to serialize and crash Godot. I spent roughly a month researching workarounds to no avail. It was frustrating that the crashes were inconsistent. Sometimes I thought I had fixed the bug only for it to cause problems 5 minutes later.",
                     "So, I ported to Unity. Luckily both Unity and Godot use C#, so there were no major language overhauls to make. Additionally, I wrote modular, extensible code. This made it easy to port the custom math and physics libraries I made. Unfortunately, all of the networking code was non-transferrable since Godot and Unity have different implementations of ENet."
                 ],
                 "video": ""
