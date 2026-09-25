@@ -5,14 +5,27 @@
         "tagline": "3D conveyor-belt puzzle game",
         "role": "Systems & Tools Engineer",
         "stat": "Team of 4 · 2 programmers",
+        "status": "In post production",
+        "theme": {
+            "bgTop": "#2e0d05",
+            "bgBottom": "#581808",
+            "accent": "#f8c888",
+            "headingShadow": "#b8481f",
+            "panel": "#f8ecd8"
+        },
         "name": "Hard To Convey",
         "titleImage":"images/sampleGames/titles/hardToConvey.png",
         "links":[
             { "title": "Demo Page", "url" : "https://www.hardtoconvey.com/ "}
         ],
         "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, Merge Conflict Resolution",
-        "description": [
-            "Hard To Convey is a 3D tile based puzzle game, where the player places conveyor belts to direct sushi to customers. I am one of 2 programmers on a team of 4. I collaborate with the other programmers and team lead to make contributions. On this team, I am the Systems and Tools Engineer. I program the architecture for gameplay systems, such as the player controls in the play scene. Additionally, I program game objects that the art team interacts with, such that they can enter their art to the editor, without needing to engage the code base."
+        "about": [
+            "A 3D tile-based puzzle game where the player places conveyor belts to direct sushi to customers.",
+            "Built in Unity by a team of 4, with 2 programmers."
+        ],
+        "contribution": [
+            "I program the architecture for gameplay systems, such as the player controls in the play scene.",
+            "I program the game objects the art team uses, so they can add their art in the editor without touching the code base."
         ],
         "highlights": {
             "Play Scene State Based Architecture": {
@@ -40,6 +53,14 @@
         "tagline": "2D fighting game with rollback netcode",
         "role": "Solo developer",
         "stat": "Solo project",
+        "status": "Being ported to Unity",
+        "theme": {
+            "bgTop": "#121214",
+            "bgBottom": "#3a3a42",
+            "accent": "#e8e2d4",
+            "headingShadow": "#7a6a58",
+            "panel": "#ececea"
+        },
         "name": "Juxtopposed",
         "titleImage":"images/sampleGames/titles/juxtopposed.png",
         "links":[
@@ -47,10 +68,13 @@
             { "title": "Unity Codebase", "url": "https://github.com/jible/Juxtopposed" }
         ],
         "skills": "Unity, Godot, Advanced Hitbox Behavior, Making Tools, Porting, Netcode, C#",
-        "description": [
-            "Juxtopposed is a 2D fighting game that I am independently developing in Unity. Initially, I was working on the project in Godot, but it proved to have too many limitations for the technical scope of this project. Just after graduating from UC Santa Cruz, I spent a long time brainstorming different projects I could take on for my portfolio. A fighting game was the best choice because I am well practiced with state machine-based character controllers and fighting games are the ultimate test for state-machine development. Additionally, I am extremely familiar with the genre, having attended Smash Bros Tournaments in high school.",
-            "Going into this project, I made a point to make it more of a learning opportunity than a piece to publish. At every step of the way, I took on new challenging features that I had not worked with before. The greatest example of that is the rollback netcode feature. After spending about 4 months on this project, I started researching rollback netcode. Since having played fighting games online, I know a fast online netcode is important. Taking on rollback netcode entirely changed the scope of the project and taught me a great deal about networking, custom physics, and game state rollback.",
-            "Please take a look at the highlights, where I go into more detail about the features I implemented and the challenges I faced."
+        "about": [
+            "A 2D fighting game I am developing independently in Unity, after starting in Godot.",
+            "I chose a fighting game as the ultimate test of state-machine development, and as a chance to learn features I had not worked with before."
+        ],
+        "contribution": [
+            "I am building the whole game myself, including custom math, custom physics and a hitbox editor tool.",
+            "I took on rollback netcode, which taught me networking, custom physics and game state rollback."
         ],
         "highlights": {
             
@@ -104,6 +128,14 @@
         "tagline": "Roguelike with generated worlds",
         "role": "Lead Programmer",
         "stat": "Team of 6 · 10 weeks",
+        "status": "Cancelled",
+        "theme": {
+            "bgTop": "#180808",
+            "bgBottom": "#481010",
+            "accent": "#f0823c",
+            "headingShadow": "#b83838",
+            "panel": "#f6e4e0"
+        },
         "name": "Cast into Flame",
         "titleImage":"images/sampleGames/titles/castInFlame.png",
         "links":[
@@ -111,8 +143,13 @@
             { "title": "Codebase", "url": "https://github.com/jible/capstone" }
         ],
         "skills": "Godot, Github version control, resolving complex merge conflicts",
-        "description": [
-            "I made this game with Jack Sims, Rosalind Dixon, Phoebe Royer, Jackson McClame, and Carter Gruebel as our senior capstone project. We had 10 weeks to make it. I took the lead on programming and I was responsible for many of the tools and systems we used including the character controller, enemy AI, mini-map, and world generation."
+        "about": [
+            "Our senior capstone project, made in 10 weeks by a team of 6.",
+            "We did not continue the project after the capstone, so it never got finalized art."
+        ],
+        "contribution": [
+            "I took the lead on programming.",
+            "I was responsible for many of our tools and systems, including the character controller, enemy AI, mini-map and world generation."
         ],
         "highlights": {
           "Player Controller": {
@@ -138,14 +175,27 @@
         "tagline": "Rhythm game made for GMTK 2024",
         "role": "Gameplay Programmer",
         "stat": "Team of 4 · Game jam",
+        "status": "Complete",
+        "theme": {
+            "bgTop": "#0f3a5c",
+            "bgBottom": "#1f6b73",
+            "accent": "#f8d878",
+            "headingShadow": "#4888b8",
+            "panel": "#eaf6f2"
+        },
         "name": "Tail of Two Tides",
         "titleImage":"images/sampleGames/titles/tailOfTides.png",
         "links":[
             { "title": "Playable Game", "url": "https://emiree-draws.itch.io/tail-of-two-tides" }
         ],
         "skills": "C#, Unity, Teamwork",
-        "description": [
-            "I made this game on a team of 4 for the GMTK's 2024 Game Jam. The theme was \"Built to Scale\", so we made a rhythm game about winning over a scaly mermaid. You alternate between navigating rocky waters and pressing the right key on note. I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision. I am particularly proud of how the pirate can change directions in the middle of moving from one lane to another."
+        "about": [
+            "A rhythm game made by a team of 4 for the GMTK 2024 Game Jam, on the theme \"Built to Scale\".",
+            "You alternate between navigating rocky waters and pressing the right key on the note, to win over a scaly mermaid."
+        ],
+        "contribution": [
+            "I wrote the code for moving the pirate between lanes, instancing the obstacles, and giving the obstacles collision.",
+            "I made the pirate able to change direction in the middle of moving from one lane to another."
         ],
         "highlights": {
             "Unity Coroutines": {
@@ -157,7 +207,122 @@
             }
         }
         
-    }
-    
+    },
+        {
+            "id": "tale-of-zelmore",
+            "splashGif": "images/placeHolder.gif",
+            "tagline": "2-player fighting game in Phaser",
+            "role": "Gameplay Programmer & Pixel Artist",
+            "stat": "Team of 2 · 2 weeks",
+            "status": "Complete",
+            "theme": {
+                "bgTop": "#0a0a0a",
+                "bgBottom": "#185818",
+                "accent": "#f0e020",
+                "headingShadow": "#c80808",
+                "panel": "#f4f0d8"
+            },
+            "name": "The Tale of Zelmore",
+            "titleImage": "images/sampleGames/titles/zelmore.png",
+            "links": [
+                {
+                    "title": "Playable Game",
+                    "url": "https://tblagarrett.github.io/Zelmore/"
+                },
+                {
+                    "title": "Codebase",
+                    "url": "https://github.com/tblagarrett/Zelmore"
+                }
+            ],
+            "skills": "JavaScript programming, Making games in Phaser, GitHub version control, Communication and teamwork, Pixel art",
+            "about": [
+                "A 2 player fighting game based on The Tales of Zelmore, the video game from the tv show The Amazing World of Gumball.",
+                "Made with Garrett Blake in two weeks."
+            ],
+            "contribution": [
+                "I programmed the hero character controller and state machine, and the menus.",
+                "I drew all of the hero's animations and the title screen visuals using Piskel."
+            ],
+            "picture": "./images/sampleGames/zelmoreFighting.png",
+            "highlights": {
+                "Interruptible Player State Machine": {
+                    "text": [
+                        "I crafted a complex player state machine with states and routines that could be interrupted by certain events, like being stunned/hurt."
+                    ]
+                },
+                "Hit Boxes and Hurt Boxes": {
+                    "text": [
+                        "I programmed hit boxes and hurt boxes to handle attacks between the characters."
+                    ]
+                }
+            }
+        },
+        {
+            "id": "pixelation-tool",
+            "splashGif": "images/placeHolder.gif",
+            "tagline": "Image pixelation and palette tool",
+            "role": "Solo developer",
+            "stat": "Solo project",
+            "status": "Complete",
+            "theme": {
+                "bgTop": "#041c1c",
+                "bgBottom": "#083838",
+                "accent": "#f8d808",
+                "headingShadow": "#c86838",
+                "panel": "#e6f0ee"
+            },
+            "name": "Pixelation Tool",
+            "links": [
+                {
+                    "title": "Try It",
+                    "url": "https://jible.github.io/Pixel-Art-Maker/"
+                },
+                {
+                    "title": "Codebase",
+                    "url": "https://github.com/jible/Pixel-Art-Maker"
+                }
+            ],
+            "skills": "Web development, JavaScript programming, CSS style sheets, Using HTML canvases to modify images",
+            "about": [
+                "A tool that crunches images down and applies a palette to them, for making retro-style game assets and backgrounds.",
+                "The user uploads a photo, slides the block size to pixelate it more, then applies a palette."
+            ],
+            "contribution": [
+                "I programmed all aspects of this project.",
+                "I used HTML canvases to modify images at the pixel level, and made a palette type that stores r,g,b colors."
+            ],
+            "picture": "./images/sampleGames/pixelationToolGamePlay0.png",
+            "highlights": {
+                "Pixel-Level Canvas Editing": {
+                    "text": [
+                        "I learned how to use HTML canvases to modify images on the pixel level."
+                    ]
+                },
+                "Image Compression Methods": {
+                    "text": [
+                        "I brainstormed varying methods for compressing images to emulate a retro video game look. The page includes"
+                    ]
+                },
+                "Palette Data Type": {
+                    "text": [
+                        "I made a palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
+                    ]
+                }
+            }
+        },
+        {
+            "id": "portfolio-page",
+            "splashGif": "images/placeHolder.gif",
+            "tagline": "This portfolio site",
+            "role": "Solo developer",
+            "stat": "Solo project",
+            "status": "Complete",
+            "theme": {
+                "bgTop": "#062f75",
+                "bgBottom": "#442034",
+                "accent": "#f8c808",
+                "headingShadow": "#48c8f8",
+                "panel": "#eef0fa"
+            }
+        }
 ]
-

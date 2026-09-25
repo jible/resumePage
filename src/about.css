@@ -1,0 +1,128 @@
+/* Bio section: a full-page scene below the projects. It has no background of its own, so the
+   fixed sky and its clouds show through. */
+#about{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* Stacked top to bottom: the picture box (takes the spare height), the question buttons, the text box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 8vh 16px 5vh;
+}
+
+/* A black box where the picture will go */
+.bio-photo{
+    flex: 1 1 0;
+    min-height: 160px;
+    aspect-ratio: 3 / 4;
+    max-width: 100%;
+    background-color: #000;
+    border-radius: 12px;
+}
+
+/* The questions, as buttons just above the text box */
+.bio-choices{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: min(1100px, 100%);
+}
+
+.bio-choice{
+    padding: 10px 16px;
+    background-color: rgba(30, 30, 30, 0.75);
+    border: 2px solid transparent;
+    border-radius: 999px;
+    color: #fff;
+    font-family: system-ui, -apple-system, 'Segoe UI', Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.bio-choice:hover,
+.bio-choice:focus-visible{
+    background-color: rgba(30, 30, 30, 0.95);
+    transform: translateY(-2px);
+}
+/* The question whose answer is showing */
+.bio-choice[aria-pressed="true"]{
+    background-color: #ffcd3c;
+    border-color: #1d1d1d;
+    color: #1d1d1d;
+}
+
+/* Text box along the bottom of the scene */
+.dialogue-box{
+    width: min(900px, 100%);
+    min-height: 22vh;
+    padding: 24px;
+    background-color: rgba(30, 30, 30, 0.75);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+}
+
+.dialogue-box p{
+    max-width: 62ch;
+    margin-bottom: 0.8em;
+    font-family: system-ui, -apple-system, 'Segoe UI', Verdana, sans-serif;
+    font-size: 1.35rem;
+    line-height: 1.55;
+}
+.dialogue-box p:last-child{ margin-bottom: 0; }
+
+/* Footer: LinkedIn / Resume / GitHub at the very bottom of the page. It has no background of its own
+   either, so the sky shows through. */
+#contact{
+    position: relative;
+    z-index: 1;
+    padding: 12vh 16px 10vh;
+    text-align: center;
+}
+
+#contact h2{
+    margin-bottom: 28px;
+    font-size: 1.4rem;
+    color: #ffcd3c;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.contact-links{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-links a{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+    padding: 18px 26px;
+    background-color: rgba(30, 30, 30, 0.75);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.contact-links a:hover,
+.contact-links a:focus-visible{
+    transform: translateY(-4px);
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.contact-links__name{
+    font-size: 1rem;
+    color: #00ffcc;
+}
+.contact-links__note{
+    font-family: system-ui, -apple-system, 'Segoe UI', Verdana, sans-serif;
+    font-size: 0.95rem;
+    color: #e8f7ff;
+}
+.contact-links a:hover .contact-links__name{ color: #fff; }

@@ -1,0 +1,22 @@
+[
+    {
+        "topic": "Intro",
+        "question": "Tell me about yourself",
+        "answer": "I'm James, a software engineer who makes games. I graduated from UC Santa Cruz and I build gameplay systems, tools, and netcode."
+    },
+    {
+        "topic": "Skills",
+        "question": "What are you good at?",
+        "answer": "State machine architecture, custom tools, and multiplayer netcode. I rebuilt a puzzle game's play scene as a state machine, and I'm writing rollback netcode for my own fighting game."
+    },
+    {
+        "topic": "Goals",
+        "question": "What are you looking for?",
+        "answer": "A full-time software engineering role where I can build systems and tools for a team."
+    },
+    {
+        "topic": "Personality",
+        "question": "What do you do for fun?",
+        "answer": "I play fighting games, and I used to go to Smash Bros tournaments in high school."
+    }
+]

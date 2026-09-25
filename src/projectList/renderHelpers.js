@@ -23,7 +23,7 @@ export function BuildParagraphsHtml(text){
 }
 
 // Returns a YouTube embed URL if `url` points to a YouTube video, otherwise null
-function GetYoutubeEmbedUrl(url){
+export function GetYoutubeEmbedUrl(url){
     if (!url) return null;
     let match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
     return match ? `https://www.youtube.com/embed/${match[1]}` : null;
@@ -45,4 +45,22 @@ export function LoadDeferredMedia(root = document){
 export function BuildSkillChipsHtml(skills, max = Infinity){
     let list = Array.isArray(skills) ? skills : skills.split(',').map((s) => s.trim()).filter(Boolean);
     return list.slice(0, max).map((skill) => `<span class="skill-chip">${skill}</span>`).join('');
+}
+
+// The main media for a project: a dedicated video if it has one, otherwise the best thing available so
+// there is always something to show. `extraVideoField` names a project field checked first (for
+// example `previewVideo`, a clip cut to a different size for the landing page).
+export function PickMainMedia(project, extraVideoField){
+    let highlights = Object.values(project.highlights || {});
+    let candidates = [
+        extraVideoField ? { video: project[extraVideoField] } : null,
+        { video: project.mainVideo },
+        { video: project.video },
+        { picture: project.picture },
+        highlights.find((h) => h.video),
+        highlights.find((h) => h.picture),
+        { picture: project.titleImage },
+        { picture: project.splashGif },
+    ];
+    return candidates.find((c) => c && (c.video || c.picture)) || {};
 }

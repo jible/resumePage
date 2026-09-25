@@ -1,12 +1,11 @@
 import { CloudFrequency as SkyElementFrequency, islandElementsInfo,  } from "./islandConfig.js";
 
-import {RandomlySpawnBackgroundElement, spawnInitialBackgroundElements} from "./sky.js"
+import {RandomlySpawnBackgroundElement, spawnInitialBackgroundElements, skyObjectsLayer, SkyParallax} from "./sky.js"
 import { IslandElement } from "./IslandElementClass.js";
 
 // SETTING UP SCENE
 
 const island = document.getElementById("island");
-const skyBackground = document.querySelector('.sky-background');
 
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
@@ -21,6 +20,7 @@ document.body.addEventListener('scroll', () => {
 
     const fadeProgress = Math.min(1, document.body.scrollTop / (window.innerHeight * .5));
     document.body.style.setProperty('--scroll-fade-position', 1 - fadeProgress);
+    skyObjectsLayer.style.transform = `translateY(${-document.body.scrollTop * SkyParallax}px)`;
 
 
 });
@@ -33,7 +33,7 @@ document.addEventListener('visibilitychange', () =>{
 
     }
     if (!document.hidden){
-        var children = skyBackground.children;
+        var children = skyObjectsLayer.children;
         Array.from(children).forEach(child => {
             if (child.classList.contains("sky-object")){
                 child.remove()

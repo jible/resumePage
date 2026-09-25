@@ -76,17 +76,16 @@ body {
     background-size: contain;
     image-rendering: pixelated;
     z-index: 0;
-    animation:
-        background-day-night 100s infinite var(--spin-direction),
-        camera-sweep-sky var(--start-anim) 1 ease-out;
+    animation: background-day-night 100s infinite var(--spin-direction);
 }
-@keyframes camera-sweep-sky {
-    0%{
-        height:0;
-    }
-    100%{
-        height:100vh;
-    }
+/* Holds the clouds and stars; scrolled by script for the parallax effect */
+.sky-objects{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height is set in sky.js (taller than the screen) */
+    pointer-events: none;
 }
 
 .sky-object{
@@ -296,12 +295,19 @@ It should bounce a compress
 
 .title-container {
     position: absolute;
-    top: 4%;
+    top: -4%;
     left: 50%;
     transform: translate(-50%);
     z-index: 100;
     text-align: center;
   }
+
+/* On narrow screens the title image is small, so the offset above would push part of it off the top */
+@media (max-width: 700px) {
+    .title-container {
+        top: 4%;
+    }
+}
 
   .subtitle {
     font-size: 2rem; /* Adjust size to be smaller than the main title */
