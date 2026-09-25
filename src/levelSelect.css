@@ -65,8 +65,8 @@
 /* ----------------------------------------
 PROJECT SELECT TILES (index)
 ------------------------------------------- */
-/* The row of cartridges under the preview. The cartridge size comes from listProjects.js (they share the
-   row equally); everything inside a cartridge is sized in percentages of it. */
+/* The row of cartridges under the preview. Sizes are whole multiples of the 64px art (2x, 3x) so the
+   pixels stay crisp; everything inside a cartridge is sized in percentages of it. */
 .save-list{
     position: relative;
     z-index: 1;
@@ -84,8 +84,9 @@ PROJECT SELECT TILES (index)
     --window-top: 25%;
     --window-bottom: 7.8%;
     position: relative;
+    --cart-size: 128px;
     display: block;
-    width: var(--cart-size, 128px); /* set on the row by listProjects.js so all the cartridges fit */
+    width: var(--cart-size);
     aspect-ratio: 1 / 1;
     container-type: inline-size;
     color: #f5f0dc;
@@ -122,7 +123,11 @@ PROJECT SELECT TILES (index)
 /* Slow bob; the float on hover is set by script through the same `translate` property */
 @keyframes cartridge-bob{
     0%, 100% { translate: 0 0; }
-    50%      { translate: 0 calc(var(--cart-size, 128px) * -0.05); }
+    50%      { translate: 0 -10px; }
+}
+
+@media (min-width: 1500px){
+    .save-slot{ --cart-size: 192px; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -133,7 +138,7 @@ PROJECT SELECT TILES (index)
     content: "";
     position: absolute;
     inset: 0;
-    background: url('../images/PortfolioGameCartridge1.png') center / 100% 100% no-repeat;
+    background: url('../images/cartridge/front.png') center / 100% 100% no-repeat;
     image-rendering: pixelated;
     pointer-events: none;
     z-index: 3;
@@ -147,11 +152,13 @@ PROJECT SELECT TILES (index)
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6%;
+    padding: 4%;
     text-align: center;
     font-family: 'Press Start 2P', cursive;
-    font-size: 9cqw;
-    line-height: 1.4;
+    /* The pixel font is 1em per letter and the window is about 81% of the cartridge wide, so the
+       longest word ("Pixelation", 10 letters) needs well under 8cqw to sit inside the frame */
+    font-size: 6.5cqw;
+    line-height: 1.5;
     text-shadow: 1px 1px 0 #000;
 }
 

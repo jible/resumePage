@@ -1,7 +1,7 @@
 import { PROJECTS_JSON_PATH, BuildSkillChipsHtml, PickMainMedia, GetYoutubeEmbedUrl } from './renderHelpers.js';
 
-const CARTRIDGE_BACK_IMAGE = 'images/PortfolioGameCartridge2.png';
-const CARTRIDGE_SIDE_IMAGE = 'images/cartridgeSide.png';
+const CARTRIDGE_BACK_IMAGE = 'images/cartridge/back.png';
+const CARTRIDGE_SIDE_IMAGE = 'images/cartridge/side.png';
 // Cartridge side thickness as a fraction of the cartridge width (the side sprite is 6px of a 64px cartridge)
 const SideThickness = 6 / 64;
 // Idle spin: one full turn takes this many seconds
@@ -11,13 +11,8 @@ const SpinStagger = 0.5;
 // Idle bob: one full up and down takes this many seconds
 const BobDuration = 4;
 const BobStagger = 0.5;
-// The focused cartridge floats up by this fraction of its own width and stays there
-const HoverFloatFraction = 0.1;
-// Cartridges share the row equally, but never get smaller or bigger than these (px). Below the minimum
-// they wrap onto more rows instead.
-const MinCartridgeSize = 96;
-const MaxCartridgeSize = 256;
-const CartridgeGap = 16;
+// The focused cartridge floats this high and stays there
+const HoverFloat = '-14px';
 // Seconds for the focused cartridge to turn to face the player (per half turn)
 const FaceFrontTime = 0.5;
 
@@ -54,27 +49,11 @@ function RenderProjects(data){
     });
     ProjectsSection.appendChild(preview.element);
     ProjectsSection.appendChild(list);
-    KeepCartridgesFitted(list, data.length);
     showPreview = preview.Show;
     if (!ReducedMotion) requestAnimationFrame(Tick);
 
     // Start with the first project in focus so the preview is never empty
     FocusCartridge(cartridges[0]);
-}
-
-// Sizes the cartridges so all of them fit across the row, however many projects there are, and
-// keeps them fitted as the window changes size
-function KeepCartridgesFitted(list, count){
-    function Fit(){
-        let style = getComputedStyle(list);
-        let width = list.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
-        let size = Math.floor((width - CartridgeGap * (count - 1)) / count); // floor so rounding never forces a wrap
-        size = Math.min(MaxCartridgeSize, Math.max(MinCartridgeSize, size));
-        list.style.setProperty('--cart-size', `${size}px`);
-        list.style.gap = `20px ${CartridgeGap}px`;
-    }
-    new ResizeObserver(Fit).observe(list);
-    Fit();
 }
 
 function ProjectUrl(project){
@@ -230,7 +209,7 @@ class Cartridge {
         this.slot.style.translate = getComputedStyle(this.slot).translate;
         this.slot.classList.add('is-facing');
         this.slot.getBoundingClientRect(); // commit the held height so the float animates from it
-        this.slot.style.translate = `0 ${-this.slot.offsetWidth * HoverFloatFraction}px`;
+        this.slot.style.translate = `0 ${HoverFloat}`;
     }
 
     // Settle back down and carry on spinning at the normal speed from wherever the cartridge is,

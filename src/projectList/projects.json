@@ -1,7 +1,7 @@
 [
     {
         "id": "hard-to-convey",
-        "splashGif": "images/placeHolder.gif",
+        "splashGif": "images/placeholder.gif",
         "tagline": "3D conveyor-belt puzzle game",
         "role": "Systems & Tools Engineer",
         "stat": "Team of 4 · 2 programmers",
@@ -18,7 +18,7 @@
         "links":[
             { "title": "Demo Page", "url" : "https://www.hardtoconvey.com/ "}
         ],
-        "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, Merge Conflict Resolution",
+        "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, State Based System Design",
         "about": [
             "A 3D tile-based puzzle game where the player places conveyor belts to direct sushi to customers.",
             "Built in Unity by a team of 4, with 2 programmers."
@@ -49,7 +49,7 @@
     },
     {
         "id": "juxtopposed",
-        "splashGif": "images/placeHolder.gif",
+        "splashGif": "images/placeholder.gif",
         "tagline": "2D fighting game with rollback netcode",
         "role": "Solo developer",
         "stat": "Solo project",
@@ -67,7 +67,7 @@
             { "title": "Godot Codebase", "url": "https://github.com/jible/Platform-fighter" },
             { "title": "Unity Codebase", "url": "https://github.com/jible/Juxtopposed" }
         ],
-        "skills": "Unity, Godot, Advanced Hitbox Behavior, Making Tools, Porting, Netcode, C#",
+        "skills": "Unity, Godot, Advanced Hitbox Behavior, Making Tools, Porting, Netcode, C#, Deterministic Math Objects, Physics Programming",
         "about": [
             "A 2D fighting game I am developing independently in Unity, after starting in Godot.",
             "I chose a fighting game as the ultimate test of state-machine development, and as a chance to learn features I had not worked with before."
@@ -124,7 +124,7 @@
     },
     {
         "id": "cast-into-flame",
-        "splashGif": "images/placeHolder.gif",
+        "splashGif": "images/placeholder.gif",
         "tagline": "Roguelike with generated worlds",
         "role": "Lead Programmer",
         "stat": "Team of 6 · 10 weeks",
@@ -142,7 +142,7 @@
             { "title": "Playable Game", "url": "https://jibl.itch.io/cast-in-flame" },
             { "title": "Codebase", "url": "https://github.com/jible/capstone" }
         ],
-        "skills": "Godot, Github version control, resolving complex merge conflicts",
+        "skills": "Godot, State Based Player Controller and Enemy Behavior, Procedural Level Generation, Combat Interactions",
         "about": [
             "Our senior capstone project, made in 10 weeks by a team of 6.",
             "We did not continue the project after the capstone, so it never got finalized art."
@@ -171,7 +171,7 @@
     
     {
         "id": "tail-of-two-tides",
-        "splashGif": "images/placeHolder.gif",
+        "splashGif": "images/placeholder.gif",
         "tagline": "Rhythm game made for GMTK 2024",
         "role": "Gameplay Programmer",
         "stat": "Team of 4 · Game jam",
@@ -188,7 +188,7 @@
         "links":[
             { "title": "Playable Game", "url": "https://emiree-draws.itch.io/tail-of-two-tides" }
         ],
-        "skills": "C#, Unity, Teamwork",
+        "skills": "C#, Unity, Lane Based Character Movement ",
         "about": [
             "A rhythm game made by a team of 4 for the GMTK 2024 Game Jam, on the theme \"Built to Scale\".",
             "You alternate between navigating rocky waters and pressing the right key on the note, to win over a scaly mermaid."
@@ -210,7 +210,8 @@
     },
         {
             "id": "tale-of-zelmore",
-            "splashGif": "images/placeHolder.gif",
+            "mainVideo": "images/sampleGames/overview/tale-of-zelmore.mp4",
+            "splashGif": "images/placeholder.gif",
             "tagline": "2-player fighting game in Phaser",
             "role": "Gameplay Programmer & Pixel Artist",
             "stat": "Team of 2 · 2 weeks",
@@ -234,7 +235,7 @@
                     "url": "https://github.com/tblagarrett/Zelmore"
                 }
             ],
-            "skills": "JavaScript programming, Making games in Phaser, GitHub version control, Communication and teamwork, Pixel art",
+            "skills": "JavaScript programming, Phaser Library/Engine, State Based Character Controllers, Hitboxes",
             "about": [
                 "A 2 player fighting game based on The Tales of Zelmore, the video game from the tv show The Amazing World of Gumball.",
                 "Made with Garrett Blake in two weeks."
@@ -259,7 +260,8 @@
         },
         {
             "id": "pixelation-tool",
-            "splashGif": "images/placeHolder.gif",
+            "mainVideo": "images/sampleGames/overview/pixelation-tool.mp4",
+            "splashGif": "images/placeholder.gif",
             "tagline": "Image pixelation and palette tool",
             "role": "Solo developer",
             "stat": "Solo project",
@@ -282,7 +284,7 @@
                     "url": "https://github.com/jible/Pixel-Art-Maker"
                 }
             ],
-            "skills": "Web development, JavaScript programming, CSS style sheets, Using HTML canvases to modify images",
+            "skills": "Web development, JavaScript programming, CSS style sheets, Modify images via HTML canvases",
             "about": [
                 "A tool that crunches images down and applies a palette to them, for making retro-style game assets and backgrounds.",
                 "The user uploads a photo, slides the block size to pixelate it more, then applies a palette."
@@ -309,20 +311,6 @@
                     ]
                 }
             }
-        },
-        {
-            "id": "portfolio-page",
-            "splashGif": "images/placeHolder.gif",
-            "tagline": "This portfolio site",
-            "role": "Solo developer",
-            "stat": "Solo project",
-            "status": "Complete",
-            "theme": {
-                "bgTop": "#062f75",
-                "bgBottom": "#442034",
-                "accent": "#f8c808",
-                "headingShadow": "#48c8f8",
-                "panel": "#eef0fa"
-            }
         }
+        
 ]
