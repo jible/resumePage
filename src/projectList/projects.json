@@ -49,6 +49,7 @@
     },
     {
         "id": "juxtopposed",
+        "mainVideo": "images/sampleGames/overview/juxtopposed.mp4",
         "splashGif": "images/placeholder.gif",
         "tagline": "2D fighting game with rollback netcode",
         "role": "Solo developer",
@@ -67,7 +68,7 @@
             { "title": "Godot Codebase", "url": "https://github.com/jible/Platform-fighter" },
             { "title": "Unity Codebase", "url": "https://github.com/jible/Juxtopposed" }
         ],
-        "skills": "Unity, Godot, Advanced Hitbox Behavior, Making Tools, Porting, Netcode, C#, Deterministic Math Objects, Physics Programming",
+        "skills": "Advanced Hitbox Behavior,  Netcode, C#, Deterministic Math Objects, Physics Programming, Unity, Godot, Porting",
         "about": [
             "A 2D fighting game I am developing independently in Unity, after starting in Godot.",
             "I chose a fighting game as the ultimate test of state-machine development, and as a chance to learn features I had not worked with before."
@@ -210,9 +211,10 @@
     },
         {
             "id": "tale-of-zelmore",
-            "mainVideo": "images/sampleGames/overview/tale-of-zelmore.mp4",
+            "mainVideo": "images/sampleGames/banner/tale-of-zelmore.mp4",
+            "previewVideo": "images/sampleGames/overview/tale-of-zelmore.mp4",
             "splashGif": "images/placeholder.gif",
-            "tagline": "2-player fighting game in Phaser",
+            "tagline": "2-Player Fighting Game in Phaser",
             "role": "Gameplay Programmer & Pixel Artist",
             "stat": "Team of 2 · 2 weeks",
             "status": "Complete",
