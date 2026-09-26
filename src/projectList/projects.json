@@ -32,7 +32,7 @@
             "Play Scene State Based Architecture": {
                 "text":[
                     "Going into this project, my first task was to refactor the play scene. In the play scene the player is presented with a level, where they can drag left click to place conveyor belts, drag right click to erase conveyor belts, drag outside of the play area to change the camera position, and click the play button to begin playing the conveyor belts to test their layout. When player combined these actions, there were unexpected results. For example, it was unclear what would happen when the player holds the erase button down, then clicks the draw button. It was unclear because all of the input responses were just in the update function, meaning multiple actions could potentially happen at once.",
-                    "Rather than wrangling with update call and finding the correct place to put the check and response, we can just make a new state and set the conditions to enter and exit it. Going forward, it was easier to implement new player actions or features like the undo/redo system"
+                    "Rather than putting all of the gameplay code into the update call, we can just separate each action into a  state and set the conditions to enter and exit it. Going forward, it was easier to implement new player actions or features like the undo/redo system"
                 ]
             },
             "Undo/Redo System": {
@@ -147,11 +147,13 @@
         "skills": "Godot, State Based Player Controller and Enemy Behavior, Procedural Level Generation, Combat Interactions",
         "about": [
             "Our senior capstone project, made in 10 weeks by a team of 6.",
-            "We did not continue the project after the capstone, so it never got finalized art."
+            "We did not continue the project after the capstone, so we never finalized the art."
         ],
         "contribution": [
-            "I took the lead on programming.",
-            "I was responsible for many of our tools and systems, including the character controller, enemy AI, mini-map and world generation."
+            "I created the procedrual level generator, experimenting with and implementing noise based, random walk, and random weighted tile placement algorithms. I also created the manager that translate the world from out abstract data type into the tile system.",
+            "I programmed all aspects the player controller from the movement to the combat and even the state machine which decided the animation and available actions.",
+            "I used the same state machine system to implement the enemy controller and AI. The enemy had a patrol state where it would walk a given area and only chase the player if it found them. ", 
+            "I used nav mesh to make the enemy follow the player around in a complex environment "
         ],
         "highlights": {
           "Player Controller": {

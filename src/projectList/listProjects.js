@@ -47,6 +47,8 @@ function RenderProjects(data){
         list.appendChild(slot);
         cartridges.push(new Cartridge(slot, index, project));
     });
+    // Small screens fit every cartridge in one row; the styles divide the row by this count
+    list.style.setProperty('--cart-count', data.length);
     ProjectsSection.appendChild(preview.element);
     ProjectsSection.appendChild(list);
     showPreview = preview.Show;
@@ -82,6 +84,12 @@ function FocusCartridge(cartridge){
     showPreview(cartridge.project);
 }
 
+// The arrows step the focus to the previous or next cartridge, wrapping around at the ends
+function FocusNeighbor(step){
+    let index = cartridges.indexOf(focused);
+    FocusCartridge(cartridges[(index + step + cartridges.length) % cartridges.length]);
+}
+
 // The preview panel: a video (or picture) with the focused project's name, tagline and top skills over it
 function BuildPreview(){
     let element = document.createElement('a');
@@ -97,6 +105,17 @@ function BuildPreview(){
             <div class="project-preview__skills"></div>
             <div class="project-preview__cta">&#9654; VIEW PROJECT</div>
         </div>`;
+    // The link sits in a wrapper so the arrow buttons can be its siblings (a button can't go inside a link).
+    // The arrows only show on small or touch screens, where there is no hover to change the focus.
+    let wrapper = document.createElement('div');
+    wrapper.className = 'project-preview-wrap';
+    wrapper.innerHTML = `
+        <button type="button" class="preview-arrow preview-arrow--previous" aria-label="Previous project">&#9664;</button>
+        <button type="button" class="preview-arrow preview-arrow--next" aria-label="Next project">&#9654;</button>`;
+    wrapper.prepend(element);
+    wrapper.querySelector('.preview-arrow--previous').addEventListener('click', () => FocusNeighbor(-1));
+    wrapper.querySelector('.preview-arrow--next').addEventListener('click', () => FocusNeighbor(1));
+
     let media = element.querySelector('.project-preview__media');
     let video = element.querySelector('video');
     let image = element.querySelector('img');
@@ -133,7 +152,7 @@ function BuildPreview(){
             image.src = source.picture || project.titleImage || project.splashGif;
         }
     }
-    return { element, Show };
+    return { element: wrapper, Show };
 }
 
 // Title images can be transparent, so the cartridge window gets the project's theme colors behind them
