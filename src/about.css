@@ -5,30 +5,28 @@
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    /* Stacked top to bottom: the picture box (takes the spare height), the question buttons, the text box */
+    overflow: hidden;
+    /* Stacked from the bottom: the question buttons, then the text box, over the picture */
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    gap: 16px;
-    padding: 8vh 16px 5vh;
+    gap: 12px;
+    padding: 8vh 16px 4vh;
 }
 
-/* The picture, over a black background in case it hasn't loaded */
-.bio-photo{
-    flex: 1 1 0;
-    min-height: 160px;
-    aspect-ratio: 3 / 4;
-    max-width: 100%;
-    background-color: #000;
-    border-radius: 12px;
-    overflow: hidden;
-}
-.bio-photo img{
-    display: block;
+/* The picture fills the whole section as its background. It is cropped to fit (never squished), and
+   anchored so the face stays above the buttons and text box. */
+.bio-background{
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 30%;
+    object-position: 56% 36%;
+    z-index: 0;
+    /* Fades in as the section scrolls into view; --about-fade is set by bio.js */
+    opacity: var(--about-fade, 1);
 }
 
 /* The questions, as buttons just above the text box */
@@ -38,17 +36,19 @@
     justify-content: center;
     gap: 10px;
     width: min(1100px, 100%);
+    position: relative;
+    z-index: 1;
 }
 
 /* Dating-sim palette: deep plum panels with pink trim, yellow for the current pick */
 .bio-choice{
-    padding: 10px 18px;
+    padding: 7px 14px;
     background-color: rgba(42, 16, 58, 0.85);
     border: 2px solid #ff9ecb;
     border-radius: 999px;
     color: #fff6fb;
     font-family: 'Fredoka', system-ui, sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.15s ease, transform 0.15s ease;
@@ -68,9 +68,10 @@
 /* Text box along the bottom of the scene, with a name tag over its top-left corner */
 .dialogue-box{
     position: relative;
+    z-index: 1;
     width: min(900px, 100%);
-    min-height: 22vh;
-    padding: 30px 28px 24px;
+    min-height: 14vh;
+    padding: 24px 22px 16px;
     background-color: rgba(42, 16, 58, 0.88);
     border: 3px solid #ff9ecb;
     border-radius: 16px;
@@ -80,14 +81,14 @@
 .dialogue-box::before{
     content: "James";
     position: absolute;
-    top: -16px;
-    left: 22px;
-    padding: 4px 14px;
+    top: -13px;
+    left: 20px;
+    padding: 3px 12px;
     background-color: #ff9ecb;
     border-radius: 999px;
     color: #2a1035;
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.75rem;
+    font-size: 0.62rem;
     line-height: 1.4;
 }
 
@@ -95,15 +96,18 @@
     max-width: 62ch;
     margin-bottom: 0.8em;
     font-family: 'Fredoka', system-ui, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     font-weight: 500;
     line-height: 1.5;
 }
 .dialogue-box p:last-child{ margin-bottom: 0; }
 @media (max-width: 700px){
-    .dialogue-box{ padding: 28px 18px 20px; }
-    .dialogue-box p{ font-size: 1.25rem; }
-    .bio-choice{ font-size: 1rem; padding: 8px 14px; }
+    /* Keep the buttons and text box compact so they leave the face showing on a tall, narrow screen */
+    #about{ gap: 10px; }
+    .bio-choices{ gap: 6px; }
+    .dialogue-box{ padding: 22px 14px 12px; min-height: 0; }
+    .dialogue-box p{ font-size: 0.95rem; }
+    .bio-choice{ font-size: 0.78rem; padding: 5px 10px; }
 }
 /* The site sets a pixel font on every element, so the letter spans (and any bold/italic/link inside an
    answer) have to be told to use the answer's font */

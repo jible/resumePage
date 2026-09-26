@@ -110,3 +110,17 @@ function ScheduleLetters(letters){
         return appearsAt;
     });
 }
+
+// The picture fades in as the section scrolls into view: fully transparent while the section's top edge is
+// at the bottom of the screen, fully visible once that edge has come up to a quarter of the way down.
+const about = document.getElementById('about');
+const FadeFinishesAt = 0.25; // fraction of the screen height, measured from the top
+function UpdateBackgroundFade(){
+    let top = about.getBoundingClientRect().top / window.innerHeight; // 1 = at the bottom of the screen, 0 = at the top
+    let progress = (1 - top) / (1 - FadeFinishesAt);
+    about.style.setProperty('--about-fade', Math.min(1, Math.max(0, progress)));
+}
+// The page scrolls inside <body>, not the window
+document.body.addEventListener('scroll', UpdateBackgroundFade);
+window.addEventListener('resize', UpdateBackgroundFade);
+UpdateBackgroundFade();

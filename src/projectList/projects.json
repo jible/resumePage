@@ -298,19 +298,14 @@
             ],
             "picture": "./images/sampleGames/pixelationToolGamePlay0.png",
             "highlights": {
-                "Pixel-Level Canvas Editing": {
-                    "text": [
-                        "I learned how to use HTML canvases to modify images on the pixel level."
-                    ]
-                },
                 "Image Compression Methods": {
                     "text": [
-                        "I brainstormed varying methods for compressing images to emulate a retro video game look. The page includes"
+                        "I designed and implemented varying methods for compressing images to emulate a retro video game look. The page includes a lazy algorithm for making quick calculations. It just grabs the top left pixel from each block that it creates. I also implemented random, mean, median, and mode based compression algorithms that apply each of those algorithms to the pixels for a given block of pixels."
                     ]
                 },
                 "Palette Data Type": {
                     "text": [
-                        "I made a palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image."
+                        "I made a palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image. I itterated on feature several times and QA tested for accessibility since a lot of users seemed confused by the palette customization."
                     ]
                 }
             }
