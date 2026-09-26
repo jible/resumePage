@@ -1,0 +1,33 @@
+/* LinkedIn / Resume / GitHub: a compact stack in the top-left corner that stays put while the page
+   scrolls, so the links are always in the same place. Same plum and pink look as the bio buttons. */
+.site-links{
+    position: fixed;
+    top: max(12px, env(safe-area-inset-top));
+    left: max(12px, env(safe-area-inset-left));
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.site-links a{
+    padding: 5px 12px;
+    background-color: rgba(42, 16, 58, 0.88);
+    border: 2px solid #ff9ecb;
+    border-radius: 999px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+    color: #fff6fb;
+    font-family: 'Fredoka', system-ui, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.3;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.site-links a:hover,
+.site-links a:focus-visible{
+    background-color: #ffd166;
+    color: #2a1035;
+    transform: translateX(2px);
+}
