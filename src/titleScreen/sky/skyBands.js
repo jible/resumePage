@@ -8,37 +8,55 @@ import { skyBackground } from './skyBackground.js';
 // The sky itself stays fixed, since it is a backdrop. The bands are not part of it: they live in their
 // own layer that is as tall as the whole page and scrolls with it, sitting just above the fixed sky and
 // under the page content.
-const SkyBandCount = 8;
-const SkyBandOpacity = 0.3;   // per band; they stack, so the bottom is about 1 - (1 - opacity)^count
+const SkyBandCount = 3;
+const SkyBandOpacity = 0.4;   // per band; they stack, so the bottom is about 1 - (1 - opacity)^count
+const DitherTileSize = 32;      // height of skyDitherLong.png in image pixels
 const DitherPixel = 4;         // screen pixels per dither pixel, a whole number so the dots stay crisp
+const BottomBandPink = 35;      // percent of the dating sim pink mixed into the bottom bands' color
+const PinkBandCount = 2;        // how many bands, counting up from the bottom, get the pink
+const FirstBandAboveWaves = 160; // screen pixels from the top of the first band down to the top of the waves
 
 export function SetUpSkyBands(){
     let skyBands = document.createElement('div');
     skyBands.classList.add('sky-bands');
     skyBands.style.setProperty('--band-opacity', SkyBandOpacity);
-    skyBands.style.setProperty('--dither-size', `${16 * DitherPixel}px`);
+    skyBands.style.setProperty('--dither-size', `${DitherTileSize * DitherPixel}px`);
     for (let i = 0; i < SkyBandCount; i++){
         let band = document.createElement('div');
         band.classList.add('sky-band');
+        if (i >= SkyBandCount - PinkBandCount){
+            band.style.setProperty('--band-pink', `${BottomBandPink}%`);
+        }
         skyBands.appendChild(band);
     }
     skyBackground.after(skyBands);
 
     // The layer is as tall as the page (measured to the end of the last section, so it never feeds back into
-    // its own measurement), with the bands at even steps down it, snapped to the dither pixel grid so the
-    // edges stay sharp. Redone whenever a section changes size: the window resizes, or the project cartridges
-    // finish loading and make the projects section taller.
+    // its own measurement). The first band starts a set distance above the waves, so its dither always shows
+    // in the title screen's sky; the rest follow at even steps down to the bottom of the page. Everything is
+    // snapped to the dither pixel grid so the edges stay sharp. Redone whenever the layout changes: the window
+    // resizes, the project cartridges finish loading and make the projects section taller, or the intro's
+    // water animation settles.
     let lastSection = document.getElementById('about');
+    let waves = document.querySelector('.waves');
     function LayoutSkyBands(){
         let pageHeight = lastSection.offsetTop + lastSection.offsetHeight;
         skyBands.style.height = `${pageHeight}px`;
+        let firstTop = Math.max(0, PageTop(waves) - FirstBandAboveWaves);
+        let step = (pageHeight - firstTop) / SkyBandCount;
         Array.from(skyBands.children).forEach((band, i) => {
-            let top = Math.round(i * pageHeight / SkyBandCount / DitherPixel) * DitherPixel;
+            let top = Math.round((firstTop + i * step) / DitherPixel) * DitherPixel;
             band.style.top = `${top}px`;
         });
     }
+    document.querySelector('.water').addEventListener('animationend', LayoutSkyBands);
     window.addEventListener('resize', LayoutSkyBands);
     let sectionSizes = new ResizeObserver(LayoutSkyBands);
     document.querySelectorAll('#projects, #about').forEach((section) => sectionSizes.observe(section));
     LayoutSkyBands();
+}
+
+// Where an element's top edge is on the page. The body is the scrolling element, so its scroll is added back in.
+function PageTop(element){
+    return element.getBoundingClientRect().top - document.body.getBoundingClientRect().top + document.body.scrollTop;
 }

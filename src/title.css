@@ -101,16 +101,18 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--sky-band-color);
+    /* --band-pink (set by sky.js, 0% unless given) mixes in the dating sim pink, so the bottom bands tint toward
+       the about section's palette while still following the day/night color */
+    background-color: color-mix(in srgb, var(--sky-band-color), #ff9ecb var(--band-pink, 0%));
     opacity: var(--band-opacity);
     image-rendering: pixelated;
     /* The dither tile along the top edge, then solid for the rest of the band */
-    -webkit-mask-image: url('../images/titleScreen/background/skyDither.png'), linear-gradient(#000, #000);
-    -webkit-mask-size: var(--dither-size) var(--dither-size), 100% calc(100% - var(--dither-size));
+    -webkit-mask-image: url('../images/titleScreen/background/skyDitherLong.png'), linear-gradient(#000, #000);
+    -webkit-mask-size: auto var(--dither-size), 100% calc(100% - var(--dither-size));
     -webkit-mask-position: 0 0, 0 var(--dither-size);
     -webkit-mask-repeat: repeat-x, no-repeat;
-    mask-image: url('../images/titleScreen/background/skyDither.png'), linear-gradient(#000, #000);
-    mask-size: var(--dither-size) var(--dither-size), 100% calc(100% - var(--dither-size));
+    mask-image: url('../images/titleScreen/background/skyDitherLong.png'), linear-gradient(#000, #000);
+    mask-size: auto var(--dither-size), 100% calc(100% - var(--dither-size));
     mask-position: 0 0, 0 var(--dither-size);
     mask-repeat: repeat-x, no-repeat;
 }
