@@ -24,7 +24,7 @@
     height: 100%;
     object-fit: cover;
     object-position: 56% 36%;
-    z-index: 0;
+    z-index: 1;
     /* Fades in as the section scrolls into view; --about-fade is set by bio.js */
     opacity: var(--about-fade, 1);
 }

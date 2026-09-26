@@ -1,6 +1,6 @@
 import { CloudFrequency as SkyElementFrequency, islandElementsInfo,  } from "./islandConfig.js";
 
-import {RandomlySpawnBackgroundElement, spawnInitialBackgroundElements, skyObjectsLayer, SkyParallax} from "./sky.js"
+import {RandomlySpawnBackgroundElement, spawnInitialBackgroundElements, skyObjectsLayer, SkyParallax} from "./sky/sky.js"
 import { IslandElement } from "./IslandElementClass.js";
 
 // SETTING UP SCENE

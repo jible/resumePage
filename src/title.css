@@ -44,7 +44,6 @@ body {
 
 @keyframes camera-sweep-island-stretch{
     0% {
-        top:90%;
         --y-stretch: 2;
         --y-unstretch: .5;
         --x-stretch: 2;
@@ -78,13 +77,54 @@ body {
     z-index: 0;
     animation: background-day-night 100s infinite var(--spin-direction);
 }
-/* Holds the clouds and stars; scrolled by script for the parallax effect */
-.sky-objects{
+/* Dithered bands over the sky color (see sky.js). The band tint is a lighter version of the sky color at
+   each point of the day/night cycle, on the same 100s timeline as the sky itself. */
+@property --sky-band-color{
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #9AD4F5;
+}
+.sky-bands{
+    /* A page-tall layer that scrolls with the page (body is its containing block); the height is set by
+       sky.js. It sits after the fixed sky in the page, so it paints over it and under the content. */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    /* height is set in sky.js (taller than the screen) */
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    animation: sky-band-tint 100s infinite var(--spin-direction);
+}
+.sky-band{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--sky-band-color);
+    opacity: var(--band-opacity);
+    image-rendering: pixelated;
+    /* The dither tile along the top edge, then solid for the rest of the band */
+    -webkit-mask-image: url('../images/titleScreen/background/skyDither.png'), linear-gradient(#000, #000);
+    -webkit-mask-size: var(--dither-size) var(--dither-size), 100% calc(100% - var(--dither-size));
+    -webkit-mask-position: 0 0, 0 var(--dither-size);
+    -webkit-mask-repeat: repeat-x, no-repeat;
+    mask-image: url('../images/titleScreen/background/skyDither.png'), linear-gradient(#000, #000);
+    mask-size: var(--dither-size) var(--dither-size), 100% calc(100% - var(--dither-size));
+    mask-position: 0 0, 0 var(--dither-size);
+    mask-repeat: repeat-x, no-repeat;
+}
+
+/* Holds the clouds and stars; scrolled by script for the parallax effect */
+.sky-objects{
+    /* Fixed like the sky, so only the parallax transform in island.js moves it. Clouds and stars below the
+       screen overflow its bottom edge and scroll up into view (see skyElements.js). */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -152,6 +192,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
+    z-index:1;
     /* background: #87ceeb; Sky background */
     perspective: 800px; /* Add depth */
 }
@@ -265,6 +306,15 @@ It should bounce a compress
     100% {
         transform: translate(-50%, -50%) rotate(-360deg) scale(calc(1/var(--x-stretch)), calc(1/var(--y-stretch))); /* Full counter-rotation */
     }
+}
+
+@keyframes sky-band-tint{
+    0%   { --sky-band-color: #9AD4F5; }
+    25%  { --sky-band-color: #B58ACB; }
+    50%  { --sky-band-color: #2E3B7A; }
+    72%  { --sky-band-color: #8FA3D6; }
+    90%  { --sky-band-color: #F7CFA0; }
+    100% { --sky-band-color: #9AD4F5; }
 }
 
 @keyframes background-day-night{

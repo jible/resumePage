@@ -14,6 +14,9 @@ body, html {
     background-color: rgb(66, 165, 245);
     overscroll-behavior: none;
 }
+body{
+    position: relative; /* the scrolling page is the body, so page-tall layers are positioned against it */
+}
 
 .no-scrollbar{
     &::-webkit-scrollbar {
