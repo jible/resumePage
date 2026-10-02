@@ -7,21 +7,21 @@
     {
         "topic": "Skills",
         "question": "What are your strengths?",
-        "answer": "State machine architecture, custom tools, and multiplayer netcode. I'm currently working on an Indie team to release a puzzle game on Steam. I've become quite familiar with the Steamworks API for implementing achievements and Steam Workshop posting tools and interfaces."
+        "answer": "State machine architecture, custom tools, and multiplayer netcode. I'm currently working on an Indie team to release a puzzle game on Steam. I've become quite familiar with the Steamworks API. I've used it to used it for achievements and Steam Workshop features in my games."
     },
     {
         "topic": "Goals",
         "question": "What are you looking for?",
-        "answer": "A full-time software engineering role where I can build systems and tools for a team. I'm hunting for a position where I can make something that truly matters—be it a tool that improves people's workflow or a game that brings people joy."
+        "answer": "A full-time software engineering role where I can build systems and tools for a team. I want to make a tool that improves people's workflow or a game that brings people joy."
     },
     {
         "topic": "Games",
         "question": "What are your favorite games?",
-        "answer": "I have been top 500 in Overwatch, I attended Smash Bros. tournaments in highschool, and I enjoy winding down with single player games like Pokemon and Zelda. When I'm not gaming, I love to play Volleyball in my weekly league. When I worked at Trader Joe's I coordinated several Kickball Games with my coworkers."
+        "answer": "I have been top 500 in Overwatch, I attended Smash Bros. tournaments in highschool, and I enjoy winding down with single player games like Pokemon and Zelda. When I'm not gaming, I love to play Volleyball in my weekly league."
     },
     {
         "topic": "Books",
         "question": "What are your favorite books?",
-        "answer": "I enjoy reading recreationally and academically. My favorite book about programming is John Z. Somnez's <i>Soft Skills: The Software Developer's Life Manual</i>. It has great advice on being a healthy hirable prorgammer and getting projects done. Recreationally, my favorite books are Elaine Castillo's <i>Moderation</i> and Gabriel Zevin's <i>Tomorrow and Tomorrow and Tomrrow</i>."
+        "answer": "I enjoy reading recreationally and academically. My favorite book about programming is John Z. Somnez's <i>Soft Skills: The Software Developer's Life Manual</i>. It has great advice on being a healthy hirable programmer and getting projects done. Recreationally, my favorite books are Elaine Castillo's <i>Moderation</i> and Gabriel Zevin's <i>Tomorrow and Tomorrow and Tomorrow</i>."
     }
 ]
