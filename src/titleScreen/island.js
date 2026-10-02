@@ -10,6 +10,13 @@ const island = document.getElementById("island");
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
 
+// The water's deep color continues under the projects section (see .water::after in title.css)
+const water = document.querySelector('.water');
+const projectsSection = document.getElementById('projects');
+new ResizeObserver(() => {
+    water.style.setProperty('--projects-height', `${projectsSection.offsetHeight}px`);
+}).observe(projectsSection);
+
 // The page stays hidden until everything has loaded, so the intro plays with all its art in place. A slow
 // file on the server shouldn't leave it blank, though, so it starts anyway after a few seconds.
 const RevealTimeout = 4000;
