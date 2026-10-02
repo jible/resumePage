@@ -72,11 +72,12 @@
         "skills": "Advanced Hitbox Behavior,  Netcode, C#, Deterministic Math Objects, Physics Programming, Unity, Godot, Porting",
         "about": [
             "I created the base architecture to support, collision, hitboxes, player states, and LAN connection in Godot.",
-            "Due to a bug in Godot, causing random editor crashes, I am porting to Unity. The port is sailing smoothly "
+            "Due to a bug in Godot, causing random editor crashes, I am porting to Unity. The port is sailing smoothly.",
+            "This project is still a work in progress. I have a significant amount of the architecture in place, but the design and art assets are a long way out."
         ],
         "contribution": [
             "I am building the whole game myself, including custom math, custom physics and a hitbox editor tool.",
-            "I took on rollback netcode, which taught me networking, custom physics and game state rollback."
+            "I have already completed the prototype for the netcode with a small physics simulation in Godot."
         ],
         "highlights": {
             
@@ -96,7 +97,7 @@
             },
             "Putting the Netcode in \"Rollback Netcode\"":{
                 "text" : [
-                    "Going into this, I had taken Introduction to Networking and the Internet at UCSC, so I had an overhead understanding of networking. I spent a long time digging through the Godot ENet API documentation and YouTube videos, learning how to configure lobbies and send/receive packets between 2 game instances. I made a Network Manager that would handle making a Godot ENet peer and sending messages to the other system. The Godot ENet API is particularly neat because it supports both UDP and TCP packet sending protocols. UDP is faster, just sending the packets to the other system. TCP, is slower, but more reliable, sending a confirmation message when it receives a packet and requesting a dropped packet when it notices that an incoming packet is missing. I used the slower reliable TCP to configure the lobby, which doesn't require haste and I used the faster, less reliable UDP to send input packets during the match. This is common practice as most fighting games will send packets of the last 5 to 8 frames of inputs every frame, so if a packet gets dropped, it will just arrive with the next packet.",
+                    "I had taken Introduction to Networking and the Internet at UCSC, so I had an overhead understanding of networking, but I had a lot to learn to complete this project. I spent a long time digging through the Godot ENet API documentation and YouTube videos, learning how to configure lobbies and send/receive packets between 2 game instances. I made a Network Manager that would handle making a Godot ENet peer and sending messages to the other system. The Godot ENet API is particularly neat because it supports both UDP and TCP packet sending protocols. UDP is faster, just sending the packets to the other system. TCP, is slower, but more reliable, sending a confirmation message when it receives a packet and requesting a dropped packet when it notices that an incoming packet is missing. I used the slower reliable TCP to configure the lobby, which doesn't require haste and I used the faster, less reliable UDP to send input packets during the match. This is common practice as most fighting games will send packets of the last 5 to 8 frames of inputs every frame, so if a packet gets dropped, it will just arrive with the next packet.",
                     "I could not afford a match making server, so I started with port forwarding—an old internet technique where the host player makes a lobby and the game prints the port and IP it is hosting the game on. Then you give that information to the joining player, for them to input on their machine, so they can find and join the lobby. It would send all messages in the form of a byte array, where the first byte represents what type of message it is and the rest of the bytes are the data. For instance, to send an input, the first byte would be 0 (0000) and the next 3 bytes would be the input data.",
                     "You can find the network manager <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/components/Globals/NetworkManager.cs\" target=\"_blank\">here</a>."
                 ]

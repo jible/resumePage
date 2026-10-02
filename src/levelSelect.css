@@ -252,40 +252,9 @@ PREVIEW OF THE FOCUSED PROJECT
 }
 
 /* ----------------------------------------
-SMALL AND TOUCH SCREENS
-Nothing to hover, so arrows on the preview change the focus, and every cartridge is squeezed into one
-row (however small that makes them) instead of wrapping.
+SMALL SCREENS
+Every cartridge is squeezed into one row (however small that makes them) instead of wrapping.
 ------------------------------------------- */
-.preview-arrow,
-.hint-touch{ display: none; }
-
-.preview-arrow{
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    margin-top: -20px;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background-color: rgba(42, 16, 58, 0.88);
-    border: 2px solid #ff9ecb;
-    border-radius: 50%;
-    color: #fff6fb;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-.preview-arrow--previous{ left: 8px; }
-.preview-arrow--next{ right: 8px; }
-.preview-arrow:active{ background-color: #ffd166; color: #2a1035; }
-
-@media (max-width: 700px), (hover: none){
-    .preview-arrow{ display: flex; }
-    .hint-hover{ display: none; }
-    .hint-touch{ display: inline; }
-}
-
 @media (max-width: 700px){
     .save-list{
         flex-wrap: nowrap;

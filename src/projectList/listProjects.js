@@ -25,8 +25,8 @@ fetch(PROJECTS_JSON_PATH)
     .catch((error) => console.error('Error loading JSON:', error));
 
 // A big preview of the focused project, above a row of cartridges. Hovering (or tabbing to) a
-// cartridge focuses it and the preview shows that project. Clicking a cartridge, or the preview,
-// opens the project's page, which renders it by id.
+// cartridge focuses it and the preview shows that project; on touch the first tap focuses it. Clicking
+// a focused cartridge, or the preview, opens the project's page, which renders it by id.
 function RenderProjects(data){
     let preview = BuildPreview();
     let list = document.createElement('div');
@@ -90,12 +90,6 @@ function FocusCartridge(cartridge){
     showPreview(cartridge.project);
 }
 
-// The arrows step the focus to the previous or next cartridge, wrapping around at the ends
-function FocusNeighbor(step){
-    let index = cartridges.indexOf(focused);
-    FocusCartridge(cartridges[(index + step + cartridges.length) % cartridges.length]);
-}
-
 // The preview panel: a video (or picture) with the focused project's name, tagline and top skills over it
 function BuildPreview(){
     let element = document.createElement('a');
@@ -111,16 +105,9 @@ function BuildPreview(){
             <div class="project-preview__skills"></div>
             <div class="project-preview__cta">&#9654; VIEW PROJECT</div>
         </div>`;
-    // The link sits in a wrapper so the arrow buttons can be its siblings (a button can't go inside a link).
-    // The arrows only show on small or touch screens, where there is no hover to change the focus.
     let wrapper = document.createElement('div');
     wrapper.className = 'project-preview-wrap';
-    wrapper.innerHTML = `
-        <button type="button" class="preview-arrow preview-arrow--previous" aria-label="Previous project">&#9664;</button>
-        <button type="button" class="preview-arrow preview-arrow--next" aria-label="Next project">&#9654;</button>`;
-    wrapper.prepend(element);
-    wrapper.querySelector('.preview-arrow--previous').addEventListener('click', () => FocusNeighbor(-1));
-    wrapper.querySelector('.preview-arrow--next').addEventListener('click', () => FocusNeighbor(1));
+    wrapper.appendChild(element);
 
     let media = element.querySelector('.project-preview__media');
     let video = element.querySelector('video');
@@ -219,6 +206,20 @@ class Cartridge {
         // Hovering or tabbing to a cartridge focuses it. Leaving does not, so the preview stays put.
         slot.addEventListener('mouseenter', () => FocusCartridge(this));
         slot.addEventListener('focus', () => FocusCartridge(this));
+
+        // Touch has no hover, so the first tap on a cartridge focuses it and a tap on the focused one opens it.
+        // Whether it was already focused is noted on pointerdown, before the tap's emulated mouseenter/focus
+        // focus it and make every tap look like a second one.
+        let tapOpens = true;
+        slot.addEventListener('pointerdown', (event) => {
+            tapOpens = event.pointerType === 'mouse' || focused === this;
+        });
+        slot.addEventListener('click', (event) => {
+            if (tapOpens) return;
+            event.preventDefault();
+            FocusCartridge(this);
+            tapOpens = true;
+        });
     }
 
     // Stop the idle spin, turn to the nearest front-facing angle, and float up
