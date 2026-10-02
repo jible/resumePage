@@ -54,8 +54,14 @@ function RenderProjects(data){
     showPreview = preview.Show;
     if (!ReducedMotion) requestAnimationFrame(Tick);
 
-    // Start with the first project in focus so the preview is never empty
-    FocusCartridge(cartridges[0]);
+    // Start with the first project in focus so the preview is never empty. A video holds up the page's load
+    // event until it can show a frame, and the page stays hidden until then, so the preview waits for the
+    // page to be shown first (see RevealPage in island.js).
+    if (!document.body.classList.contains('no-animations')){
+        FocusCartridge(cartridges[0]);
+    } else {
+        window.addEventListener('animations-ready', () => FocusCartridge(cartridges[0]), { once: true });
+    }
 }
 
 function ProjectUrl(project){

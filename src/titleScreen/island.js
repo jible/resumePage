@@ -10,10 +10,18 @@ const island = document.getElementById("island");
 const titleScreen = document.getElementById("title-screen");
 const islandElements = setUpIslandElements();
 
-window.addEventListener('load', () => {
+// The page stays hidden until everything has loaded, so the intro plays with all its art in place. A slow
+// file on the server shouldn't leave it blank, though, so it starts anyway after a few seconds.
+const RevealTimeout = 4000;
+let revealed = false;
+function RevealPage(){
+    if (revealed) return;
+    revealed = true;
     document.body.classList.remove('no-animations');
     window.dispatchEvent(new Event('animations-ready'));
-});
+}
+window.addEventListener('load', RevealPage);
+setTimeout(RevealPage, RevealTimeout);
 
 
 document.body.addEventListener('scroll', () => {
