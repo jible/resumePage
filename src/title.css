@@ -176,6 +176,18 @@ body {
     animation: camera-sweep-water var(--start-anim) 1 ease-out;
     
 }
+/* The deep water runs on under the projects section (its height is set by island.js). It is part of the
+   water rather than a separate background so the two can't round apart into a gap on phones, and fade as
+   one layer instead of doubling up where they meet. */
+.water::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: var(--projects-height, 0px);
+    background-color: rgb(6, 41, 60);
+}
 @keyframes camera-sweep-water {
     0% {
         height:100%;

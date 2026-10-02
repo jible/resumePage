@@ -15,6 +15,7 @@ const DitherPixel = 4;         // screen pixels per dither pixel, a whole number
 const BottomBandPink = 35;      // percent of the dating sim pink mixed into the bottom bands' color
 const PinkBandCount = 2;        // how many bands, counting up from the bottom, get the pink
 const FirstBandAboveWaves = 160; // screen pixels from the top of the first band down to the top of the waves
+const WaterRestingHeight = 0.5;  // .water's height once the intro sweep ends, as a fraction of the title screen (title.css)
 
 export function SetUpSkyBands(){
     let skyBands = document.createElement('div');
@@ -35,21 +36,25 @@ export function SetUpSkyBands(){
     // its own measurement). The first band starts a set distance above the waves, so its dither always shows
     // in the title screen's sky; the rest follow at even steps down to the bottom of the page. Everything is
     // snapped to the dither pixel grid so the edges stay sharp. Redone whenever the layout changes: the window
-    // resizes, the project cartridges finish loading and make the projects section taller, or the intro's
-    // water animation settles.
+    // resizes, or the project cartridges finish loading and make the projects section taller.
+    //
+    // The waves are placed where they rest after the intro sweep rather than measured, since the sweep animates
+    // the water's height: a layout during the sweep (a resize from a browser toolbar settling, say) would
+    // otherwise put the bands at the top of the page until the sweep ends.
     let lastSection = document.getElementById('about');
+    let titleScreen = document.getElementById('title-screen');
     let waves = document.querySelector('.waves');
     function LayoutSkyBands(){
         let pageHeight = lastSection.offsetTop + lastSection.offsetHeight;
         skyBands.style.height = `${pageHeight}px`;
-        let firstTop = Math.max(0, PageTop(waves) - FirstBandAboveWaves);
+        let wavesTop = PageTop(titleScreen) + titleScreen.offsetHeight * (1 - WaterRestingHeight) - waves.offsetHeight;
+        let firstTop = Math.max(0, wavesTop - FirstBandAboveWaves);
         let step = (pageHeight - firstTop) / SkyBandCount;
         Array.from(skyBands.children).forEach((band, i) => {
             let top = Math.round((firstTop + i * step) / DitherPixel) * DitherPixel;
             band.style.top = `${top}px`;
         });
     }
-    document.querySelector('.water').addEventListener('animationend', LayoutSkyBands);
     window.addEventListener('resize', LayoutSkyBands);
     let sectionSizes = new ResizeObserver(LayoutSkyBands);
     document.querySelectorAll('#projects, #about').forEach((section) => sectionSizes.observe(section));
