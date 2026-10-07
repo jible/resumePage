@@ -16,34 +16,34 @@
         "name": "Hard To Convey",
         "titleImage":"images/sampleGames/titles/hardToConvey.png",
         "links":[
-            { "title": "Demo Page", "url" : "https://www.hardtoconvey.com/ "}
+            { "title": "Demo Page", "url" : "https://www.hardtoconvey.com/"}
         ],
-        "skills": "C#, Unity, SteamWorks API, Steam Workshop, Debugging, State Based System Design",
+        "skills": "C#, Unity, Steamworks API, Steam Workshop, Debugging, State Based System Design",
         "about": [
             "A 3D tile-based puzzle game where the player places conveyor belts to direct sushi to customers.",
             "Built in Unity with the intent to publish before the end of 2026"
         ],
         "contribution": [
             "I created a state-based structure for the play scene so we could easily add new features with predictable interactions with other features",
-            "I built an extensible  undo-redo system that leverages my state-structure by serializing the play state before and after a state action takes place.",
-            "I implemented the Steam API and used it to add achivements and custom level sharing via the Steam Workshop."
+            "I built an extensible undo-redo system that leverages my state-structure by serializing the play state before and after a state action takes place.",
+            "I implemented the Steam API and used it to add achievements and custom level sharing via the Steam Workshop."
         ],
         "highlights": {
             "Play Scene State Based Architecture": {
                 "text":[
-                    "Going into this project, my first task was to refactor the play scene. In the play scene the player is presented with a level, where they can drag left click to place conveyor belts, drag right click to erase conveyor belts, drag outside of the play area to change the camera position, and click the play button to begin playing the conveyor belts to test their layout. When player combined these actions, there were unexpected results. For example, it was unclear what would happen when the player holds the erase button down, then clicks the draw button. It was unclear because all of the input responses were just in the update function, meaning multiple actions could potentially happen at once.",
-                    "Rather than putting all of the gameplay code into the update call, we can just separate each action into a  state and set the conditions to enter and exit it. Going forward, it was easier to implement new player actions or features like the undo/redo system"
+                    "Going into this project, my first task was to refactor the play scene. In the play scene the player is presented with a level, where they can drag left click to place conveyor belts, drag right click to erase conveyor belts, drag outside of the play area to change the camera position, and click the play button to begin playing the conveyor belts to test their layout. When the player combined these actions, there were unexpected results. For example, it was unclear what would happen when the player holds the erase button down, then clicks the draw button. It was unclear because all of the input responses were just in the update function, meaning multiple actions could potentially happen at once.",
+                    "Rather than putting all of the gameplay code into the update call, we can just separate each action into a state and set the conditions to enter and exit it. Going forward, it was easier to implement new player actions or features like the undo/redo system"
                 ]
             },
             "Undo/Redo System": {
                 "text":[
-                    "After completing the play scene refactor, I was in charge of implementing the undo and redo feature for the play scene. This proved to an easy task after my refactor. I added a property to each play scene state to flag if it was an undo/redo action. For example, pressing the play button does not modify the world state, so it is not flagged as an undo/redo action, but drawing conveyor belts does. If a state is flagged as an action, the state machine notifies the Even Stack (undo/redo system) to serialize the board state at the start of the event and at the end of the event. Then the tiles that changed are pushed to the the event stack. When the action is undone, its event is popped off the Event Stack (and pushed to the redo stack) and it sets the tiles that were changed to their original state. If the action is redone, its popped off the redo stack and back onto the undo stack. And its modified state is applied."
+                    "After completing the play scene refactor, I was in charge of implementing the undo and redo feature for the play scene. This proved to be an easy task after my refactor. I added a property to each play scene state to flag if it was an undo/redo action. For example, pressing the play button does not modify the world state, so it is not flagged as an undo/redo action, but drawing conveyor belts does. If a state is flagged as an action, the state machine notifies the Event Stack (undo/redo system) to serialize the board state at the start of the event and at the end of the event. Then the tiles that changed are pushed to the event stack. When the action is undone, its event is popped off the Event Stack (and pushed to the redo stack) and it sets the tiles that were changed to their original state. If the action is redone, it's popped off the redo stack and back onto the undo stack. And its modified state is applied."
                 ],
                 "video" :"./images/sampleGames/hardToConveyUndoRedo.mp4"
             },
             "A* Path Maker" : {
                 "video":"images/sampleGames/hardToConveyAStar.mp4",
-                "text" :["I proposed a smart conveyor belt placing mode that uses A* path finding to draw the shortest uninterrupted line between where the player started drawing and their current mouse position. After getting approval from my team lead, I prototyped and implemented it. I added several of quality of life features, like drawing to the closest accessible tile if the mouse wasn't on a valid tile."]
+                "text" :["I proposed a smart conveyor belt placing mode that uses A* path finding to draw the shortest uninterrupted line between where the player started drawing and their current mouse position. After getting approval from my team lead, I prototyped and implemented it. I added several quality of life features, like drawing to the closest accessible tile if the mouse wasn't on a valid tile."]
             }
         }
         
@@ -69,9 +69,9 @@
             { "title": "Godot Codebase", "url": "https://github.com/jible/Platform-fighter" },
             { "title": "Unity Codebase", "url": "https://github.com/jible/Juxtopposed" }
         ],
-        "skills": "Advanced Hitbox Behavior,  Netcode, C#, Deterministic Math Objects, Physics Programming, Unity, Godot, Porting",
+        "skills": "Advanced Hitbox Behavior, Netcode, C#, Deterministic Math Objects, Physics Programming, Unity, Godot, Porting",
         "about": [
-            "I created the base architecture to support, collision, hitboxes, player states, and LAN connection in Godot.",
+            "I created the base architecture to support collision, hitboxes, player states, and LAN connection in Godot.",
             "Due to a bug in Godot, causing random editor crashes, I am porting to Unity. The port is sailing smoothly.",
             "This project is still a work in progress. I have a significant amount of the architecture in place, but the design and art assets are a long way out."
         ],
@@ -97,8 +97,8 @@
             },
             "Putting the Netcode in \"Rollback Netcode\"":{
                 "text" : [
-                    "I had taken Introduction to Networking and the Internet at UCSC, so I had an overhead understanding of networking, but I had a lot to learn to complete this project. I spent a long time digging through the Godot ENet API documentation and YouTube videos, learning how to configure lobbies and send/receive packets between 2 game instances. I made a Network Manager that would handle making a Godot ENet peer and sending messages to the other system. The Godot ENet API is particularly neat because it supports both UDP and TCP packet sending protocols. UDP is faster, just sending the packets to the other system. TCP, is slower, but more reliable, sending a confirmation message when it receives a packet and requesting a dropped packet when it notices that an incoming packet is missing. I used the slower reliable TCP to configure the lobby, which doesn't require haste and I used the faster, less reliable UDP to send input packets during the match. This is common practice as most fighting games will send packets of the last 5 to 8 frames of inputs every frame, so if a packet gets dropped, it will just arrive with the next packet.",
-                    "I could not afford a match making server, so I started with port forwarding—an old internet technique where the host player makes a lobby and the game prints the port and IP it is hosting the game on. Then you give that information to the joining player, for them to input on their machine, so they can find and join the lobby. It would send all messages in the form of a byte array, where the first byte represents what type of message it is and the rest of the bytes are the data. For instance, to send an input, the first byte would be 0 (0000) and the next 3 bytes would be the input data.",
+                    "I had taken Introduction to Networking and the Internet at UCSC, so I had an overhead understanding of networking, but I had a lot to learn to complete this project. I spent a long time digging through the Godot ENet API documentation and YouTube videos, learning how to configure lobbies and send/receive packets between 2 game instances. I made a Network Manager that would handle making a Godot ENet peer and sending messages to the other system. The Godot ENet API is particularly neat because it supports both UDP and TCP packet sending protocols. UDP is faster, just sending the packets to the other system. TCP is slower, but more reliable, sending a confirmation message when it receives a packet and requesting a dropped packet when it notices that an incoming packet is missing. I used the slower reliable TCP to configure the lobby, which doesn't require haste and I used the faster, less reliable UDP to send input packets during the match. This is common practice as most fighting games will send packets of the last 5 to 8 frames of inputs every frame, so if a packet gets dropped, it will just arrive with the next packet.",
+                    "I could not afford a matchmaking server, so I started with port forwarding—an old internet technique where the host player makes a lobby and the game prints the port and IP it is hosting the game on. Then you give that information to the joining player, for them to input on their machine, so they can find and join the lobby. It would send all messages in the form of a byte array, where the first byte represents what type of message it is and the rest of the bytes are the data. For instance, to send an input, the first byte would be 0 (0000) and the next 3 bytes would be the input data.",
                     "You can find the network manager <a href=\"https://github.com/jible/Platform-fighter/blob/main/platform-fighter/components/Globals/NetworkManager.cs\" target=\"_blank\">here</a>."
                 ]
             },
@@ -111,8 +111,8 @@
             },
             "Porting":{
                 "text" : [
-                    "Unfortunately, Godot has a bug that largely impacted my project. My project randomly crashed in the editor. It took lots of troubleshooting to find that Godot sometimes crashes when serializing c# structs in the editor. This means that my custom physics objects that serialized my custom math would fail to serialize and crash Godot. I spent roughly a month researching workarounds to no avail. It was frustrating that the crashes were inconsistent. Sometimes I thought I had fixed the bug only for it to cause problems 5 minutes later.",
-                    "So, I ported to Unity. Luckily both Unity and Godot use C#, so there were no major language overhauls to make. Additionally, I wrote modular, extensible code. This made it easy to port the custom math and physics libraries I made. Unfortunately, all of the networking code was non-transferrable since Godot and Unity have different implementations of ENet."
+                    "Unfortunately, Godot has a bug that largely impacted my project. My project randomly crashed in the editor. It took lots of troubleshooting to find that Godot sometimes crashes when serializing C# structs in the editor. This means that my custom physics objects that serialized my custom math would fail to serialize and crash Godot. I spent roughly a month researching workarounds to no avail. It was frustrating that the crashes were inconsistent. Sometimes I thought I had fixed the bug only for it to cause problems 5 minutes later.",
+                    "So, I ported to Unity. Luckily both Unity and Godot use C#, so there were no major language overhauls to make. Additionally, I wrote modular, extensible code. This made it easy to port the custom math and physics libraries I made. Unfortunately, all of the networking code was non-transferable since Godot and Unity have different implementations of ENet."
                 ],
                 "video": ""
             },
@@ -147,14 +147,15 @@
         ],
         "skills": "Godot, State Based Player Controller and Enemy Behavior, Procedural Level Generation, Combat Interactions",
         "about": [
+            "A 2D top down action adventure roguelike game",
             "Our senior capstone project, made in 10 weeks by a team of 6.",
             "We did not continue the project after the capstone, so we never finalized the art."
         ],
         "contribution": [
-            "I created the procedrual level generator, experimenting with and implementing noise based, random walk, and random weighted tile placement algorithms. I also created the manager that translate the world from out abstract data type into the tile system.",
-            "I programmed all aspects the player controller from the movement to the combat and even the state machine which decided the animation and available actions.",
-            "I used the same state machine system to implement the enemy controller and AI. The enemy had a patrol state where it would walk a given area and only chase the player if it found them. ", 
-            "I used nav mesh to make the enemy follow the player around in a complex environment "
+            "I created the procedural level generator, experimenting with and implementing noise based, random walk, and random weighted tile placement algorithms. I also created the manager that renders the world from the abstract via Godot's tile system.",
+            "I programmed all aspects of the player controller from the movement to the combat and even the state machine which decided the animation and available actions.",
+            "I used the same state machine system to implement the enemy controller and AI. The enemy had a patrol state where it would walk a given area and only chase the player if it found them.", 
+            "I used nav mesh to make the enemy follow the player around in a complex environment"
         ],
         "highlights": {
           "Player Controller": {
@@ -193,7 +194,7 @@
         "links":[
             { "title": "Playable Game", "url": "https://emiree-draws.itch.io/tail-of-two-tides" }
         ],
-        "skills": "C#, Unity, Lane Based Character Movement ",
+        "skills": "C#, Unity, Lane Based Character Movement",
         "about": [
             "A rhythm game made by a team of 4 for the GMTK 2024 Game Jam, on the theme \"Built to Scale\".",
             "You alternate between navigating rocky waters and pressing the right key on the note, to win over a scaly mermaid."
@@ -243,7 +244,7 @@
             ],
             "skills": "JavaScript programming, Phaser Library/Engine, State Based Character Controllers, Hitboxes",
             "about": [
-                "A 2 player fighting game based on The Tales of Zelmore, the video game from the tv show The Amazing World of Gumball.",
+                "A 2 player fighting game based on The Tales of Zelmore, the video game from the TV show The Amazing World of Gumball.",
                 "Made with Garrett Blake in two weeks."
             ],
             "contribution": [
@@ -308,7 +309,7 @@
                 },
                 "Palette Data Type": {
                     "text": [
-                        "I made a palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image. I itterated on feature several times and QA tested for accessibility since a lot of users seemed confused by the palette customization."
+                        "I made a palette data type that stores r,g,b colors. Those palettes can be applied to the inputted image. I iterated on the feature several times and QA tested for accessibility since a lot of users seemed confused by the palette customization."
                     ]
                 }
             }
